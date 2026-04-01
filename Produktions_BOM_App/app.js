@@ -8,7 +8,7 @@ const GITHUB_REPO        = "benny14o3/fritsch-corteco";
 const GITHUB_FILE        = "data.json";
 const GITHUB_BRANCH      = "main";
 // Token ist XOR-verschlüsselt mit dem Admin-Passwort
-const GITHUB_TOKEN_ENC   = "ARoZKzgnBVsFQFI+FQc1RVQ/Q1hBWlBCDiRDLDpFWFlVX0ZdHiQKEg==";
+const GITHUB_TOKEN_ENC   = "ARoZKxwrWUZnfAwHFCocKS4QAwhLfSIaHDpLDQdccQJFKUEmMxUpEg==";
 
 // ============================================================
 //  STATE
