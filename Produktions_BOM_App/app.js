@@ -1,8 +1,13 @@
 // ============================================================
 //  KONFIGURATION
 // ============================================================
-const ADMIN_PASSWORD = "fritsch2024"; // ← hier Passwort ändern
+const ADMIN_PASSWORD = "Elea11032026"; // ← hier Passwort ändern
 const STORAGE_KEY    = "bom_data_v1";
+
+const GITHUB_TOKEN  = "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";
+const GITHUB_REPO   = "benny14o3/fritsch-corteco";
+const GITHUB_FILE   = "data.json";
+const GITHUB_BRANCH = "main";
 
 // ============================================================
 //  STATE
@@ -13,32 +18,100 @@ let isAdmin       = false;
 let currentlyOpen = null;
 
 // ============================================================
-//  INIT – Daten laden (localStorage → data.json)
+//  INIT – immer frisch von GitHub/data.json laden
 // ============================================================
 function loadData() {
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored) {
-    try {
-      const parsed  = JSON.parse(stored);
-      data          = parsed.boms         || [];
-      verpackungMap = parsed.verpackung_map || {};
-      renderResults(data);
-      return;
-    } catch (e) { /* Fallback auf JSON */ }
-  }
-
-  fetch("data.json")
+  fetch("data.json?_=" + Date.now())
     .then(res => res.json())
     .then(json => {
-      data          = json.boms         || [];
+      data          = json.boms          || [];
       verpackungMap = json.verpackung_map || {};
-      saveToStorage();
       renderResults(data);
+    })
+    .catch(() => {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        const parsed  = JSON.parse(stored);
+        data          = parsed.boms          || [];
+        verpackungMap = parsed.verpackung_map || {};
+        renderResults(data);
+      }
     });
 }
 
-function saveToStorage() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify({ boms: data, verpackung_map: verpackungMap }));
+// ============================================================
+//  SPEICHERN – GitHub API + localStorage Backup
+// ============================================================
+async function saveToStorage() {
+  const payload = { boms: data, verpackung_map: verpackungMap };
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+
+  if (!isAdmin) return;
+
+  showSaveStatus("⏳ Wird gespeichert...", "#1e3a8a");
+
+  try {
+    const infoRes = await fetch(
+      `https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_FILE}?ref=${GITHUB_BRANCH}`,
+      { headers: { Authorization: `token ${GITHUB_TOKEN}` } }
+    );
+    const info = await infoRes.json();
+    const sha  = info.sha;
+
+    const content = btoa(unescape(encodeURIComponent(
+      JSON.stringify(payload, null, 2)
+    )));
+
+    const commitRes = await fetch(
+      `https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_FILE}`,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: `token ${GITHUB_TOKEN}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: `BOM Update ${new Date().toLocaleString("de-DE")}`,
+          content,
+          sha,
+          branch: GITHUB_BRANCH
+        })
+      }
+    );
+
+    if (commitRes.ok) {
+      showSaveStatus("✅ Gespeichert & online", "#15803d");
+      setTimeout(() => hideSaveStatus(), 3000);
+    } else {
+      const err = await commitRes.json();
+      showSaveStatus("❌ Fehler: " + (err.message || "unbekannt"), "#b91c1c");
+    }
+  } catch (e) {
+    showSaveStatus("❌ Netzwerkfehler", "#b91c1c");
+  }
+}
+
+function showSaveStatus(text, color) {
+  let el = document.getElementById("saveStatus");
+  if (!el) {
+    el = document.createElement("div");
+    el.id = "saveStatus";
+    el.style.cssText = [
+      "position:fixed", "bottom:20px", "right:20px",
+      "padding:10px 18px", "border-radius:10px",
+      "color:white", "font-weight:700", "font-size:14px",
+      "z-index:9999", "box-shadow:0 4px 12px rgba(0,0,0,0.2)"
+    ].join(";");
+    document.body.appendChild(el);
+  }
+  el.style.background = color;
+  el.textContent = text;
+  el.style.display = "block";
+}
+
+function hideSaveStatus() {
+  const el = document.getElementById("saveStatus");
+  if (el) el.style.display = "none";
 }
 
 // ============================================================
