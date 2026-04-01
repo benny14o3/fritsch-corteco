@@ -1,9 +1,0 @@
-{
-  "name": "Produktions BOM",
-  "short_name": "BOM",
-  "start_url": ".",
-  "display": "standalone",
-  "background_color": "#f2f2f2",
-  "theme_color": "#1e3a8a",
-  "icons": []
-}
