@@ -1,10 +1,9 @@
 // ============================================================
 //  KONFIGURATION
 // ============================================================
-const ADMIN_PASSWORD = "Elea11032026"; // ← hier Passwort ändern
+const ADMIN_PASSWORD = "fritsch2024"; // ← hier Passwort ändern
 const STORAGE_KEY    = "bom_data_v1";
 
-const GITHUB_TOKEN  = "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";
 const GITHUB_REPO   = "benny14o3/fritsch-corteco";
 const GITHUB_FILE   = "data.json";
 const GITHUB_BRANCH = "main";
@@ -51,40 +50,19 @@ async function saveToStorage() {
   showSaveStatus("⏳ Wird gespeichert...", "#1e3a8a");
 
   try {
-    const infoRes = await fetch(
-      `https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_FILE}?ref=${GITHUB_BRANCH}`,
-      { headers: { Authorization: `token ${GITHUB_TOKEN}` } }
-    );
-    const info = await infoRes.json();
-    const sha  = info.sha;
+    // Token wird sicher in der Netlify Function gehalten
+    const res = await fetch("/.netlify/functions/save-bom", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
 
-    const content = btoa(unescape(encodeURIComponent(
-      JSON.stringify(payload, null, 2)
-    )));
-
-    const commitRes = await fetch(
-      `https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_FILE}`,
-      {
-        method: "PUT",
-        headers: {
-          Authorization: `token ${GITHUB_TOKEN}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          message: `BOM Update ${new Date().toLocaleString("de-DE")}`,
-          content,
-          sha,
-          branch: GITHUB_BRANCH
-        })
-      }
-    );
-
-    if (commitRes.ok) {
+    if (res.ok) {
       showSaveStatus("✅ Gespeichert & online", "#15803d");
       setTimeout(() => hideSaveStatus(), 3000);
     } else {
-      const err = await commitRes.json();
-      showSaveStatus("❌ Fehler: " + (err.message || "unbekannt"), "#b91c1c");
+      const err = await res.json();
+      showSaveStatus("❌ Fehler: " + (err.error || "unbekannt"), "#b91c1c");
     }
   } catch (e) {
     showSaveStatus("❌ Netzwerkfehler", "#b91c1c");
