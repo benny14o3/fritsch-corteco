@@ -1,6 +1,7 @@
 [build]
-  publish = "."
-  functions = "netlify/functions"
+  base = "Produktions_BOM_App"
+  publish = "Produktions_BOM_App"
+  functions = "Produktions_BOM_App/netlify/functions"
 
 [build.environment]
   SECRETS_SCAN_SMART_DETECTION_ENABLED = "false"
