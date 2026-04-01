@@ -19553,7 +19553,7 @@
       "bom_id": "49238410",
       "beschreibung": "BAAT2SLWKFX367  50,0X  72,0X  9,0   ACM",
       "arbeitsanweisung": "BOM to Neutralize+Pack-Machine",
-      "neutralisierung": "",
+      "neutralisierung": "ZF",
       "components": [
         {
           "artikelnummer": "49383025",
