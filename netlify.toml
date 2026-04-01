@@ -1,0 +1,3 @@
+[build]
+  publish = "Produktions_BOM_App"
+  functions = "Produktions_BOM_App/netlify/functions"
