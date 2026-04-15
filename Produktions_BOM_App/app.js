@@ -527,16 +527,16 @@ function processExcel(arrayBuffer) {
   // Spalten finden: Aktivität = BOM, Benötigte Menge
   const auftraege = [];
 
-  rows.forEach(row => {
-    // Spaltenname flexibel suchen
-    const keys    = Object.keys(row);
-    const aktivKey = keys.find(k => k.toLowerCase().includes("aktivit"));
-    const mengeKey = keys.find(k => k.toLowerCase().includes("ben") && k.toLowerCase().includes("menge"));
+  // Spalten D (Index 3) und F (Index 5) direkt per Index lesen
+  const headers = Object.keys(rows[0] || {});
+  const aktivKey = headers[3]; // Spalte D
+  const mengeKey  = headers[5]; // Spalte F
 
+  rows.forEach(row => {
     if (!aktivKey || !mengeKey) return;
 
-    const bomId = String(row[aktivKey]).trim();
-    const menge = parseFloat(String(row[mengeKey]).replace(",", ".")) || 0;
+    const bomId = String(row[aktivKey] ?? "").trim();
+    const menge = parseFloat(String(row[mengeKey] ?? "").replace(",", ".")) || 0;
 
     if (!bomId || bomId === "" || bomId === "0") return;
 
