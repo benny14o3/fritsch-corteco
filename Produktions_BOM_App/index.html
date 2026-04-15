@@ -19,7 +19,7 @@
         <button class="header-action-btn upload-btn" onclick="document.getElementById('excelUpload').click()">
           📂 Upload
         </button>
-        <input type="file" id="excelUpload" accept=".xlsx,.xls" style="display:none;" onchange="handleExcelUpload(event)">
+        <input type="file" id="excelUpload" accept=".xlsx,.xls" style="display:none;" onchange="handleExcelUpload(event)" disabled>
         <button id="adminToggleBtn" class="header-action-btn admin-toggle-btn"
           onclick="toggleAdminMode()">
           🔐 Admin
