@@ -138,6 +138,15 @@ button:hover {
   background: #166534;
 }
 
+.upload-btn {
+  background: #7c3aed;
+  border-color: #7c3aed;
+}
+
+.upload-btn:hover {
+  background: #6d28d9;
+}
+
 /* ========================= */
 /*   ADMIN AKTIONS-BUTTONS   */
 /* ========================= */

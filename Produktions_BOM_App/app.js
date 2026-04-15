@@ -4,7 +4,7 @@
 const ADMIN_PASSWORD = "fritsch2024"; // ← hier Passwort ändern
 const STORAGE_KEY    = "bom_data_v1";
 
-const BOM_BACKEND = "https://bom-backend-d246.onrender.com";
+const BOM_BACKEND = "https://bom-backend.onrender.com";
 
 // ============================================================
 //  STATE
@@ -483,3 +483,241 @@ function printSingleBOM(bomId) {
 //  START
 // ============================================================
 loadData();
+
+// Keep-Alive Ping alle 8 Minuten damit Render nicht schläft
+setInterval(() => {
+  fetch(BOM_BACKEND + "/health").catch(() => {});
+}, 8 * 60 * 1000);
+
+// ============================================================
+//  EXCEL UPLOAD & PRODUKTIONSAUFTRÄGE
+// ============================================================
+
+function handleExcelUpload(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  // Reset input so same file can be uploaded again
+  event.target.value = "";
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      // SheetJS laden falls noch nicht vorhanden
+      if (typeof XLSX === "undefined") {
+        const script = document.createElement("script");
+        script.src = "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js";
+        script.onload = () => processExcel(e.target.result);
+        document.head.appendChild(script);
+      } else {
+        processExcel(e.target.result);
+      }
+    } catch(err) {
+      alert("Fehler beim Lesen der Datei: " + err.message);
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function processExcel(arrayBuffer) {
+  const workbook = XLSX.read(arrayBuffer, { type: "array" });
+  const sheet    = workbook.Sheets[workbook.SheetNames[0]];
+  const rows     = XLSX.utils.sheet_to_json(sheet, { defval: "" });
+
+  // Spalten finden: Aktivität = BOM, Benötigte Menge
+  const auftraege = [];
+
+  rows.forEach(row => {
+    // Spaltenname flexibel suchen
+    const keys    = Object.keys(row);
+    const aktivKey = keys.find(k => k.toLowerCase().includes("aktivit"));
+    const mengeKey = keys.find(k => k.toLowerCase().includes("ben") && k.toLowerCase().includes("menge"));
+
+    if (!aktivKey || !mengeKey) return;
+
+    const bomId = String(row[aktivKey]).trim();
+    const menge = parseFloat(String(row[mengeKey]).replace(",", ".")) || 0;
+
+    if (!bomId || bomId === "" || bomId === "0") return;
+
+    // BOM in Datenbank suchen
+    const bom = data.find(b => b.bom_id === bomId);
+
+    auftraege.push({ bomId, menge, bom: bom || null });
+  });
+
+  if (auftraege.length === 0) {
+    alert("Keine gültigen Einträge gefunden. Spalten 'Aktivität' und 'Benötigte Menge' prüfen.");
+    return;
+  }
+
+  renderUploadModal(auftraege);
+}
+
+function renderUploadModal(auftraege) {
+  const body = document.getElementById("uploadModalBody");
+  const btn  = document.getElementById("printSelectedBtn");
+
+  const bekannt   = auftraege.filter(a => a.bom).length;
+  const unbekannt = auftraege.filter(a => !a.bom).length;
+
+  body.innerHTML = `
+    <div style="margin-bottom:12px;font-size:14px;color:#6b7280;">
+      ${auftraege.length} Aufträge gefunden –
+      <span style="color:#15803d;font-weight:700;">${bekannt} bekannt</span>
+      ${unbekannt > 0 ? `, <span style="color:#b91c1c;font-weight:700;">${unbekannt} unbekannt</span>` : ""}
+    </div>
+    <div style="margin-bottom:10px;display:flex;gap:10px;">
+      <button class="comp-add-btn" onclick="selectAllUpload(true)">Alle auswählen</button>
+      <button class="comp-add-btn" style="background:#6b7280;" onclick="selectAllUpload(false)">Alle abwählen</button>
+    </div>
+    <table class="component-editor-table" style="width:100%;">
+      <thead>
+        <tr>
+          <th style="width:36px;"></th>
+          <th>BOM</th>
+          <th>Beschreibung</th>
+          <th>Menge</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${auftraege.map((a, i) => `
+          <tr style="${!a.bom ? 'background:#fff7ed;' : ''}">
+            <td>
+              <input type="checkbox" class="upload-check" data-idx="${i}"
+                ${a.bom ? "checked" : ""}
+                style="width:18px;height:18px;cursor:pointer;">
+            </td>
+            <td style="font-weight:700;">${a.bomId}</td>
+            <td style="color:#6b7280;font-size:13px;">${a.bom ? a.bom.beschreibung : "–"}</td>
+            <td style="font-weight:700;">${a.menge}</td>
+            <td>
+              ${a.bom
+                ? '<span style="color:#15803d;font-weight:700;">✓ Bekannt</span>'
+                : '<span style="color:#b91c1c;font-weight:700;">⚠ Unbekannt</span>'}
+            </td>
+          </tr>
+        `).join("")}
+      </tbody>
+    </table>
+  `;
+
+  // Aufträge für Druck speichern
+  window._uploadAuftraege = auftraege;
+
+  btn.style.display = "inline-block";
+  document.getElementById("uploadModal").style.display = "flex";
+}
+
+function selectAllUpload(checked) {
+  document.querySelectorAll(".upload-check").forEach(cb => cb.checked = checked);
+}
+
+function closeUploadModal() {
+  document.getElementById("uploadModal").style.display = "none";
+}
+
+function printSelected() {
+  const checked = [...document.querySelectorAll(".upload-check:checked")]
+    .map(cb => parseInt(cb.dataset.idx));
+
+  if (checked.length === 0) {
+    alert("Keine Aufträge ausgewählt.");
+    return;
+  }
+
+  const auftraege = window._uploadAuftraege;
+  const selected  = checked.map(i => auftraege[i]);
+
+  const printWindow = window.open("", "_blank");
+
+  const pages = selected.map(a => {
+    const bom = a.bom;
+    if (!bom) {
+      return `
+        <div style="page-break-after:always;padding:20px;">
+          <h2>BOM ${a.bomId} – nicht in Datenbank</h2>
+          <p>Produktionsmenge: <strong>${a.menge} Stück</strong></p>
+        </div>`;
+    }
+
+    // Verpackung
+    let verpackTexte = [];
+    (bom.components || []).forEach(c => {
+      const t = verpackungMap[c.artikelnummer];
+      if (t && !verpackTexte.includes(t)) verpackTexte.push(t);
+    });
+
+    // Komponenten
+    const compRows = (bom.components || []).map(c => `
+      <tr>
+        <td>${c.artikelnummer}</td>
+        <td>${c.beschreibung}</td>
+        <td>${Number.isInteger(c.menge) ? c.menge : parseFloat(c.menge).toFixed(2)}</td>
+      </tr>`).join("");
+
+    return `
+      <div style="page-break-after:always;font-family:Arial,sans-serif;padding:15px;font-size:10pt;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-size:18pt;font-weight:bold;">FORMTEILE FRITSCH GMBH</div>
+          <div style="text-align:right;font-size:10pt;">
+            Dokument: PRD-BOM-01<br>
+            Druckdatum: ${new Date().toLocaleString("de-DE")}
+          </div>
+        </div>
+        <div style="font-size:16pt;font-weight:bold;margin-top:8px;">Produktionsauftrag</div>
+        <div style="margin-top:4px;">
+          <strong>BOM:</strong> ${bom.bom_id} &nbsp;|&nbsp;
+          <strong>${bom.beschreibung}</strong><br>
+          <strong>Produktionsmenge:</strong> ${a.menge} Stück
+        </div>
+        <hr style="margin:12px 0;">
+
+        ${bom.arbeitsanweisung ? `
+          <div style="margin:10px 0;padding:10px;border-left:4px solid #0284c7;background:#e0f2fe;">
+            <strong>🔧 ARBEITSANWEISUNG</strong><br>${bom.arbeitsanweisung}
+          </div>` : ""}
+
+        ${verpackTexte.length > 0 ? `
+          <div style="margin:10px 0;padding:10px;border-left:4px solid #ea580c;background:#fff7ed;">
+            <strong>📦 VERPACKUNGSANWEISUNG</strong><br>${verpackTexte.join("<br>")}
+          </div>` : ""}
+
+        ${bom.neutralisierung ? `
+          <div style="margin:10px 0;padding:10px;border-left:4px solid #b91c1c;background:#fee2e2;">
+            <strong>⚠ NEUTRALISIERUNG ERFORDERLICH</strong><br>${bom.neutralisierung}
+          </div>` : ""}
+
+        <table style="width:100%;border-collapse:collapse;margin-top:12px;font-size:10pt;">
+          <thead>
+            <tr>
+              <th style="text-align:left;border-bottom:2px solid black;padding:6px;">Artikel</th>
+              <th style="text-align:left;border-bottom:2px solid black;padding:6px;">Beschreibung</th>
+              <th style="text-align:left;border-bottom:2px solid black;padding:6px;">Menge</th>
+            </tr>
+          </thead>
+          <tbody>${compRows}</tbody>
+        </table>
+
+        <div style="margin-top:30px;font-size:11pt;">
+          <div style="margin-bottom:16px;"><span style="display:inline-block;width:18px;height:18px;border:2px solid black;margin-right:8px;vertical-align:middle;"></span>Neutralisiert</div>
+          <div style="margin-bottom:16px;">Start (hh:mm) &nbsp;<span style="display:inline-block;width:35px;height:24px;border:2px solid black;margin-right:4px;"></span><span style="display:inline-block;width:35px;height:24px;border:2px solid black;"></span></div>
+          <div style="margin-bottom:16px;">Ende (hh:mm) &nbsp;&nbsp;<span style="display:inline-block;width:35px;height:24px;border:2px solid black;margin-right:4px;"></span><span style="display:inline-block;width:35px;height:24px;border:2px solid black;"></span></div>
+          <div style="margin-bottom:16px;">Produziert von: ___________________________</div>
+          <div>QS Freigabe: ___________________________</div>
+        </div>
+      </div>`;
+  }).join("");
+
+  printWindow.document.write(`
+    <html><head><title>Produktionsaufträge</title>
+    <style>
+      @page { margin: 10mm; }
+      body { margin: 0; }
+      td { border-bottom: 1px solid #ccc; padding: 6px; }
+    </style>
+    </head><body>${pages}</body></html>`);
+  printWindow.document.close();
+  setTimeout(() => { printWindow.focus(); printWindow.print(); }, 400);
+}
