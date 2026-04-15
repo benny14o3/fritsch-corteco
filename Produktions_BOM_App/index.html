@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produktions BOM Suche</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <h1>BOM Produktionssuche</h1>
+      <div class="header-controls">
+        <button id="addBomBtn" class="header-action-btn add-bom-btn"
+          onclick="openNewBOMModal()" style="display:none;">
+          ➕ Neue BOM
+        </button>
+        <button class="header-action-btn upload-btn" onclick="document.getElementById('excelUpload').click()">
+          📂 Upload
+        </button>
+        <input type="file" id="excelUpload" accept=".xlsx,.xls" style="display:none;" onchange="handleExcelUpload(event)">
+        <button id="adminToggleBtn" class="header-action-btn admin-toggle-btn"
+          onclick="toggleAdminMode()">
+          🔐 Admin
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="search-container">
+    <input type="text" id="searchInput"
+      placeholder="BOM, Beschreibung, Artikel oder Material suchen...">
+  </div>
+
+  <div id="results"></div>
+
+  <!-- ===================== EDIT MODAL ===================== -->
+  <div id="editModal" class="modal-overlay" style="display:none;">
+    <div class="modal-box">
+
+      <div class="modal-header">
+        <h2 id="modal-bom-id-display">BOM bearbeiten</h2>
+        <button class="modal-close-btn" onclick="closeModal()">✕</button>
+      </div>
+
+      <div class="modal-body">
+
+        <!-- BOM Stammdaten -->
+        <div class="modal-section">
+          <label class="modal-label">BOM-ID</label>
+          <input id="modal-bom-id" class="modal-input" placeholder="z.B. 100001">
+
+          <label class="modal-label">Beschreibung</label>
+          <input id="modal-beschreibung" class="modal-input" placeholder="Produktname / Beschreibung">
+
+          <label class="modal-label">Arbeitsanweisung</label>
+          <textarea id="modal-arbeitsanweisung" class="modal-textarea"
+            placeholder="Arbeitsschritte, Hinweise..."></textarea>
+
+          <label class="modal-label">Neutralisierung</label>
+          <textarea id="modal-neutralisierung" class="modal-textarea"
+            placeholder="Neutralisierungshinweis (leer lassen = keine)"></textarea>
+
+          <label class="modal-label">Verpackungsanweisung</label>
+          <textarea id="modal-verpackung" class="modal-textarea"
+            placeholder="Verpackungshinweis (gilt für alle Komponenten dieser BOM)"></textarea>
+        </div>
+
+        <!-- Stückliste -->
+        <div class="modal-section">
+          <div class="modal-section-header">
+            <span class="modal-label" style="margin-bottom:0;">Stückliste (Komponenten)</span>
+            <button class="comp-add-btn" onclick="addComponentRow()">+ Zeile</button>
+          </div>
+
+          <div class="component-table-wrapper">
+            <table class="component-editor-table">
+              <thead>
+                <tr>
+                  <th>Artikelnummer</th>
+                  <th>Beschreibung</th>
+                  <th>Menge</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="component-editor-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="modal-cancel-btn" onclick="closeModal()">Abbrechen</button>
+        <button class="modal-save-btn"   onclick="saveEdit()">💾 Speichern</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== UPLOAD MODAL ===================== -->
+  <div id="uploadModal" class="modal-overlay" style="display:none;">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>📂 Produktionsaufträge aus Excel</h2>
+        <button class="modal-close-btn" onclick="closeUploadModal()">✕</button>
+      </div>
+      <div class="modal-body" id="uploadModalBody">
+        <p style="color:#6b7280;">Excel-Datei wird verarbeitet...</p>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-cancel-btn" onclick="closeUploadModal()">Schließen</button>
+        <button class="modal-save-btn" onclick="printSelected('tabelle')" id="printTabelleBtn"
+          style="display:none;background:#0284c7;">
+          📋 Übersicht drucken
+        </button>
+        <button class="modal-save-btn" onclick="printSelected('auftraege')" id="printSelectedBtn" style="display:none;">
+          🖨 Aufträge drucken
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Alle alten Service Worker deregistrieren und Caches löschen
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.getRegistrations().then(regs => {
+        regs.forEach(reg => reg.unregister());
+      });
+      caches.keys().then(keys => {
+        keys.forEach(key => caches.delete(key));
+      });
+    }
+  </script>
+  <script src="app.js"></script>
+
+</body>
+</html>
