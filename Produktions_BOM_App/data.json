@@ -35640,6 +35640,11 @@
           "artikelnummer": "49427565",
           "beschreibung": "MT_EM     BMW                       BULK",
           "menge": 1
+        },
+        {
+          "artikelnummer": "92003741",
+          "beschreibung": "FOLD-BOX CORTECO 148X 148X 190",
+          "menge": 1
         }
       ]
     },
@@ -115205,7 +115210,7 @@
     "19035444": "208er / 60 Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "19035445": "245er / 24Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "19036517": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
-    "49427565": "190er",
+    "49427565": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997232": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
     "80997234": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997235": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
