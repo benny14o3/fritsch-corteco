@@ -32749,7 +32749,7 @@
       "bom_id": "49402624",
       "beschreibung": "MT_EM     VAG/FORD",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
+      "neutralisierung": "1xGummi\" Anvis\"2xMetall \"VW-AG\"+Anvis1720700A+1x\"Aufkleber\"",
       "components": [
         {
           "artikelnummer": "49403002",
@@ -32761,8 +32761,7 @@
           "beschreibung": "CCB BOX    CORTECO       270X  200X  120",
           "menge": 1
         }
-      ],
-      "oe_nummern": "5Q0 199 555 BG, 5Q0 199 555 R"
+      ]
     },
     {
       "bom_id": "49402881",
@@ -105026,7 +105025,7 @@
       "bom_id": "82035254",
       "beschreibung": "TC9Y            40,0X  56,0X  9,0   ACM",
       "arbeitsanweisung": "BOM to Neutralize+Pack-Machine",
-      "neutralisierung": "4x PWT",
+      "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "19016929",
@@ -115207,11 +115206,11 @@
     "19034776": "gibt es nicht mehr",
     "19034777": "105*105*114 / 140Stk. pro C8.46 / 4Stk. C8.46 auf Pal.",
     "19034778": "240*240*38 / keine Bünd. / 25Stk. in C.6.46",
-    "19035254": "72*72*13 / 10er Bünd. / 300Stk. in 4.28 + Papier",
     "19035443": "177er>50Stk. in C6.46 / 4 Stk. C6.46 pro Palette",
     "19035444": "208er / 60 Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "19035445": "245er / 24Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "19036517": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
+    "49403002": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997232": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
     "80997234": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997235": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
