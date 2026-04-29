@@ -49801,7 +49801,7 @@
       "bom_id": "80001083",
       "beschreibung": "MT_EM     MERCE",
       "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "Liefert Neutral",
+      "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "80003203",
@@ -49813,8 +49813,7 @@
           "beschreibung": "CCB BOX    CORTECO       148X  148X  120",
           "menge": 1
         }
-      ],
-      "oe_nummern": "203 240 25 17, 211 240 27 17, 211 240 27 17 98, A 203 240 25 17, A 211 240 27 17, A 211 240 27 17 98"
+      ]
     },
     {
       "bom_id": "80001086",
@@ -115211,6 +115210,7 @@
     "19035445": "245er / 24Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "19036517": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
     "49403002": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "80003203": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997232": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
     "80997234": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997235": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
