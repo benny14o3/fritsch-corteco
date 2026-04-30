@@ -17890,7 +17890,7 @@
       "bom_id": "49184811",
       "beschreibung": "D01-250-  2,80-   /168SEIG  0,0 KOF S P",
       "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "Liefert Neutral",
+      "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "49181683",
@@ -17898,12 +17898,16 @@
           "menge": 1
         },
         {
-          "artikelnummer": "92007660",
-          "beschreibung": "FOLD BOX 135X  187X  172X",
+          "artikelnummer": "92002181",
+          "beschreibung": "CCB BOX    R3.21         285X  185X  210",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "49185128",
+          "beschreibung": "EU-Konformitätserklärung 15-140250",
           "menge": 1
         }
-      ],
-      "oe_nummern": "RE321772, RE576625"
+      ]
     },
     {
       "bom_id": "49185318",
@@ -115210,7 +115214,9 @@
     "19035444": "208er / 60 Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "19035445": "245er / 24Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "19036517": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
+    "49181683": "R3.21 / Schrenzpapier 1xLängs=70cm + 1xQuer=70cm, ohne Plastiktüte verpacken",
     "49181746": "R3.21 /  Schrenzpapier 1xLängs=70cm + 1xQuer=70cm, ohne Plastiktüte verpacken!!!",
+    "49185128": "R3.21 / Schrenzpapier 1xLängs=70cm + 1xQuer=70cm, ohne Plastiktüte verpacken",
     "80997232": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
     "80997234": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997235": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
@@ -115221,7 +115227,7 @@
     "80997242": "400er / 17Stk. In C8.46 / 6Stk. C8.46 pro Pal.",
     "80997243": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk.",
     "80997321": "220er / 70Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
-    "92002181": "R3.21 /  Schrenzpapier 1xLängs=70cm + 1xQuer=70cm, ohne Plastiktüte verpacken!!!",
+    "92002181": "R3.21 / Schrenzpapier 1xLängs=70cm + 1xQuer=70cm, ohne Plastiktüte verpacken",
     "92003210": "215 X 90 X 70 / 60Stk. in C6.46 / 8 Stk. C6.46 pro Palette",
     "92003371": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "92003741": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
