@@ -17781,7 +17781,7 @@
       "bom_id": "49184796",
       "beschreibung": "D01-240-  1,00-   /137SEUV  0,0 EEF S P",
       "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "",
+      "neutralisierung": "Liefert Neutral",
       "components": [
         {
           "artikelnummer": "49181746",
@@ -17789,11 +17789,12 @@
           "menge": 1
         },
         {
-          "artikelnummer": "92002181",
-          "beschreibung": "CCB BOX    R3.21         285X  185X  210",
+          "artikelnummer": "92007660",
+          "beschreibung": "FOLD BOX 135X  187X  172X",
           "menge": 1
         }
-      ]
+      ],
+      "oe_nummern": "RE193370, RE321770"
     },
     {
       "bom_id": "49184797",
@@ -17890,7 +17891,7 @@
       "bom_id": "49184811",
       "beschreibung": "D01-250-  2,80-   /168SEIG  0,0 KOF S P",
       "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "",
+      "neutralisierung": "Liefert Neutral",
       "components": [
         {
           "artikelnummer": "49181683",
@@ -17898,16 +17899,12 @@
           "menge": 1
         },
         {
-          "artikelnummer": "92002181",
-          "beschreibung": "CCB BOX    R3.21         285X  185X  210",
-          "menge": 1
-        },
-        {
-          "artikelnummer": "49185128",
-          "beschreibung": "EU-Konformitätserklärung 15-140250",
+          "artikelnummer": "92007660",
+          "beschreibung": "FOLD BOX 135X  187X  172X",
           "menge": 1
         }
-      ]
+      ],
+      "oe_nummern": "RE321772, RE576625"
     },
     {
       "bom_id": "49185318",
@@ -36733,12 +36730,11 @@
           "menge": 1
         },
         {
-          "artikelnummer": "92004373",
-          "beschreibung": "CCB-SLEEVE CORTECO       457X  352X  278",
+          "artikelnummer": "92009101",
+          "beschreibung": "FOLD BOX CORTECO       400X  230X  278",
           "menge": 1
         }
-      ],
-      "oe_nummern": "212 320 03 25, 212 320 37 25, A 212 320 03 25, A 212 320 37 25"
+      ]
     },
     {
       "bom_id": "49430416",
@@ -115214,9 +115210,7 @@
     "19035444": "208er / 60 Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "19035445": "245er / 24Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "19036517": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
-    "49181683": "R3.21 / Schrenzpapier 1xLängs=70cm + 1xQuer=70cm, ohne Plastiktüte verpacken",
-    "49181746": "R3.21 /  Schrenzpapier 1xLängs=70cm + 1xQuer=70cm, ohne Plastiktüte verpacken!!!",
-    "49185128": "R3.21 / Schrenzpapier 1xLängs=70cm + 1xQuer=70cm, ohne Plastiktüte verpacken",
+    "49430415": "aufklappen - Pappe zum Arretieren hochklappen / Kartons auf Palette",
     "80997232": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
     "80997234": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997235": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
@@ -115227,12 +115221,11 @@
     "80997242": "400er / 17Stk. In C8.46 / 6Stk. C8.46 pro Pal.",
     "80997243": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk.",
     "80997321": "220er / 70Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
-    "92002181": "R3.21 / Schrenzpapier 1xLängs=70cm + 1xQuer=70cm, ohne Plastiktüte verpacken",
     "92003210": "215 X 90 X 70 / 60Stk. in C6.46 / 8 Stk. C6.46 pro Palette",
     "92003371": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "92003741": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "92003780": "SLEEVE 457X  352X  278 /",
     "92004370": "SLEEVE 404X  203X  188 /6 Stk. in C8.46 / 6Stk. C8.46 pro Pal.",
-    "92004373": "SLEEVE 457X  352X  278 /4 Stk. in C8.46 / 6Stk. C8.46 pro Pal."
+    "92009101": "aufklappen - Pappe zum Arretieren hochklappen / Kartons auf Palette"
   }
 }
