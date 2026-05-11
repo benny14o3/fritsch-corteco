@@ -36730,11 +36730,12 @@
           "menge": 1
         },
         {
-          "artikelnummer": "92009101",
-          "beschreibung": "FOLD-BOX   CORTECO       400X  230X  278",
+          "artikelnummer": "92004373",
+          "beschreibung": "CCB-SLEEVE CORTECO       457X  352X  278",
           "menge": 1
         }
-      ]
+      ],
+      "oe_nummern": "212 320 03 25, 212 320 37 25, A 212 320 03 25, A 212 320 37 25"
     },
     {
       "bom_id": "49430416",
@@ -93684,7 +93685,7 @@
     {
       "bom_id": "82033353",
       "beschreibung": "PPY          7,00   20,00   17,00   AU",
-      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
       "components": [
         {
@@ -115203,6 +115204,7 @@
     "19019929": "187*187*20/ keine Bünd. / 20Stk. in 4.28",
     "19019930": "206*206*22 / keine Bünd. / 20Stk. in 4.28",
     "19025872": "60*60*40 / keine Bünd. / 144Stk. in 4.28",
+    "19033353": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "19034776": "gibt es nicht mehr",
     "19034777": "105*105*114 / 140Stk. pro C8.46 / 4Stk. C8.46 auf Pal.",
     "19034778": "240*240*38 / keine Bünd. / 25Stk. in C.6.46",
@@ -115210,7 +115212,6 @@
     "19035444": "208er / 60 Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "19035445": "245er / 24Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "19036517": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
-    "49430415": "Karton aufklappen, 24 Stk. direkt auf Palette setzen",
     "80997232": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
     "80997234": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997235": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
@@ -115226,6 +115227,6 @@
     "92003741": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "92003780": "SLEEVE 457X  352X  278 /",
     "92004370": "SLEEVE 404X  203X  188 /6 Stk. in C8.46 / 6Stk. C8.46 pro Pal.",
-    "92009101": "Karton aufklappen, 24 Stk. direkt auf Palette setzen"
+    "92004373": "SLEEVE 457X  352X  278 /4 Stk. in C8.46 / 6Stk. C8.46 pro Pal."
   }
 }
