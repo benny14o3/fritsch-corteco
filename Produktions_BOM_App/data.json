@@ -81929,8 +81929,8 @@
     {
       "bom_id": "82020536",
       "beschreibung": "BAFVI1UD2SL     40,0X  52,0X  7,0 FKM",
-      "arbeitsanweisung": "BOM to Neutralize+Pack-Machine",
-      "neutralisierung": "VW - AUDI - 017525275B",
+      "arbeitsanweisung": "BOM to Pack-Machine",
+      "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "19016928",
@@ -81942,8 +81942,7 @@
           "beschreibung": "BASLRSX7        40,0X  52,0X  7,0   FPM",
           "menge": 1
         }
-      ],
-      "oe_nummern": "017525275B"
+      ]
     },
     {
       "bom_id": "82020602",
@@ -115212,6 +115211,7 @@
     "19035445": "245er / 24Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "19036517": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
     "49430415": "FICK DICH",
+    "49482300": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "80997232": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
     "80997234": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997235": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
