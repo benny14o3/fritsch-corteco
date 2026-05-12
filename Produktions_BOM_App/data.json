@@ -38727,7 +38727,7 @@
       "bom_id": "49467138",
       "beschreibung": "D01-250-  1,40-   /152SNIG 42,0 BOF S P",
       "arbeitsanweisung": "",
-      "neutralisierung": "Liefert Neutral",
+      "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "49430042",
@@ -38745,7 +38745,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "AL180650"
+      "bild_url": ""
     },
     {
       "bom_id": "49467157",
@@ -115213,6 +115213,7 @@
     "49181746": "CCB BOX    R3.21         285X  185X  210",
     "49182029": "CCB BOX    R3.21         285X  185X  210",
     "49185128": "CCB BOX    R3.21         285X  185X  210",
+    "49430042": "CCB BOX    R3.21         285X  185X  210",
     "49430415": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
     "49482300": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "80997232": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
