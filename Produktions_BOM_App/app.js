@@ -5,8 +5,7 @@ const ADMIN_PASSWORD = "06031936"; // ← hier Passwort ändern
 const STORAGE_KEY    = "bom_data_v1";
 
 const BOM_BACKEND          = "https://bom-backend-d246.onrender.com";
-const CLOUDINARY_CLOUD     = "dmtz5pchr";
-const CLOUDINARY_PRESET    = "shopfloor_docs";
+const IMGBB_API_KEY = "da6c7a9c07d883da2b5b858cab66cd10";
 
 // ============================================================
 //  STATE
@@ -762,22 +761,27 @@ async function handleImageUpload(event) {
   const previewEl = document.getElementById("modal-image-preview");
   previewEl.innerHTML = '<span style="color:#6b7280;font-size:13px;">⏳ Wird hochgeladen...</span>';
 
-  const formData = new FormData();
-  formData.append("file", file);
-  formData.append("upload_preset", CLOUDINARY_PRESET);
-  formData.append("folder", "bom_bilder");
-
   try {
-    const res = await fetch(
-      `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD}/image/upload`,
-      { method: "POST", body: formData }
-    );
-    const data = await res.json();
-    if (data.secure_url) {
-      document.getElementById("modal-image-url").value = data.secure_url;
-      renderImagePreview(data.secure_url);
+    const base64 = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result.split(",")[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+
+    const formData = new FormData();
+    formData.append("image", base64);
+    formData.append("key", IMGBB_API_KEY);
+
+    const res  = await fetch("https://api.imgbb.com/1/upload", { method: "POST", body: formData });
+    const json = await res.json();
+
+    if (json.success) {
+      const url = json.data.url;
+      document.getElementById("modal-image-url").value = url;
+      renderImagePreview(url);
     } else {
-      previewEl.innerHTML = '<span style="color:#b91c1c;">Fehler beim Hochladen</span>';
+      previewEl.innerHTML = '<span style="color:#b91c1c;">Fehler: ' + (json.error?.message || "unbekannt") + '</span>';
     }
   } catch (e) {
     previewEl.innerHTML = '<span style="color:#b91c1c;">Netzwerkfehler</span>';
