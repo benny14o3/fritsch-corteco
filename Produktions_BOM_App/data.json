@@ -17867,7 +17867,7 @@
       "bom_id": "49184800",
       "beschreibung": "D01-250-  1,40-   /152SNUV  0,0 AAF S P",
       "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "Liefert Neutral",
+      "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "49182029",
@@ -17885,7 +17885,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "RE306377"
+      "bild_url": ""
     },
     {
       "bom_id": "49184811",
@@ -115211,6 +115211,8 @@
     "19035445": "245er / 24Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "19036517": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
     "49181746": "CCB BOX    R3.21         285X  185X  210",
+    "49182029": "CCB BOX    R3.21         285X  185X  210",
+    "49185128": "CCB BOX    R3.21         285X  185X  210",
     "49430415": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
     "49482300": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "80997232": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
