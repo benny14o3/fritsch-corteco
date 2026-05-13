@@ -114524,7 +114524,8 @@
       "beschreibung": "",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [],
+      "bild_url": ""
     },
     {
       "bom_id": "49472856",
