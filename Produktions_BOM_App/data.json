@@ -114521,10 +114521,26 @@
     },
     {
       "bom_id": "49434594",
-      "beschreibung": "",
+      "beschreibung": "PU_CS     BMW",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": [],
+      "components": [
+        {
+          "artikelnummer": "49434595",
+          "beschreibung": "PU_CS     BMW                       BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "49435514",
+          "beschreibung": "INSTR               MOUNTING 49434594",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "19035444",
+          "beschreibung": "CCB BOX    CORTECO       208X  196X   60",
+          "menge": 1
+        }
+      ],
       "bild_url": ""
     },
     {
@@ -115260,8 +115276,10 @@
     "49430417": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
     "49430419": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
     "49430431": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
+    "49434595": "208er / 60 Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "49434788": "CCB BOX    R3.21         285X  185X  210",
     "49434841": "CCB BOX    R3.21         285X  185X  210",
+    "49435514": "208er / 60 Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "49482300": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "80997232": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
     "80997234": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
