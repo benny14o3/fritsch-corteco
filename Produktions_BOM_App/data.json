@@ -35647,12 +35647,12 @@
           "menge": 1
         },
         {
-          "artikelnummer": "80997243",
-          "beschreibung": "CCB BOX    CORTECO C3    420X  180X   33",
+          "artikelnummer": "92003741",
+          "beschreibung": "FOLD-BOX   CORTECO       148X  148X  190",
           "menge": 1
         }
       ],
-      "oe_nummern": "22 11 6 883 514"
+      "bild_url": ""
     },
     {
       "bom_id": "49427566",
@@ -115271,6 +115271,7 @@
     "49181746": "CCB BOX    R3.21         285X  185X  210",
     "49182029": "CCB BOX    R3.21         285X  185X  210",
     "49185128": "CCB BOX    R3.21         285X  185X  210",
+    "49427565": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49430042": "CCB BOX    R3.21         285X  185X  210",
     "49430415": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
     "49430417": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
@@ -115289,7 +115290,6 @@
     "80997239": "162er / 100Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "80997241": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997242": "400er / 17Stk. In C8.46 / 6Stk. C8.46 pro Pal.",
-    "80997243": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk.",
     "80997321": "220er / 70Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "92002181": "CCB BOX    R3.21         285X  185X  210",
     "92003210": "215 X 90 X 70 / 60Stk. in C6.46 / 8 Stk. C6.46 pro Palette",
