@@ -114045,7 +114045,7 @@
     },
     {
       "bom_id": "49267615",
-      "beschreibung": "STS_AIR   IVECO",
+      "beschreibung": "",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
       "components": [
@@ -114059,17 +114059,10 @@
     },
     {
       "bom_id": "49267617",
-      "beschreibung": "STS_AIR   IVECO",
+      "beschreibung": "",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": [
-        {
-          "artikelnummer": "92009101",
-          "beschreibung": "FOLD-BOX CORTECO 400X 230X 278",
-          "menge": 1
-        }
-      ],
-      "bild_url": ""
+      "components": []
     },
     {
       "bom_id": "49267619",
