@@ -110357,7 +110357,7 @@
       "bom_id": "82328916",
       "beschreibung": "P&S_A  V4 21145 62,0 51,0  23,0 EPDM STA",
       "arbeitsanweisung": "BOM to Neutralize",
-      "neutralisierung": "TBD",
+      "neutralisierung": "OE-Nr. +V4-Nr.",
       "components": [
         {
           "artikelnummer": "528916",
@@ -110365,7 +110365,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "51981820026"
+      "bild_url": ""
     },
     {
       "bom_id": "82331298",
