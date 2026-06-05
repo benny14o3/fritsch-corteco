@@ -32716,7 +32716,7 @@
       "bom_id": "49402622",
       "beschreibung": "MT_EM     VAG",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
+      "neutralisierung": "\"Aufkleber\" 1xMetall\"VW AG\"",
       "components": [
         {
           "artikelnummer": "49403000",
@@ -32729,7 +32729,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "5Q0 199 555 BH, 5Q0 199 555 S"
+      "bild_url": "https://i.ibb.co/zTQnvHFL/8dd024a8fd6b.png"
     },
     {
       "bom_id": "49402623",
@@ -115274,6 +115274,7 @@
     "49181746": "CCB BOX    R3.21         285X  185X  210",
     "49182029": "CCB BOX    R3.21         285X  185X  210",
     "49185128": "CCB BOX    R3.21         285X  185X  210",
+    "49403000": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49427565": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49430042": "CCB BOX    R3.21         285X  185X  210",
     "49430415": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
