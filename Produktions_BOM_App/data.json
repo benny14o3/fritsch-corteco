@@ -35544,7 +35544,7 @@
       "bom_id": "49427523",
       "beschreibung": "MT_EM     MERCEDES",
       "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "Liefert Neutral",
+      "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "49427524",
@@ -35557,7 +35557,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "213 240 17 00, 213 240 42 00, A 213 240 17 00, A 213 240 42 00"
+      "bild_url": ""
     },
     {
       "bom_id": "49427525",
@@ -115276,6 +115276,7 @@
     "49182029": "CCB BOX    R3.21         285X  185X  210",
     "49185128": "CCB BOX    R3.21         285X  185X  210",
     "49403000": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49427524": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49427565": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49430042": "CCB BOX    R3.21         285X  185X  210",
     "49430415": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
