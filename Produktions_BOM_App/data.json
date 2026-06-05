@@ -60737,8 +60737,8 @@
     {
       "bom_id": "80004133",
       "beschreibung": "MT_GB     FORD",
-      "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
+      "arbeitsanweisung": "BOM to Pack",
+      "neutralisierung": "Auspacken",
       "components": [
         {
           "artikelnummer": "80004132",
@@ -60751,7 +60751,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "1109111, 1118740, 7M3 399 201 G, YM21 6A026 FA, YM21 6A026 FB"
+      "bild_url": ""
     },
     {
       "bom_id": "80004139",
@@ -115290,6 +115290,7 @@
     "49467669": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
     "49482300": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "49483069": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "80004132": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "80997232": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
     "80997234": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997235": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
