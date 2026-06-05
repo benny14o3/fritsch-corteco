@@ -15477,7 +15477,7 @@
       "bom_id": "49128185",
       "beschreibung": "MT_EM     MERCE",
       "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "Liefert Neutral",
+      "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "49128186",
@@ -15490,7 +15490,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "205 240 78 00, A 205 240 78 00"
+      "bild_url": ""
     },
     {
       "bom_id": "49128187",
@@ -115270,6 +115270,7 @@
     "19036517": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
     "49107615": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
     "49107617": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
+    "49128186": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49181683": "CCB BOX    R3.21         285X  185X  210",
     "49181746": "CCB BOX    R3.21         285X  185X  210",
     "49182029": "CCB BOX    R3.21         285X  185X  210",
