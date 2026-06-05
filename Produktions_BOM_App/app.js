@@ -489,6 +489,7 @@ function printSingleBOM(bomId) {
         <div class="form-row"><span class="label">Produziert von: ___________________________</span></div>
         <div class="form-row"><span class="label">QS Freigabe: ___________________________</span></div>
       </div>
+      ${kommentar ? `<div style="text-align:right;font-size:48pt;font-weight:900;color:#000;line-height:1;padding:10mm;word-break:break-word;margin-top:10mm;">${kommentar}</div>` : ""}
     </body></html>
   `);
   printWindow.document.close();
@@ -688,7 +689,7 @@ function printSelected(mode) {
 
   printWindow.document.write(`<html><head><title>Produktionsaufträge</title>
     <style>@page{margin:10mm;} body{margin:0;} td{border-bottom:1px solid #ccc;padding:6px;}</style>
-    </head><body>${pages}${kommentar ? `<div style="position:fixed;bottom:10mm;right:10mm;font-size:60pt;font-weight:900;color:#000;line-height:1;text-align:right;max-width:80%;word-break:break-word;">${kommentar}</div>` : ""}</body></html>`);
+    </head><body>${pages}${kommentar ? `<div style="text-align:right;font-size:48pt;font-weight:900;color:#000;line-height:1;padding:10mm;word-break:break-word;margin-top:20mm;">${kommentar}</div>` : ""}</body></html>`);
   printWindow.document.close();
   setTimeout(() => { printWindow.focus(); printWindow.print(); }, 400);
 }
