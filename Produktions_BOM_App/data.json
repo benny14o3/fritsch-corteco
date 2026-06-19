@@ -36829,12 +36829,12 @@
           "menge": 1
         },
         {
-          "artikelnummer": "92002544",
-          "beschreibung": "CCB BOX    4.28          370X  285X  280",
+          "artikelnummer": "92009100",
+          "beschreibung": "380x 160x 194",
           "menge": 1
         }
       ],
-      "oe_nummern": "212 320 21 25, 212 320 39 25, A 212 320 21 25, A 212 320 39 25"
+      "bild_url": ""
     },
     {
       "bom_id": "49430438",
@@ -115283,6 +115283,7 @@
     "49430417": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
     "49430419": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
     "49430431": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
+    "49430437": "neue Verpackung -",
     "49434595": "208er / 60 Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "49434788": "CCB BOX    R3.21         285X  185X  210",
     "49434841": "CCB BOX    R3.21         285X  185X  210",
@@ -115306,6 +115307,7 @@
     "92003741": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "92003780": "SLEEVE 457X  352X  278 /",
     "92004370": "SLEEVE 404X  203X  188 /6 Stk. in C8.46 / 6Stk. C8.46 pro Pal.",
+    "92009100": "neue Verpackung -",
     "92009101": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette"
   }
 }
