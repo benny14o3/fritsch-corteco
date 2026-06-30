@@ -56468,17 +56468,12 @@
           "menge": 1
         },
         {
-          "artikelnummer": "80003851",
-          "beschreibung": "MT_SS     FORD                      BULK",
-          "menge": 1
-        },
-        {
           "artikelnummer": "80997235",
           "beschreibung": "CCB BOX    CORTECO       136X   71X   32",
           "menge": 1
         }
       ],
-      "oe_nummern": "1061722, 1087177, 1480525, 7T16 3K155 AA, 98AG 3K155 AE, 98AG 3K155 AF"
+      "bild_url": ""
     },
     {
       "bom_id": "80001657",
@@ -56746,8 +56741,13 @@
       "neutralisierung": "",
       "components": [
         {
-          "artikelnummer": "80002898",
+          "artikelnummer": "80003776",
           "beschreibung": "MT_TSM    FORD                      BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "80003851",
+          "beschreibung": "MT_SS     FORD                      BULK",
           "menge": 1
         },
         {
@@ -56756,7 +56756,7 @@
           "menge": 1
         }
       ],
-      "bild_url": ""
+      "oe_nummern": "1100965, 1101712, 1104037, 1106874, 98AG 3K155 BB, 98AG 3K155 BC, YS41 3K155 AA, YS41 3K155 AB"
     },
     {
       "bom_id": "80001672",
@@ -115286,7 +115286,7 @@
     "49467669": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
     "49482300": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "49483069": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
-    "80002898": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "80002898": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80004132": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "80997232": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
     "80997234": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
