@@ -30035,7 +30035,7 @@
       "bom_id": "49388311",
       "beschreibung": "MT_EM FORD",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
+      "neutralisierung": "3x Metall FoMoCo + Nr",
       "components": [
         {
           "artikelnummer": "49388291",
@@ -30048,7 +30048,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "1377905, 1384138, 6C11 6F012 AA, 6C11 6F012 AB"
+      "bild_url": ""
     },
     {
       "bom_id": "49388313",
@@ -115270,6 +115270,7 @@
     "49181746": "CCB BOX    R3.21         285X  185X  210",
     "49182029": "CCB BOX    R3.21         285X  185X  210",
     "49185128": "CCB BOX    R3.21         285X  185X  210",
+    "49388291": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49403000": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49427524": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49427565": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
