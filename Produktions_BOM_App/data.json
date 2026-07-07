@@ -113075,10 +113075,27 @@
     },
     {
       "bom_id": "49237628",
-      "beschreibung": "",
-      "arbeitsanweisung": "BOM to Pack",
+      "beschreibung": "P02-100-  0,24- 60/ 64SKOO 24,0 OGO N W",
+      "arbeitsanweisung": "BOM to Kit",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49640765",
+          "beschreibung": "P02-100-  0,24- 60/ 64SKOO 24,0 OGO N W",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92008800",
+          "beschreibung": "SILICA GEL                50X   19X",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92008801",
+          "beschreibung": "FOLD-BOX   CORTECO       150X   85X   75",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49237727",
@@ -115287,6 +115304,7 @@
     "49467669": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
     "49482300": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "49483069": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49640765": "in 1.0er setzen",
     "80002898": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80004132": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "80997232": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
@@ -115304,6 +115322,8 @@
     "92003741": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "92003780": "SLEEVE 457X  352X  278 /",
     "92004370": "SLEEVE 404X  203X  188 /6 Stk. in C8.46 / 6Stk. C8.46 pro Pal.",
+    "92008800": "in 1.0er setzen",
+    "92008801": "in 1.0er setzen",
     "92009100": "Kartons direkt auf Palette - Pappe hochklappen zum Arretieren",
     "92009101": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette"
   }
