@@ -61113,7 +61113,7 @@
       "bom_id": "80004225",
       "beschreibung": "MT_GB     RENAU",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
+      "neutralisierung": "1 x OE-Logo RENAULT + 2 x OE-Nr.",
       "components": [
         {
           "artikelnummer": "80004224",
@@ -61126,7 +61126,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "82 00 127 324"
+      "bild_url": "https://i.ibb.co/RGGfs8L8/1379bad10ab4.png"
     },
     {
       "bom_id": "80004229",
@@ -115323,6 +115323,7 @@
     "49640765": "in 1.0er setzen",
     "80002898": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80004132": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
+    "80004224": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "80997232": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
     "80997234": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997235": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
