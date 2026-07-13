@@ -30111,7 +30111,7 @@
       "bom_id": "49388316",
       "beschreibung": "MT_EM VAG",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
+      "neutralisierung": "VW AG + Aufkleber",
       "components": [
         {
           "artikelnummer": "49388269",
@@ -30124,7 +30124,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "5Q0 199 855 AC, 5Q0 199 855 N, 5Q0 199 855 S"
+      "bild_url": "https://i.ibb.co/W4Qx1Tx1/a13f666fe98e.jpg"
     },
     {
       "bom_id": "49388317",
@@ -115316,6 +115316,7 @@
     "49237112": "ohne Umkartons auf Palette",
     "49361428": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49386242": "BULK NEUTRAL",
+    "49388269": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "49388290": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "49388291": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49388294": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
