@@ -30130,7 +30130,7 @@
       "bom_id": "49388317",
       "beschreibung": "MT_EM VAG",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
+      "neutralisierung": "VW AG + Aufkleber",
       "components": [
         {
           "artikelnummer": "49388290",
@@ -30143,7 +30143,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "5Q0 199 855 AD, 5Q0 199 855 J, 5Q0 199 855 P, 5Q0 199 855 Q"
+      "bild_url": "https://i.ibb.co/VcN5mFDb/f976944b6164.jpg"
     },
     {
       "bom_id": "49388318",
@@ -115301,6 +115301,7 @@
     "49185128": "CCB BOX    R3.21         285X  185X  210",
     "49237112": "ohne Umkartons auf Palette",
     "49361428": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49388290": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "49388291": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49388294": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49403000": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
