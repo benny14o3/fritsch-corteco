@@ -89691,7 +89691,7 @@
       "bom_id": "82029819",
       "beschreibung": "RWDR-K7 100X130X14 VMQ",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "5801625923",
+      "neutralisierung": "IVECO + 4010 2683",
       "components": [
         {
           "artikelnummer": "19016933",
@@ -89704,7 +89704,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "40102680, 40102683, 504078251"
+      "bild_url": ""
     },
     {
       "bom_id": "82029820",
@@ -115349,6 +115349,7 @@
     "80997241": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997242": "400er / 17Stk. In C8.46 / 6Stk. C8.46 pro Pal.",
     "80997321": "220er / 70Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
+    "82329819": "142*142*18 / keine Bünd. / 50Stk. in 4.28 + Papier",
     "92002181": "CCB BOX    R3.21         285X  185X  210",
     "92003210": "215 X 90 X 70 / 60Stk. in C6.46 / 8 Stk. C6.46 pro Palette",
     "92003371": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
