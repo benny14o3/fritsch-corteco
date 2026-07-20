@@ -32697,7 +32697,7 @@
       "bom_id": "49402621",
       "beschreibung": "MT_EM     VAG",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
+      "neutralisierung": "VW AG\nAUFKLEBER\nANVIS + NR (VERSTECKT)",
       "components": [
         {
           "artikelnummer": "49402999",
@@ -32710,7 +32710,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "5Q0 199 555 BF, 5Q0 199 555 Q"
+      "bild_url": "https://i.ibb.co/j9Th7Dqk/a68177c24837.png"
     },
     {
       "bom_id": "49402622",
@@ -58736,7 +58736,7 @@
       "bom_id": "80001854",
       "beschreibung": "MT_GB     VAG",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "1K0199555AC und VW AG",
+      "neutralisierung": "3xMetall Nr. 1K0199555AC und VW AG",
       "components": [
         {
           "artikelnummer": "80003985",
@@ -58749,7 +58749,7 @@
           "menge": 1
         }
       ],
-      "bild_url": "https://i.ibb.co/hxpx4ZnT/320070a87710.jpg"
+      "bild_url": "https://i.ibb.co/Y46J6YK7/1929e0d0f615.png"
     },
     {
       "bom_id": "80001855",
@@ -115333,6 +115333,7 @@
     "49388290": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "49388291": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49388294": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49402999": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49403000": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49427524": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49427565": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
