@@ -115207,10 +115207,22 @@
     },
     {
       "bom_id": "82036599",
-      "beschreibung": "",
+      "beschreibung": "BAESSSLLSX7     85,0X 105,0X  8,0 FKM",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49260600",
+          "beschreibung": "BAESSSLRSX7     85,0X 105,0X  8,0   FKM",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "19016932",
+          "beschreibung": "FOLD-BOX   CORTECO       122X  122X   18",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "82101829",
@@ -115314,6 +115326,7 @@
     "49182029": "CCB BOX    R3.21         285X  185X  210",
     "49185128": "CCB BOX    R3.21         285X  185X  210",
     "49237112": "ohne Umkartons auf Palette",
+    "49260600": "122*122*18 / keine Bünd. / 80Stk. in 4.28",
     "49361428": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49386242": "BULK NEUTRAL",
     "49388269": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
