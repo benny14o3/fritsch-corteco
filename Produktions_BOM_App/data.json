@@ -58736,7 +58736,7 @@
       "bom_id": "80001854",
       "beschreibung": "MT_GB     VAG",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "3xMetall Nr. 1K0199555AC und VW AG",
+      "neutralisierung": "1K0199555AC und VW AG",
       "components": [
         {
           "artikelnummer": "80003985",
@@ -58749,7 +58749,7 @@
           "menge": 1
         }
       ],
-      "bild_url": "https://i.ibb.co/Y46J6YK7/1929e0d0f615.png"
+      "bild_url": "https://i.ibb.co/hxpx4ZnT/320070a87710.jpg"
     },
     {
       "bom_id": "80001855",
