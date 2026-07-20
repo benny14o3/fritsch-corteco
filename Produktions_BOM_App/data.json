@@ -52492,7 +52492,7 @@
       "bom_id": "80001310",
       "beschreibung": "MT_EM     VAG",
       "arbeitsanweisung": "BOM to Neutralize+Pack-Machine",
-      "neutralisierung": "",
+      "neutralisierung": "3xGummi \"VWAG,0310680\nAnvis\n1x Plastic \"1K0199868P\"",
       "components": [
         {
           "artikelnummer": "80003531",
@@ -52505,7 +52505,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "1K0 199 868, 1K0 199 868 A, 1K0 199 868 C, 1K0 199 868 P, 1K0 199 868 Q"
+      "bild_url": "https://i.ibb.co/6cLSSQLf/5d3e5ac65b4c.png"
     },
     {
       "bom_id": "80001311",
@@ -115351,6 +115351,7 @@
     "49483069": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49640765": "in 1.0er setzen",
     "80002898": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "80003531": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80004132": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "80004224": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "80997232": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
