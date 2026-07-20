@@ -52416,7 +52416,7 @@
       "bom_id": "80001306",
       "beschreibung": "MT_EM     VAG",
       "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "1xGummi OE.-Nr.\"1K01998677RL\"",
+      "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "80003528",
@@ -52429,7 +52429,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "1K0 199 867 A, 1K0 199 867 P, 1K0 199 867 Q, 1K0199867A"
+      "bild_url": ""
     },
     {
       "bom_id": "80001307",
@@ -115351,6 +115351,7 @@
     "49483069": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49640765": "in 1.0er setzen",
     "80002898": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "80003528": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80003531": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80004132": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "80004224": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
