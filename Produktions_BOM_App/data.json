@@ -36810,12 +36810,12 @@
           "menge": 1
         },
         {
-          "artikelnummer": "92004373",
-          "beschreibung": "CCB-SLEEVE CORTECO       457X  352X  278",
+          "artikelnummer": "92009100",
+          "beschreibung": "FOLD-BOX   CORTECO       380X  160X  194",
           "menge": 1
         }
       ],
-      "oe_nummern": "212 320 20 25, 212 320 40 25, A 212 320 20 25, A 212 320 40 25"
+      "bild_url": "https://i.ibb.co/3904cjLb/a5b016069ce8.png"
     },
     {
       "bom_id": "49430436",
@@ -115341,6 +115341,7 @@
     "49430417": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
     "49430419": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
     "49430431": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
+    "49430435": "Kartons direkt auf Palette setzen",
     "49430437": "Kartons direkt auf Palette - Pappe hochklappen zum Arretieren",
     "49434595": "208er / 60 Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "49434788": "CCB BOX    R3.21         285X  185X  210",
@@ -115374,7 +115375,7 @@
     "92004370": "SLEEVE 404X  203X  188 /6 Stk. in C8.46 / 6Stk. C8.46 pro Pal.",
     "92008800": "in 1.0er setzen",
     "92008801": "in 1.0er setzen",
-    "92009100": "Kartons direkt auf Palette - Pappe hochklappen zum Arretieren",
+    "92009100": "Kartons direkt auf Palette setzen",
     "92009101": "ohne Umkartons auf Palette"
   }
 }
