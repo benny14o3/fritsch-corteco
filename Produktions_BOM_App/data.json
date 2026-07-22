@@ -113038,10 +113038,22 @@
     },
     {
       "bom_id": "49237113",
-      "beschreibung": "",
-      "arbeitsanweisung": "BOM to Pack",
+      "beschreibung": "STS_AIR   MERCE",
+      "arbeitsanweisung": "BOM to Kit",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49237114",
+          "beschreibung": "STS_AIR   MERCE",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92009101",
+          "beschreibung": "FOLD-BOX   CORTECO       400X  230X  278",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49237144",
@@ -115326,6 +115338,7 @@
     "49182029": "CCB BOX    R3.21         285X  185X  210",
     "49185128": "CCB BOX    R3.21         285X  185X  210",
     "49237112": "ohne Umkartons auf Palette",
+    "49237114": "Kartons direkt auf Palette",
     "49260600": "122*122*18 / keine Bünd. / 80Stk. in 4.28",
     "49361428": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49386242": "BULK NEUTRAL",
@@ -115377,6 +115390,6 @@
     "92008800": "in 1.0er setzen",
     "92008801": "in 1.0er setzen",
     "92009100": "Kartons direkt auf Palette setzen",
-    "92009101": "ohne Umkartons auf Palette"
+    "92009101": "Kartons direkt auf Palette"
   }
 }
