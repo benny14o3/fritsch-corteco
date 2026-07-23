@@ -113500,10 +113500,27 @@
     },
     {
       "bom_id": "49259696",
-      "beschreibung": "",
+      "beschreibung": "D01-210-  2,00-   /169SEIC 30,0 OEE S P",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49239911",
+          "beschreibung": "D01-210-  2,00-   /169SEIC 30,0 OEE S P",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "49185127",
+          "beschreibung": "INSTR    VAR        B.ANL. KE15-200210_D",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002181",
+          "beschreibung": "CCB BOX    R3.21         285X  185X  210",
+          "menge": 1
+        }
+      ],
+      "bild_url": "https://i.ibb.co/7xw4kyd0/860adca540f4.png"
     },
     {
       "bom_id": "49259781",
