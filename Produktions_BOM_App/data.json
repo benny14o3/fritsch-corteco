@@ -38826,7 +38826,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "87314179"
+      "bild_url": ""
     },
     {
       "bom_id": "49467194",
@@ -115354,6 +115354,7 @@
     "49427524": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49427565": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49430042": "CCB BOX    R3.21         285X  185X  210",
+    "49430045": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49430415": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
     "49430417": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
     "49430419": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
@@ -115390,6 +115391,7 @@
     "92003741": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "92003780": "SLEEVE 457X  352X  278 /",
     "92004370": "SLEEVE 404X  203X  188 /6 Stk. in C8.46 / 6Stk. C8.46 pro Pal.",
+    "92007660": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "92008800": "in 1.0er setzen",
     "92008801": "in 1.0er setzen",
     "92009100": "Kartons direkt auf Palette setzen",
