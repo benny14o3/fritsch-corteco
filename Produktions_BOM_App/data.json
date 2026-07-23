@@ -113685,10 +113685,27 @@
     },
     {
       "bom_id": "49260812",
-      "beschreibung": "",
+      "beschreibung": "D01-100-  2,00-   /144SNIC 12,0 BOF S P",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49240615",
+          "beschreibung": "D01-100-  2,00-   /144SNIC 12,0 BOF S P",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "49260760",
+          "beschreibung": "INSTR    VAR        B.ANL. KE15-200100_C",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002181",
+          "beschreibung": "CCB BOX    R3.21         285X  185X  210",
+          "menge": 1
+        }
+      ],
+      "bild_url": "https://i.ibb.co/7xw4kyd0/860adca540f4.png"
     },
     {
       "bom_id": "49260813",
