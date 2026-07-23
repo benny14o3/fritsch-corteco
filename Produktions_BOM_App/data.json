@@ -32754,7 +32754,7 @@
       "bom_id": "49402624",
       "beschreibung": "MT_EM     VAG/FORD",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
+      "neutralisierung": "VW AG\nAUFKLEBER\nANVIS (GUMMI)",
       "components": [
         {
           "artikelnummer": "49403002",
@@ -32767,7 +32767,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "5Q0 199 555 BG, 5Q0 199 555 R"
+      "bild_url": "https://i.ibb.co/snqRQ00/fc98fac0f779.png"
     },
     {
       "bom_id": "49402881",
@@ -115350,6 +115350,7 @@
     "49402999": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49403000": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49403001": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49403002": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49427524": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49427565": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49430042": "CCB BOX    R3.21         285X  185X  210",
