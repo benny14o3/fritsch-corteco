@@ -104628,20 +104628,21 @@
     {
       "bom_id": "82035225",
       "beschreibung": "TC9Y            35,0X  50,0X  8,5   ACM",
-      "arbeitsanweisung": "BOM to Neutralize+Pack-Machine",
+      "arbeitsanweisung": "BOM to Pack-Machine",
       "neutralisierung": "",
       "components": [
-        {
-          "artikelnummer": "19016928",
-          "beschreibung": "FOLD-BOX   CORTECO        54X   54X   12",
-          "menge": 1
-        },
         {
           "artikelnummer": "19035225",
           "beschreibung": "TC9Y            35,0X  50,0X  8,5   ACM",
           "menge": 1
+        },
+        {
+          "artikelnummer": "19018093",
+          "beschreibung": "FOLD-BOX   CORTECO       105X  105X   26",
+          "menge": 1
         }
-      ]
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "82035226",
@@ -115308,7 +115309,6 @@
     }
   ],
   "verpackung_map": {
-    "19016928": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "19016929": "72*72*13 / 10er Bünd. / 300Stk. in 4.28 + Papier",
     "19016931": "107*107*15 / keine Bünd. / 100Stk in 4.28 +Papier",
     "19016932": "122*122*18 / keine Bünd. / 80Stk. in 4.28",
@@ -115326,6 +115326,7 @@
     "19034776": "gibt es nicht mehr",
     "19034777": "105*105*114 / 140Stk. pro C8.46 / 4Stk. C8.46 auf Pal.",
     "19034778": "240*240*38 / keine Bünd. / 25Stk. in C.6.46",
+    "19035225": "105*105*26 / keine Bünd. / 60Stk. in 4.28",
     "19035443": "177er>50Stk. in C6.46 / 4 Stk. C6.46 pro Palette",
     "19035444": "208er / 60 Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "19035445": "245er / 24Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
