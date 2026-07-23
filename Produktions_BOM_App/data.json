@@ -113675,10 +113675,27 @@
     },
     {
       "bom_id": "49260813",
-      "beschreibung": "",
+      "beschreibung": "D01-350-  2,00-   /156SEIC 70,0 OIF S P",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49240592",
+          "beschreibung": "D01-350-  2,00-   /156SEIC 70,0 OIF S P",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "49260811",
+          "beschreibung": "INSTR    VAR        B.ANL. KE15-200350_C",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002181",
+          "beschreibung": "CCB BOX    R3.21         285X  185X  210",
+          "menge": 1
+        }
+      ],
+      "bild_url": "https://i.ibb.co/7xw4kyd0/860adca540f4.png"
     },
     {
       "bom_id": "49260814",
