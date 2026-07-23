@@ -113859,10 +113859,22 @@
     },
     {
       "bom_id": "49265069",
-      "beschreibung": "",
+      "beschreibung": "BDAT2.1SLWKFSF  28,0X  48,0X  8,0 121433",
       "arbeitsanweisung": "BOM to Neutralize+Pack-Machine",
-      "neutralisierung": "",
-      "components": []
+      "neutralisierung": "31325268",
+      "components": [
+        {
+          "artikelnummer": "49304122",
+          "beschreibung": "BDAT2.1SLWKFSF  28,0X  48,0X  8,0 121433",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "19017977",
+          "beschreibung": "FOLD-BOX   CORTECO        50X   50X   18",
+          "menge": 1
+        }
+      ],
+      "bild_url": "https://i.ibb.co/j9shNXgX/faec2d5e1851.png"
     },
     {
       "bom_id": "49265679",
