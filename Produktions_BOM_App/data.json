@@ -37019,12 +37019,12 @@
           "menge": 1
         },
         {
-          "artikelnummer": "92004370",
-          "beschreibung": "CCB-SLEEVE CORTECO       404X  203X  188",
+          "artikelnummer": "92009100",
+          "beschreibung": "FOLD-BOX   CORTECO       380X  160X  194",
           "menge": 1
         }
       ],
-      "oe_nummern": "37 10 6 784 378, 37 10 6 784 379, 37 12 6 784 378, 37 12 6 784 379"
+      "bild_url": ""
     },
     {
       "bom_id": "49430530",
@@ -115490,6 +115490,7 @@
     "49430431": "Achtung Teil muss fixiert werden - Kartons direkt auf Palette",
     "49430435": "Kartons direkt auf Palette setzen",
     "49430437": "Kartons direkt auf Palette - Pappe hochklappen zum Arretieren",
+    "49430517": "Kartons direkt auf Palette",
     "49434595": "208er / 60 Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "49434788": "CCB BOX    R3.21         285X  185X  210",
     "49434841": "CCB BOX    R3.21         285X  185X  210",
@@ -115519,11 +115520,10 @@
     "92003371": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "92003741": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "92003780": "SLEEVE 457X  352X  278 /",
-    "92004370": "SLEEVE 404X  203X  188 /6 Stk. in C8.46 / 6Stk. C8.46 pro Pal.",
     "92007660": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "92008800": "in 1.0er setzen",
     "92008801": "in 1.0er setzen",
-    "92009100": "Kartons direkt auf Palette setzen",
+    "92009100": "Kartons direkt auf Palette",
     "92009101": "Kartons direkt auf Palette"
   }
 }
