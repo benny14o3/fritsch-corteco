@@ -113564,10 +113564,27 @@
     },
     {
       "bom_id": "49259791",
-      "beschreibung": "",
+      "beschreibung": "D01-250-  1,40-   /152SNIG 38,0 OEF S P",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49240599",
+          "beschreibung": "D01-250-  1,40-   /152SNUV 38,0 OEF S P",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "49185128",
+          "beschreibung": "INSTR    VAR        B.ANL. KE15-140250_D",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002181",
+          "beschreibung": "CCB BOX    R3.21         285X  185X  210",
+          "menge": 1
+        }
+      ],
+      "bild_url": "https://i.ibb.co/7xw4kyd0/860adca540f4.png"
     },
     {
       "bom_id": "49259793",
