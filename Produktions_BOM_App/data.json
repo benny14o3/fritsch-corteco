@@ -15293,7 +15293,7 @@
       "bom_id": "49127996",
       "beschreibung": "MT_EM     BMW",
       "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "Liefert Neutral",
+      "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "49127997",
@@ -15306,7 +15306,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "22 11 2 284 817"
+      "bild_url": ""
     },
     {
       "bom_id": "49127998",
@@ -115447,6 +115447,7 @@
     "19036517": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
     "49107615": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
     "49107617": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
+    "49127997": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49128186": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49181683": "CCB BOX    R3.21         285X  185X  210",
     "49181746": "CCB BOX    R3.21         285X  185X  210",
