@@ -110639,17 +110639,17 @@
       "neutralisierung": "GACO ANGUS IN50499",
       "components": [
         {
-          "artikelnummer": "19016930",
-          "beschreibung": "FOLD-BOX   CORTECO        92X   92X   15",
-          "menge": 1
-        },
-        {
           "artikelnummer": "16006364",
           "beschreibung": "BADUOSF         60,0X  80,0X 12,5   NBR",
           "menge": 1
+        },
+        {
+          "artikelnummer": "19016930",
+          "beschreibung": "FOLD-BOX   CORTECO        92X   92X   15",
+          "menge": 1
         }
       ],
-      "oe_nummern": "RTC3511"
+      "bild_url": ""
     },
     {
       "bom_id": "82510080",
@@ -115496,6 +115496,7 @@
     }
   ],
   "verpackung_map": {
+    "16006364": "92*92*15 / keine Bünd. / 150Stk. in 4.28 + Papier",
     "19016929": "72*72*13 / 10er Bünd. / 300Stk. in 4.28 + Papier",
     "19016930": "92*92*15 / keine Bünd. / 150Stk. in 4.28 + Papier",
     "19016931": "107*107*15 / keine Bünd. / 100Stk in 4.28 +Papier",
