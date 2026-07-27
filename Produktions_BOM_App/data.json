@@ -38942,7 +38942,7 @@
       "bom_id": "49467210",
       "beschreibung": "D01-210-  2,00-   /168SEIC 20,0 OEE S P",
       "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "Liefert Neutral",
+      "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "49450965",
@@ -38960,7 +38960,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "47752045"
+      "bild_url": ""
     },
     {
       "bom_id": "49467668",
@@ -74051,17 +74051,17 @@
       "neutralisierung": "NAK",
       "components": [
         {
-          "artikelnummer": "19016934",
-          "beschreibung": "FOLD-BOX   CORTECO       167X  167X   18",
-          "menge": 1
-        },
-        {
           "artikelnummer": "19615702",
           "beschreibung": "VBYSF 150X165X9/12 (AS) NBR",
           "menge": 1
+        },
+        {
+          "artikelnummer": "19016934",
+          "beschreibung": "FOLD-BOX   CORTECO       167X  167X   18",
+          "menge": 1
         }
       ],
-      "oe_nummern": "040918R1, 126628"
+      "bild_url": "https://i.ibb.co/PGGXZX7M/27a30d47bf93.png"
     },
     {
       "bom_id": "82015738",
@@ -115506,6 +115506,7 @@
     "19035444": "208er / 60 Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "19035445": "245er / 24Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "19036517": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
+    "19615702": "167*167*18 / keine Bünd. / 40Stk. in 4.28 +  Papier",
     "49107615": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
     "49107617": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
     "49127997": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
@@ -115515,6 +115516,7 @@
     "49181683": "CCB BOX    R3.21         285X  185X  210",
     "49181746": "CCB BOX    R3.21         285X  185X  210",
     "49182029": "CCB BOX    R3.21         285X  185X  210",
+    "49185127": "R3.21 + KE15-200210",
     "49185128": "CCB BOX    R3.21         285X  185X  210",
     "49201981": "CCB BOX    R3.21         285X  185X  210",
     "49219037": "CCB BOX    R3.21         285X  185X  210",
@@ -115549,6 +115551,7 @@
     "49434788": "CCB BOX    R3.21         285X  185X  210",
     "49434841": "CCB BOX    R3.21         285X  185X  210",
     "49435514": "208er / 60 Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
+    "49450965": "R3.21 + KE15-200210",
     "49467669": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
     "49482300": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "49483069": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
@@ -115570,6 +115573,7 @@
     "80997321": "220er / 70Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "82329819": "142*142*18 / keine Bünd. / 50Stk. in 4.28 + Papier",
     "92002181": "R3.21",
+    "92002541": "R3.21 + KE15-200210",
     "92003210": "215 X 90 X 70 / 60Stk. in C6.46 / 8 Stk. C6.46 pro Palette",
     "92003371": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "92003741": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
