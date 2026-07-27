@@ -7220,7 +7220,7 @@
       "bom_id": "21652319",
       "beschreibung": "MT_EM     OPEL",
       "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "Liefert Neutral",
+      "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "80002300",
@@ -7238,7 +7238,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "06 84 692, 6 84 692, 90576047"
+      "bild_url": ""
     },
     {
       "bom_id": "21652320",
@@ -113870,10 +113870,22 @@
     },
     {
       "bom_id": "49265021",
-      "beschreibung": "",
+      "beschreibung": "CS     93,0  172,0         16,000   FKM",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
-      "components": []
+      "neutralisierung": "CHO",
+      "components": [
+        {
+          "artikelnummer": "49264990",
+          "beschreibung": "CS     93,0  172,0         16,000   FKM",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "19019929",
+          "beschreibung": "FOLD-BOX   CORTECO       187X  187X   20",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49265046",
@@ -115528,6 +115540,7 @@
     "49240600": "R3.21",
     "49240614": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49260600": "122*122*18 / keine Bünd. / 80Stk. in 4.28",
+    "49264990": "187*187*20/ keine Bünd. / 20Stk. in 4.28",
     "49361428": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49382822": "142*142*18 / keine Bünd. / 50Stk. in 4.28 + Papier",
     "49386242": "BULK NEUTRAL",
@@ -115559,6 +115572,7 @@
     "49482300": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "49483069": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49640765": "in 1.0er setzen",
+    "80002300": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80002898": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80003528": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80003531": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
@@ -115566,6 +115580,7 @@
     "80003985": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80004132": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "80004224": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
+    "80997230": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997232": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
     "80997234": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997235": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
