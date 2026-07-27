@@ -58608,7 +58608,7 @@
       "bom_id": "80001847",
       "beschreibung": "MT_EM     RENAU",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
+      "neutralisierung": "1xGummi PA-Logo",
       "components": [
         {
           "artikelnummer": "80003978",
@@ -58621,7 +58621,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "82 00 239 893, 82 00 487 916"
+      "bild_url": "https://i.ibb.co/DP4mg2Qp/a607fc098805.png"
     },
     {
       "bom_id": "80001848",
@@ -115559,6 +115559,7 @@
     "80002898": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80003528": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80003531": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "80003978": "215 X 90 X 70 / 60Stk. in C6.46 / 8 Stk. C6.46 pro Palette",
     "80003985": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80004132": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "80004224": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
