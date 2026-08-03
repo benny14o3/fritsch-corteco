@@ -113373,10 +113373,22 @@
     },
     {
       "bom_id": "49241270",
-      "beschreibung": "",
+      "beschreibung": "BASLRDX7        31,0X  55,0X  7,0   FKM",
       "arbeitsanweisung": "BOM to Neutralize+Pack-Machine",
-      "neutralisierung": "",
-      "components": []
+      "neutralisierung": "CHO    16282",
+      "components": [
+        {
+          "artikelnummer": "49241269",
+          "beschreibung": "B1BASLRDX7      40,0X  62,0X 10,0   FKM",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "19016929",
+          "beschreibung": "FOLD-BOX   CORTECO        72X   72X   13",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49258080",
@@ -115553,6 +115565,7 @@
     "49240600": "R3.21",
     "49240613": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49240614": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49241269": "72*72*13 / 10er Bünd. / 300Stk. in 4.28 + Papier",
     "49260600": "122*122*18 / keine Bünd. / 80Stk. in 4.28",
     "49264990": "187*187*20/ keine Bünd. / 20Stk. in 4.28",
     "49361428": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
