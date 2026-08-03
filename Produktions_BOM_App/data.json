@@ -112737,10 +112737,17 @@
     },
     {
       "bom_id": "49220478",
-      "beschreibung": "",
-      "arbeitsanweisung": "BOM to Kit",
+      "beschreibung": "VA09   10,0-    12,80/37,00X25,00   FKM",
+      "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49220388",
+          "beschreibung": "VA09   10,0-    12,80/37,00X25,00   FKM",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49220479",
@@ -115572,6 +115579,7 @@
     "49185128": "CCB BOX    R3.21         285X  185X  210",
     "49201981": "CCB BOX    R3.21         285X  185X  210",
     "49219037": "CCB BOX    R3.21         285X  185X  210",
+    "49220388": "100 Stk. pro Tüte",
     "49237112": "ohne Umkartons auf Palette",
     "49237114": "Kartons direkt auf Palette",
     "49240600": "R3.21",
