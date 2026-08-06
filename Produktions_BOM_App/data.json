@@ -113261,10 +113261,22 @@
     },
     {
       "bom_id": "49238537",
-      "beschreibung": "",
+      "beschreibung": "MT_GB     VAG",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
-      "components": []
+      "neutralisierung": "1 x OE-Logo + 1 x OE-Nr. mit QR-Code",
+      "components": [
+        {
+          "artikelnummer": "49238538",
+          "beschreibung": "MT_GB     VAG                       BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "80997241",
+          "beschreibung": "CCB BOX    CORTECO       270X  200X  120",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49238616",
@@ -115582,6 +115594,7 @@
     "49220388": "100 Stk. pro Tüte",
     "49237112": "ohne Umkartons auf Palette",
     "49237114": "Kartons direkt auf Palette",
+    "49238538": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49240600": "R3.21",
     "49240613": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49240614": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
