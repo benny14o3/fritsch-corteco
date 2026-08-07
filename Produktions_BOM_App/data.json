@@ -114115,10 +114115,22 @@
     },
     {
       "bom_id": "49266488",
-      "beschreibung": "",
+      "beschreibung": "MT_EM",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49266489",
+          "beschreibung": "MT_EM",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "80997235",
+          "beschreibung": "CCB BOX    CORTECO       136X   71X  132",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49266492",
@@ -115615,6 +115627,7 @@
     "49260600": "122*122*18 / keine Bünd. / 80Stk. in 4.28",
     "49264990": "187*187*20/ keine Bünd. / 20Stk. in 4.28",
     "49265678": "165*165*35 /keine Bünd. / 20Stk. in 4.28 + Papier",
+    "49266489": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49361428": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49361878": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49382822": "142*142*18 / keine Bünd. / 50Stk. in 4.28 + Papier",
