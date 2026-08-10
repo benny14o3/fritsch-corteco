@@ -111617,10 +111617,17 @@
     },
     {
       "bom_id": "49136581",
-      "beschreibung": "",
+      "beschreibung": "VA09    5,5-    10,50/24,30X13,60   FPM",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49136305",
+          "beschreibung": "VA09    5,5-    10,50/24,30X13,60   FPM",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49136583",
@@ -115631,6 +115638,7 @@
     "49127997": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49128182": "400er / 17Stk. In C8.46 / 6Stk. C8.46 pro Pal.",
     "49128186": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49136305": "100 Stk. pro Tüte",
     "49139085": "72*72*13 / 10er Bünd. / 300Stk. in 4.28 + Papier",
     "49181683": "CCB BOX    R3.21         285X  185X  210",
     "49181746": "CCB BOX    R3.21         285X  185X  210",
