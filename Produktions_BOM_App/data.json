@@ -113423,10 +113423,22 @@
     },
     {
       "bom_id": "49240435",
-      "beschreibung": "",
+      "beschreibung": "MT_GB     FORD",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
-      "components": []
+      "neutralisierung": "1 x OE - Logo mit Nr. + 1 x OE - Nr.",
+      "components": [
+        {
+          "artikelnummer": "49240437",
+          "beschreibung": "MT_GB     FORD                      BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92003741",
+          "beschreibung": "FOLD-BOX   CORTECO       148X  148X  190",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49241270",
@@ -115648,6 +115660,7 @@
     "49238926": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49238927": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49238928": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49240437": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49240600": "R3.21",
     "49240613": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49240614": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
