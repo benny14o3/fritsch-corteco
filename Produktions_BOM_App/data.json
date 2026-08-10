@@ -113315,10 +113315,22 @@
     },
     {
       "bom_id": "49238922",
-      "beschreibung": "",
+      "beschreibung": "MT_RAD    VAG",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
-      "components": []
+      "neutralisierung": "2 x OE - Logo + 1 x QR - Code + 2 x OE - Nr.",
+      "components": [
+        {
+          "artikelnummer": "49238926",
+          "beschreibung": "MT_RAD    VAG                       BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "80997237",
+          "beschreibung": "CCB BOX    CORTECO       148X  148X  120",
+          "menge": 1
+        }
+      ],
+      "bild_url": "https://i.ibb.co/8npzMsgH/f86a394beda0.png"
     },
     {
       "bom_id": "49238923",
@@ -115619,6 +115631,7 @@
     "49237112": "ohne Umkartons auf Palette",
     "49237114": "Kartons direkt auf Palette",
     "49238538": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49238926": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49238928": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49240600": "R3.21",
     "49240613": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
