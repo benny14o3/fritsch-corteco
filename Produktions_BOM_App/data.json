@@ -113306,10 +113306,22 @@
     },
     {
       "bom_id": "49238883",
-      "beschreibung": "",
+      "beschreibung": "MT_EM     VAG",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
-      "components": []
+      "neutralisierung": "1 x OE  -Logo + 1 x OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49238885",
+          "beschreibung": "MT_EM     VAG                       BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "80997237",
+          "beschreibung": "CCB BOX    CORTECO       148X  148X  120",
+          "menge": 1
+        }
+      ],
+      "bild_url": "https://i.ibb.co/rGT5LMTN/51acc15c0db6.jpg"
     },
     {
       "bom_id": "49238884",
@@ -115700,6 +115712,7 @@
     "49237112": "ohne Umkartons auf Palette",
     "49237114": "Kartons direkt auf Palette",
     "49238538": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49238885": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49238886": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49238926": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49238927": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
