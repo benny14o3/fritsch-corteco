@@ -113754,10 +113754,22 @@
     },
     {
       "bom_id": "49259798",
-      "beschreibung": "",
+      "beschreibung": "D01-240-  1,00-   /137SEUV 25,0 EEF S P",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49469061",
+          "beschreibung": "D01-240-  1,00-   /137SEUV 25,0 EEF S P",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002181",
+          "beschreibung": "CCB BOX    R3.21         285X  185X  210",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49259800",
