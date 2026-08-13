@@ -113759,10 +113759,27 @@
     },
     {
       "bom_id": "49259793",
-      "beschreibung": "",
+      "beschreibung": "D01-250-  2,80-   /168SEIC 45,0 KOF S P",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49469060",
+          "beschreibung": "D01-250-  2,80-   /168SEIC 45,0 KOF S P",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002181",
+          "beschreibung": "CCB BOX    R3.21         285X  185X  210",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "49185129",
+          "beschreibung": "INSTR    VAR        B.ANL. KE15-280250_D",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49259798",
@@ -115723,6 +115740,7 @@
     "49182029": "CCB BOX    R3.21         285X  185X  210",
     "49185127": "R3.21 + KE15-200210",
     "49185128": "CCB BOX    R3.21         285X  185X  210",
+    "49185129": "R3.21         285X  185X  210",
     "49185973": "162er / 100Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "49185975": "162er / 100Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "49201981": "CCB BOX    R3.21         285X  185X  210",
@@ -115775,6 +115793,7 @@
     "49435514": "208er / 60 Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "49450965": "R3.21 + KE15-200210",
     "49467669": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
+    "49469060": "R3.21         285X  185X  210",
     "49482300": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "49483069": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49640765": "in 1.0er setzen",
@@ -115797,7 +115816,7 @@
     "80997242": "400er / 17Stk. In C8.46 / 6Stk. C8.46 pro Pal.",
     "80997321": "220er / 70Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "82329819": "142*142*18 / keine Bünd. / 50Stk. in 4.28 + Papier",
-    "92002181": "R3.21",
+    "92002181": "R3.21         285X  185X  210",
     "92002541": "R3.21 + KE15-200210",
     "92003210": "215 X 90 X 70 / 60Stk. in C6.46 / 8 Stk. C6.46 pro Palette",
     "92003371": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
