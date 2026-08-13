@@ -115663,6 +115663,25 @@
         }
       ],
       "bild_url": "https://i.ibb.co/WWcrdw9R/866d305ea4f6.jpg"
+    },
+    {
+      "bom_id": "80000660",
+      "beschreibung": "D01-160-  0,32-   / 92SEIA 75,0 OOO N W",
+      "arbeitsanweisung": "",
+      "neutralisierung": "",
+      "components": [
+        {
+          "artikelnummer": "49240597",
+          "beschreibung": "D01-200-  0,32-   / 92SXIC 80,0 OOO N W",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92007660",
+          "beschreibung": "FOLD-BOX   CORTECO       135X  187X  172",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     }
   ],
   "verpackung_map": {
@@ -115717,6 +115736,7 @@
     "49238927": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49238928": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49240437": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49240597": "FOLD BOX 135X  187X  172X / 135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49240600": "R3.21",
     "49240613": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49240614": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
@@ -115783,7 +115803,7 @@
     "92003371": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "92003741": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "92003780": "SLEEVE 457X  352X  278 /",
-    "92007660": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "92007660": "FOLD BOX 135X  187X  172X / 135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "92008800": "in 1.0er setzen",
     "92008801": "in 1.0er setzen",
     "92009100": "Kartons direkt auf Palette",
