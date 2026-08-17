@@ -11672,7 +11672,7 @@
       "bom_id": "21653155",
       "beschreibung": "MT_LS     FIAT",
       "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "Liefert Neutral",
+      "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "80002646",
@@ -11685,7 +11685,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "46473041"
+      "bild_url": ""
     },
     {
       "bom_id": "21653157",
@@ -39274,11 +39274,11 @@
       "components": [
         {
           "artikelnummer": "19018204",
-          "beschreibung": "VSB     6,0-    11,00/ 6,00X10,20   FKM",
+          "beschreibung": "VSB 6X11X6/10,2 FPM",
           "menge": 1
         }
       ],
-      "bild_url": ""
+      "oe_nummern": "2222422000, 2222423500, 9091302066, 9091302067, 9091302079, 9091302081, 9091302087, 9091302089, 9091302090, 9091302103"
     },
     {
       "bom_id": "49472003",
@@ -115713,7 +115713,6 @@
     "19017977": "50*50*18 / 10er Bünd. / 400Stk. in 4.28",
     "19018092": "165*165*35 /keine Bünd. / 20Stk. in 4.28 + Papier",
     "19018093": "105*105*26 / keine Bünd. / 60Stk. in 4.28",
-    "19018204": "100 Stk. pro Tüte",
     "19019929": "187*187*20/ keine Bünd. / 20Stk. in 4.28",
     "19019930": "206*206*22 / keine Bünd. / 20Stk. in 4.28",
     "19025872": "60*60*40 / keine Bünd. / 144Stk. in 4.28",
@@ -115800,6 +115799,7 @@
     "49483069": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49640765": "in 1.0er setzen",
     "80002300": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "80002646": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
     "80002898": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80003528": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80003531": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
