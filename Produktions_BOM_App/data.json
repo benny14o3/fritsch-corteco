@@ -57706,7 +57706,7 @@
       "bom_id": "80001797",
       "beschreibung": "MT_GB     FIAT",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
+      "neutralisierung": "Vorneutralisiert+1xGummi \"OE-Nr.46800412\"",
       "components": [
         {
           "artikelnummer": "80003933",
@@ -57719,7 +57719,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "46800412"
+      "bild_url": "https://i.ibb.co/HLCfXXGV/ae748355a4b7.png"
     },
     {
       "bom_id": "80001799",
@@ -115803,6 +115803,7 @@
     "80002898": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80003528": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80003531": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "80003933": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80003978": "215 X 90 X 70 / 60Stk. in C6.46 / 8 Stk. C6.46 pro Palette",
     "80003985": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80004132": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
