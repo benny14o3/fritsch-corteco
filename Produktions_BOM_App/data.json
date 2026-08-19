@@ -114590,10 +114590,27 @@
     },
     {
       "bom_id": "49278532",
-      "beschreibung": "",
+      "beschreibung": "D01-350-  2,00-   /156SEIC 55,0 AAF S P",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49260544",
+          "beschreibung": "D01-350-  2,00-   /156SEIC 55,0 AAF S P",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002181",
+          "beschreibung": "CCB BOX    R3.21         285X  185X  210",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "49260811",
+          "beschreibung": "INSTR    VAR        B.ANL. KE15-200350_C",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49278535",
@@ -115764,7 +115781,9 @@
     "49240613": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49240614": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49241269": "72*72*13 / 10er Bünd. / 300Stk. in 4.28 + Papier",
+    "49260544": "R3.21         285X  185X  210",
     "49260600": "122*122*18 / keine Bünd. / 80Stk. in 4.28",
+    "49260811": "R3.21         285X  185X  210",
     "49264990": "187*187*20/ keine Bünd. / 20Stk. in 4.28",
     "49265678": "165*165*35 /keine Bünd. / 20Stk. in 4.28 + Papier",
     "49266489": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
