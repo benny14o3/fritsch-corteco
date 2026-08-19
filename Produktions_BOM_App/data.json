@@ -81580,7 +81580,7 @@
       "neutralisierung": "ZF - 0770080442",
       "components": [
         {
-          "artikelnummer": "434455",
+          "artikelnummer": "49495961",
           "beschreibung": "B1BAFSL1SFDRRx19,0x33,3x8,0 72NBR",
           "menge": 1
         },
@@ -115719,7 +115719,6 @@
     }
   ],
   "verpackung_map": {
-    "434455": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "16006364": "92*92*15 / keine Bünd. / 150Stk. in 4.28 + Papier",
     "19016928": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "19016929": "72*72*13 / 10er Bünd. / 300Stk. in 4.28 + Papier",
@@ -115820,6 +115819,7 @@
     "49469060": "R3.21         285X  185X  210",
     "49482300": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "49483069": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49495961": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "49640765": "in 1.0er setzen",
     "80002300": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80002646": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
