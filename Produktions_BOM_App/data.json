@@ -114532,10 +114532,22 @@
     },
     {
       "bom_id": "49278428",
-      "beschreibung": "",
+      "beschreibung": "D01-160-  0,50-   /103SNUV 85,0 DOO S P",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49260546",
+          "beschreibung": "D01-160-  0,50-   /103SNUV 85,0 DOO S P",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92007660",
+          "beschreibung": "FOLD-BOX   CORTECO       135X  187X  172",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49278429",
@@ -115794,6 +115806,7 @@
     "49240614": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49241269": "72*72*13 / 10er Bünd. / 300Stk. in 4.28 + Papier",
     "49260544": "R3.21         285X  185X  210",
+    "49260546": "FOLD BOX 135X  187X  172X / 135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49260600": "122*122*18 / keine Bünd. / 80Stk. in 4.28",
     "49260811": "R3.21         285X  185X  210",
     "49264990": "187*187*20/ keine Bünd. / 20Stk. in 4.28",
