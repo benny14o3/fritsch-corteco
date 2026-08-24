@@ -114516,8 +114516,13 @@
       "neutralisierung": "",
       "components": [
         {
-          "artikelnummer": "92009101",
-          "beschreibung": "FOLD-BOX CORTECO 400X 230X 278",
+          "artikelnummer": "49267642",
+          "beschreibung": "STS_AIR   IVECO                     BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92009100",
+          "beschreibung": "FOLD-BOX   CORTECO       380X  160X  194",
           "menge": 1
         }
       ],
@@ -115812,6 +115817,7 @@
     "49264990": "187*187*20/ keine Bünd. / 20Stk. in 4.28",
     "49265678": "165*165*35 /keine Bünd. / 20Stk. in 4.28 + Papier",
     "49266489": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49267642": "Kartons direkt auf Palette",
     "49361428": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49361878": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49382822": "142*142*18 / keine Bünd. / 50Stk. in 4.28 + Papier",
@@ -115879,7 +115885,6 @@
     "92007660": "FOLD BOX 135X  187X  172X / 135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "92008800": "in 1.0er setzen",
     "92008801": "in 1.0er setzen",
-    "92009100": "Kartons direkt auf Palette",
-    "92009101": "Kartons direkt auf Palette"
+    "92009100": "Kartons direkt auf Palette"
   }
 }
