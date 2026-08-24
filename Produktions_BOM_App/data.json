@@ -23171,7 +23171,7 @@
       "bom_id": "49361589",
       "beschreibung": "MT_EM     FORD",
       "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "2xGummi \"Paulstra-Logo + NR 307396\"",
+      "neutralisierung": "1 x OE-LOGO \"FOMOCO\"\t\tVERSTECKT",
       "components": [
         {
           "artikelnummer": "49361588",
@@ -23184,7 +23184,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "1766314, 2113114, CV61 6F012 AD, CV61 6F012 EB, CV61 6F012 EC"
+      "bild_url": ""
     },
     {
       "bom_id": "49361591",
@@ -115863,6 +115863,7 @@
     "49267620": "Kartons direkt auf Palette",
     "49267642": "Kartons direkt auf Palette",
     "49361428": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49361588": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk.",
     "49361878": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49382822": "142*142*18 / keine Bünd. / 50Stk. in 4.28 + Papier",
     "49386242": "BULK NEUTRAL",
@@ -115917,6 +115918,7 @@
     "80997239": "162er / 100Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "80997241": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997242": "400er / 17Stk. In C8.46 / 6Stk. C8.46 pro Pal.",
+    "80997243": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk.",
     "80997321": "220er / 70Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "82329819": "142*142*18 / keine Bünd. / 50Stk. in 4.28 + Papier",
     "92002180": "R3.14",
