@@ -114507,8 +114507,13 @@
       "neutralisierung": "",
       "components": [
         {
+          "artikelnummer": "49267620",
+          "beschreibung": "STS_AIR   IVECO                     BULK",
+          "menge": 1
+        },
+        {
           "artikelnummer": "92009101",
-          "beschreibung": "FOLD-BOX CORTECO 400X 230X 278",
+          "beschreibung": "FOLD-BOX   CORTECO       400X  230X  278",
           "menge": 1
         }
       ],
@@ -115836,6 +115841,7 @@
     "49265678": "165*165*35 /keine Bünd. / 20Stk. in 4.28 + Papier",
     "49266489": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49267616": "Kartons direkt auf Palette",
+    "49267620": "Kartons direkt auf Palette",
     "49267642": "Kartons direkt auf Palette",
     "49361428": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49361878": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
