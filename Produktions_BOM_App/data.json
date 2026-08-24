@@ -114530,10 +114530,22 @@
     },
     {
       "bom_id": "49278427",
-      "beschreibung": "",
+      "beschreibung": "D01-210-  1,00-   /136SEUV 30,0 OEE N P",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49260543",
+          "beschreibung": "D01-210-  1,00-   /136SEUV 30,0 OEE N P",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002180",
+          "beschreibung": "CCB BOX    R3.14         285X  185X  140",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49278428",
@@ -115810,6 +115822,7 @@
     "49240613": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49240614": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49241269": "72*72*13 / 10er Bünd. / 300Stk. in 4.28 + Papier",
+    "49260543": "R3.14",
     "49260544": "R3.21         285X  185X  210",
     "49260546": "FOLD BOX 135X  187X  172X / 135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49260600": "122*122*18 / keine Bünd. / 80Stk. in 4.28",
@@ -115875,7 +115888,7 @@
     "80997242": "400er / 17Stk. In C8.46 / 6Stk. C8.46 pro Pal.",
     "80997321": "220er / 70Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "82329819": "142*142*18 / keine Bünd. / 50Stk. in 4.28 + Papier",
-    "92002180": "R3.14         285X  185X  140",
+    "92002180": "R3.14",
     "92002181": "R3.21         285X  185X  210",
     "92002541": "R3.21 + KE15-200210",
     "92003210": "215 X 90 X 70 / 60Stk. in C6.46 / 8 Stk. C6.46 pro Palette",
