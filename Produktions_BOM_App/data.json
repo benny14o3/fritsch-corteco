@@ -113437,10 +113437,22 @@
     },
     {
       "bom_id": "49240257",
-      "beschreibung": "",
+      "beschreibung": "MT_GB     FIAT",
       "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "",
-      "components": []
+      "neutralisierung": "1 x OE - Aufkleber mit QR - Code und OE - Nr.",
+      "components": [
+        {
+          "artikelnummer": "49240258",
+          "beschreibung": "MT_GB     FIAT                      BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92003210",
+          "beschreibung": "CCB BOX    CORTECO       215X   90X   70",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49240264",
@@ -115898,6 +115910,7 @@
     "49238926": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49238927": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49238928": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49240258": "215 X 90 X 70 / 60Stk. in C6.46 / 8 Stk. C6.46 pro Palette",
     "49240265": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49240437": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49240597": "FOLD BOX 135X  187X  172X / 135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
