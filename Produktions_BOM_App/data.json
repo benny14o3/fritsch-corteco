@@ -114653,10 +114653,22 @@
     },
     {
       "bom_id": "49278463",
-      "beschreibung": "",
+      "beschreibung": "D01-250-  0,16-   / 75SNUV  1,0 OBC S P",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49260562",
+          "beschreibung": "D01-250-  0,16-   / 75SNUV  1,0 OBC S P",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92007660",
+          "beschreibung": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49278469",
