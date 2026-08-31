@@ -114700,10 +114700,22 @@
     },
     {
       "bom_id": "49278531",
-      "beschreibung": "",
+      "beschreibung": "D01-200-  1,00-   /136SNIC 40,0 BOF S P",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49260567",
+          "beschreibung": "D01-200-  1,00-   /136SNIC 40,0 BOF S P",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002181",
+          "beschreibung": "CCB BOX    R3.21         285X  185X  210",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49278532",
@@ -115967,6 +115979,7 @@
     "49260549": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49260550": "CCB BOX    R3.21         285X  185X  210",
     "49260562": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49260567": "CCB BOX    R3.21         285X  185X  210",
     "49260600": "122*122*18 / keine Bünd. / 80Stk. in 4.28",
     "49260811": "R3.21         285X  185X  210",
     "49264990": "187*187*20/ keine Bünd. / 20Stk. in 4.28",
