@@ -114719,10 +114719,27 @@
     },
     {
       "bom_id": "49278535",
-      "beschreibung": "",
+      "beschreibung": "D01-330-  1,40-   /156SEIC 55,0 AAF S P",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49260550",
+          "beschreibung": "D01-330-  1,40-   /156SEIC 55,0 AAF S P",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002181",
+          "beschreibung": "CCB BOX    R3.21         285X  185X  210",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "49278534",
+          "beschreibung": "INSTR    VAR        B.ANL. KE15-140330_C",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49278536",
@@ -115936,6 +115953,7 @@
     "49260546": "FOLD BOX 135X  187X  172X / 135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49260547": "FOLD BOX 135X  187X  172X / 135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49260549": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49260550": "CCB BOX    R3.21         285X  185X  210",
     "49260600": "122*122*18 / keine Bünd. / 80Stk. in 4.28",
     "49260811": "R3.21         285X  185X  210",
     "49264990": "187*187*20/ keine Bünd. / 20Stk. in 4.28",
@@ -115945,6 +115963,7 @@
     "49267618": "Kartons direkt auf Palette",
     "49267620": "Kartons direkt auf Palette",
     "49267642": "Kartons direkt auf Palette",
+    "49278534": "CCB BOX    R3.21         285X  185X  210",
     "49361428": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49361588": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk.",
     "49361878": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
@@ -116010,7 +116029,7 @@
     "80997321": "220er / 70Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "82329819": "142*142*18 / keine Bünd. / 50Stk. in 4.28 + Papier",
     "92002180": "R3.14",
-    "92002181": "R3.21         285X  185X  210",
+    "92002181": "CCB BOX    R3.21         285X  185X  210",
     "92002541": "R3.21 + KE15-200210",
     "92003210": "215 X 90 X 70 / 60Stk. in C6.46 / 8 Stk. C6.46 pro Palette",
     "92003371": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
