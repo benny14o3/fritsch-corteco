@@ -115057,10 +115057,17 @@
     },
     {
       "bom_id": "49490075",
-      "beschreibung": "",
+      "beschreibung": "HTB5Y (AU)      41,0X  61,0X  8,1 ACM",
       "arbeitsanweisung": "BOM to Neutralize",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49139086",
+          "beschreibung": "B1SLSFRSX6      41,0X  61,0X  8,1   ACM",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49490076",
