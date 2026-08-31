@@ -114672,10 +114672,22 @@
     },
     {
       "bom_id": "49278469",
-      "beschreibung": "",
+      "beschreibung": "D01-210-  1,00-   /136SNUV 10,0 FAF S P",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49260563",
+          "beschreibung": "D01-210-  1,00-   /136SNUV 10,0 FAF S P",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002180",
+          "beschreibung": "CCB BOX    R3.14         285X  185X  140",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49278492",
@@ -115979,6 +115991,7 @@
     "49260549": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49260550": "CCB BOX    R3.21         285X  185X  210",
     "49260562": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49260563": "CCB BOX    R3.14         285X  185X  140",
     "49260567": "CCB BOX    R3.21         285X  185X  210",
     "49260600": "122*122*18 / keine Bünd. / 80Stk. in 4.28",
     "49260811": "R3.21         285X  185X  210",
@@ -116054,7 +116067,7 @@
     "80997243": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk.",
     "80997321": "220er / 70Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "82329819": "142*142*18 / keine Bünd. / 50Stk. in 4.28 + Papier",
-    "92002180": "R3.14",
+    "92002180": "CCB BOX    R3.14         285X  185X  140",
     "92002181": "CCB BOX    R3.21         285X  185X  210",
     "92002541": "R3.21 + KE15-200210",
     "92003210": "215 X 90 X 70 / 60Stk. in C6.46 / 8 Stk. C6.46 pro Palette",
