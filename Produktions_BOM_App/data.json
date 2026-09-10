@@ -19566,11 +19566,12 @@
           "menge": 1
         },
         {
-          "artikelnummer": "19016929",
-          "beschreibung": "FOLD-BOX   CORTECO        72X   72X   13",
+          "artikelnummer": "19016930",
+          "beschreibung": "FOLD-BOX   CORTECO        92X   92X   15",
           "menge": 1
         }
-      ]
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49238451",
@@ -115956,7 +115957,6 @@
   "verpackung_map": {
     "16006364": "92*92*15 / keine Bünd. / 150Stk. in 4.28 + Papier",
     "19016928": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
-    "19016929": "72*72*13 / 10er Bünd. / 300Stk. in 4.28 + Papier",
     "19016930": "92*92*15 / keine Bünd. / 150Stk. in 4.28 + Papier",
     "19016931": "107*107*15 / keine Bünd. / 100Stk in 4.28 +Papier",
     "19016932": "122*122*18 / keine Bünd. / 80Stk. in 4.28",
@@ -116046,6 +116046,7 @@
     "49361588": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk.",
     "49361878": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49382822": "142*142*18 / keine Bünd. / 50Stk. in 4.28 + Papier",
+    "49383025": "92*92*15 / keine Bünd. / 150Stk. in 4.28 + Papier",
     "49386242": "BULK NEUTRAL",
     "49388269": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "49388290": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
