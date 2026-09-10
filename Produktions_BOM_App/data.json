@@ -12959,9 +12959,9 @@
     },
     {
       "bom_id": "49110138",
-      "beschreibung": "nan",
-      "arbeitsanweisung": "BOM to Neutralize+Pack-Machine",
-      "neutralisierung": "simboli Hyundai e Kia",
+      "beschreibung": "B2SLSFRSX6      40,0X  61,0X 12,6   ACM",
+      "arbeitsanweisung": "BOM to Pack-Machine",
+      "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "49110137",
@@ -12974,7 +12974,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "4311939030, 4311939060"
+      "bild_url": ""
     },
     {
       "bom_id": "49110189",
