@@ -52649,7 +52649,7 @@
       "neutralisierung": "",
       "components": [
         {
-          "artikelnummer": "80003544",
+          "artikelnummer": "80003991",
           "beschreibung": "MT_EM     VAG                       BULK",
           "menge": 1
         },
@@ -52659,7 +52659,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "1J0 199 851 Q, 1J0 199 851 R"
+      "bild_url": ""
     },
     {
       "bom_id": "80001324",
@@ -116095,6 +116095,7 @@
     "80003933": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80003978": "215 X 90 X 70 / 60Stk. in C6.46 / 8 Stk. C6.46 pro Palette",
     "80003985": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "80003991": "400er / 17Stk. In C8.46 / 6Stk. C8.46 pro Pal.",
     "80004132": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "80004224": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "80997230": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
