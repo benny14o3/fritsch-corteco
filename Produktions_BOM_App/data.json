@@ -22966,7 +22966,7 @@
       "bom_id": "49361564",
       "beschreibung": "MT_EM     OPEL/RENAU/VAUXH",
       "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "1xGummi PA-Logo",
+      "neutralisierung": "1xGummi 1x Metall",
       "components": [
         {
           "artikelnummer": "49361563",
@@ -22979,7 +22979,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "11 21 081 80R, 11231-00Q0D, 11231-00Q1J, 44 19 377, 93197459"
+      "bild_url": "https://i.ibb.co/tTvjG5Yg/db1139467314.png"
     },
     {
       "bom_id": "49361566",
@@ -116045,6 +116045,7 @@
     "49267642": "Kartons direkt auf Palette",
     "49278534": "CCB BOX    R3.21         285X  185X  210",
     "49361428": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49361563": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk.",
     "49361588": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk.",
     "49361878": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49382822": "142*142*18 / keine Bünd. / 50Stk. in 4.28 + Papier",
