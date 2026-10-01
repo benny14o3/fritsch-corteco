@@ -111863,11 +111863,23 @@
       "components": []
     },
     {
-      "bom_id": "49180054",
-      "beschreibung": "",
-      "arbeitsanweisung": "BOM to Pack-Machine",
-      "neutralisierung": "",
-      "components": []
+      "bom_id": "49180055",
+      "beschreibung": "HTC9Y           32,0X  50,0X 11,0   ACM",
+      "arbeitsanweisung": "BOM to Neutralize+Pack-Machine",
+      "neutralisierung": "806732210",
+      "components": [
+        {
+          "artikelnummer": "49180054",
+          "beschreibung": "HTC9Y           32,0X  50,0X 11,0   ACM",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "19025872",
+          "beschreibung": "FOLD-BOX   CORTECO        60X   60X   40",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49180058",
@@ -116023,6 +116035,7 @@
     "49139085": "72*72*13 / 10er Bünd. / 300Stk. in 4.28 + Papier",
     "49179576": "100 Stk. pro Tüte",
     "49179579": "100 Stk. pro Tüte",
+    "49180054": "60*60*40 / keine Bünd. / 144Stk. in 4.28",
     "49181683": "CCB BOX    R3.21         285X  185X  210",
     "49181746": "CCB BOX    R3.21         285X  185X  210",
     "49182029": "CCB BOX    R3.21         285X  185X  210",
