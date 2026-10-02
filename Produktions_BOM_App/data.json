@@ -41716,7 +41716,7 @@
     {
       "bom_id": "49497707",
       "beschreibung": "BASLRSX7        72,0X  98,0X  8,0   FPM",
-      "arbeitsanweisung": "BOM to Neutralize+Pack-Machine",
+      "arbeitsanweisung": "BOM to Pack-Machine",
       "neutralisierung": "",
       "components": [
         {
@@ -41730,7 +41730,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "2144303010, 2144303011"
+      "bild_url": ""
     },
     {
       "bom_id": "49498222",
@@ -116128,6 +116128,7 @@
     "49483069": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49484333": "122*122*18 / keine Bünd. / 80Stk. in 4.28",
     "49495961": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
+    "49497706": "107*107*15 / keine Bünd. / 100Stk in 4.28 +Papier",
     "49497933": "72*72*13 / 10er Bünd. / 300Stk. in 4.28 + Papier",
     "49498402": "92*92*15 / keine Bünd. / 150Stk. in 4.28 + Papier",
     "49640765": "in 1.0er setzen",
