@@ -20742,7 +20742,7 @@
       "bom_id": "49358168",
       "beschreibung": "MT_TSM    FIAT/OPEL",
       "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "1xGummi",
+      "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "49358167",
@@ -20755,7 +20755,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "12 793 902, 13 188 763, 13178147, 13188763, 24 435 884, 3 44 536, 3 44 537, 51755688"
+      "bild_url": ""
     },
     {
       "bom_id": "49358169",
@@ -116085,6 +116085,7 @@
     "49267620": "Kartons direkt auf Palette",
     "49267642": "Kartons direkt auf Palette",
     "49278534": "CCB BOX    R3.21         285X  185X  210",
+    "49358167": "162er / 100Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "49361428": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49361563": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk.",
     "49361588": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk.",
