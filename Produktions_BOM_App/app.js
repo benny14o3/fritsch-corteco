@@ -753,6 +753,8 @@ function renderUploadModal(auftraege, opts = {}) {
 
   body.innerHTML = `
     ${opts.info ? `<div style="margin-bottom:12px;padding:10px;border-left:4px solid #1e3a8a;background:#e0e7ff;font-size:14px;">${opts.info}</div>` : ""}
+    <label class="modal-label" for="uploadKommentar">Kommentar (optional – wird groß auf jeden Auftrag gedruckt)</label>
+    <input id="uploadKommentar" class="modal-input" placeholder="z. B. EILIG" autocomplete="off" style="margin-bottom:12px;">
     <div style="margin-bottom:12px;padding:10px;border:2px dashed #1e3a8a;border-radius:10px;background:#fff;text-align:center;">
       <div style="font-weight:700;color:#1e3a8a;">🖨 Zum Drucken diesen Code scannen</div>
       <svg id="printBarcode"></svg>
@@ -831,10 +833,11 @@ document.addEventListener("keydown", e => {
   e.preventDefault();
   e.stopPropagation();
 
-  // mitgetippten Befehl (inkl. evtl. Scanner-Präfix) aus dem Feld entfernen
+  // mitgetippten Befehl (inkl. evtl. Scanner-Präfix wie "]C0") aus dem Feld entfernen –
+  // nur am Ende, damit ein schon eingetippter Kommentar erhalten bleibt
   const feld = document.activeElement;
   if (feld && typeof feld.value === "string") {
-    feld.value = feld.value.replace(new RegExp("\\S*" + PRINT_COMMAND, "i"), "");
+    feld.value = feld.value.replace(new RegExp("(\\][A-Za-z]\\d)?" + PRINT_COMMAND + "$", "i"), "");
     if (feld.id === "searchInput") runSearch();
   }
 
@@ -866,7 +869,10 @@ function printSelected(mode, opts = {}) {
   const selected = checked.map(i => window._uploadAuftraege[i]);
   if (mode === "tabelle") { printAsTabelle(selected); return; }
 
-  const kommentar = opts.auto ? "" : (prompt("Kommentar (optional):", "") || "");
+  const kommentarFeld = document.getElementById("uploadKommentar");
+  const kommentar = kommentarFeld
+    ? kommentarFeld.value.trim().replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    : "";
 
   const pages = selected.map(a => {
     const bom = a.bom;
