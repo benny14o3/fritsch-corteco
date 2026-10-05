@@ -790,7 +790,7 @@ function renderUploadModal(auftraege, opts = {}) {
         <th style="width:32px;"></th>
         <th>BOM</th><th>Beschreibung</th>
         <th style="width:90px;">Menge</th>
-        <th>Verpackungsanweisung</th><th>Status</th>
+        <th>Verpackungsanweisung</th><th>Neutralisierung</th><th>Status</th>
       </tr></thead>
       <tbody>
         ${auftraege.map((a, i) => {
@@ -804,6 +804,10 @@ function renderUploadModal(auftraege, opts = {}) {
             <td><input type="number" class="comp-input upload-menge" data-idx="${i}"
               value="${a.menge}" min="1" style="width:80px;text-align:center;font-weight:700;"></td>
             <td style="font-size:13px;color:#92400e;">${verpack || '<span style="color:#d1d5db;">–</span>'}</td>
+            <td style="font-size:13px;">${!a.bom ? '<span style="color:#d1d5db;">–</span>'
+              : a.bom.neutralisierung
+                ? `<span style="color:#b91c1c;font-weight:700;">⚠ ${a.bom.neutralisierung}</span>`
+                : '<span style="color:#6b7280;">Nein</span>'}</td>
             <td>${a.bom
               ? '<span style="color:#15803d;font-weight:700;">✓</span>'
               : '<span style="color:#b91c1c;font-weight:700;">⚠</span>'}</td>
