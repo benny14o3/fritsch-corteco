@@ -592,9 +592,12 @@ function printPages(title, pagesHtml, extraCss = "") {
   doc.write(`<html><head><title>${title}</title><style>
       @page { size: A4 portrait; margin: 10mm; }
       html, body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
-      .druckseite { width: 190mm; box-sizing: border-box; overflow: hidden; break-after: page; page-break-after: always; }
-      .druckseite:last-child { break-after: auto; page-break-after: auto; }
-      #seitenhoehe { position: absolute; visibility: hidden; height: 277mm; width: 1px; }
+      .druckseite { width: 190mm; box-sizing: border-box; }
+      .seitenrahmen { overflow: hidden; break-after: page; page-break-after: always; }
+      .seitenrahmen:last-child { break-after: auto; page-break-after: auto; }
+      /* Einpasshöhe bewusst kleiner als A4 minus 10mm-Ränder: Safari nimmt eigene, größere Ränder
+         (+ Kopf-/Fußzeilen) – mit 240mm passt es in jedem Browser auf eine Seite */
+      #seitenhoehe { position: absolute; visibility: hidden; height: 240mm; width: 1px; }
       ${extraCss}
     </style></head><body><div id="seitenhoehe"></div>${pagesHtml}</body></html>`);
   doc.close();
@@ -604,10 +607,22 @@ function printPages(title, pagesHtml, extraCss = "") {
   );
 
   Promise.all(bilder).then(() => {
-    const maxHoehe = doc.getElementById("seitenhoehe").offsetHeight - 4; // kleiner Puffer gegen Rundung
+    const messer   = doc.getElementById("seitenhoehe");
+    const maxHoehe = messer.offsetHeight;
+    messer.remove(); // sonst erzeugt es in Safari eine leere zweite Seite
+    // Jede Seite in einen Rahmen; zu lange Seiten per transform verkleinern und den Rahmen
+    // auf Seitenhöhe begrenzen (CSS-zoom wird von Safari beim Seitenumbruch ignoriert)
     doc.querySelectorAll(".druckseite").forEach(seite => {
+      const rahmen = doc.createElement("div");
+      rahmen.className = "seitenrahmen";
+      seite.before(rahmen);
+      rahmen.appendChild(seite);
+
       const hoehe = seite.scrollHeight;
-      if (hoehe > maxHoehe) seite.style.zoom = (maxHoehe / hoehe).toFixed(3);
+      if (hoehe <= maxHoehe) return;
+      seite.style.transformOrigin = "top left";
+      seite.style.transform       = `scale(${(maxHoehe / hoehe).toFixed(3)})`;
+      rahmen.style.height         = maxHoehe + "px";
     });
     frame.contentWindow.focus();
     frame.contentWindow.print();
