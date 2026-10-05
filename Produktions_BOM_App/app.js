@@ -576,6 +576,44 @@ function formatNumber(value) {
 // ============================================================
 //  DRUCK
 // ============================================================
+// Druckt über ein unsichtbares iframe (kein neues Fenster/Popup).
+// Jede .druckseite wird bei Bedarf so verkleinert, dass sie auf genau eine A4-Seite passt.
+function printPages(title, pagesHtml, extraCss = "") {
+  const alt = document.getElementById("printFrame");
+  if (alt) alt.remove();
+
+  const frame = document.createElement("iframe");
+  frame.id = "printFrame";
+  frame.style.cssText = "position:fixed;left:-10000px;top:0;width:210mm;height:297mm;border:0;";
+  document.body.appendChild(frame);
+
+  const doc = frame.contentDocument;
+  doc.open();
+  doc.write(`<html><head><title>${title}</title><style>
+      @page { size: A4 portrait; margin: 10mm; }
+      html, body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+      .druckseite { width: 190mm; box-sizing: border-box; overflow: hidden; break-after: page; page-break-after: always; }
+      .druckseite:last-child { break-after: auto; page-break-after: auto; }
+      #seitenhoehe { position: absolute; visibility: hidden; height: 277mm; width: 1px; }
+      ${extraCss}
+    </style></head><body><div id="seitenhoehe"></div>${pagesHtml}</body></html>`);
+  doc.close();
+
+  const bilder = [...doc.images].map(img =>
+    img.complete ? null : new Promise(r => { img.onload = img.onerror = r; })
+  );
+
+  Promise.all(bilder).then(() => {
+    const maxHoehe = doc.getElementById("seitenhoehe").offsetHeight - 4; // kleiner Puffer gegen Rundung
+    doc.querySelectorAll(".druckseite").forEach(seite => {
+      const hoehe = seite.scrollHeight;
+      if (hoehe > maxHoehe) seite.style.zoom = (maxHoehe / hoehe).toFixed(3);
+    });
+    frame.contentWindow.focus();
+    frame.contentWindow.print();
+  });
+}
+
 function printSingleBOM(bomId) {
   let quantity = prompt("Wie viele Stück sollen produziert werden?", "1");
   if (!quantity) return;
@@ -590,28 +628,8 @@ function printSingleBOM(bomId) {
   const details = targetCard.querySelector(".details");
   if (details) details.style.display = "block";
 
-  const printWindow = window.open("", "_blank");
-  printWindow.document.write(`
-    <html><head><title>BOM ${bomId}</title><style>
-      @page { margin: 10mm; }
-      body { font-family: Arial, sans-serif; padding: 15px; font-size: 10pt; }
-      .header-top { display: flex; justify-content: space-between; align-items: center; }
-      .company { font-size: 18pt; font-weight: bold; }
-      .doc-info { text-align: right; font-size: 10pt; }
-      .title { font-size: 16pt; font-weight: bold; margin-top: 10px; }
-      hr { margin: 15px 0; }
-      table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-      th { text-align: left; border-bottom: 2px solid black; padding: 6px; }
-      td { border-bottom: 1px solid #ccc; padding: 6px; }
-      .info-box { margin-top: 15px; padding: 10px; border-left: 4px solid black; }
-      button, .admin-actions { display: none !important; }
-      .production-section { margin-top: 40px; font-size: 12pt; }
-      .production-section div { margin-bottom: 18px; }
-      .checkbox { display: inline-block; width: 18px; height: 18px; border: 2px solid black; margin-right: 8px; vertical-align: middle; }
-      .form-row { display: flex; align-items: center; margin-bottom: 18px; }
-      .label { width: 220px; display: inline-block; }
-      .time-box { width: 35px; height: 24px; border: 2px solid black; display: inline-block; margin-right: 4px; }
-    </style></head><body>
+  printPages(`BOM ${bomId}`, `
+    <div class="druckseite" style="padding:15px;font-size:10pt;">
       <div class="header-top">
         <div class="company">FORMTEILE FRITSCH GMBH</div>
         <div class="doc-info">Dokument: PRD-BOM-01<br>Version: 1.0<br>Druckdatum: ${new Date().toLocaleString("de-DE")}</div>
@@ -628,10 +646,25 @@ function printSingleBOM(bomId) {
         <div class="form-row"><span class="label">QS Freigabe: ___________________________</span></div>
       </div>
       ${kommentar ? `<div style="text-align:right;font-size:48pt;font-weight:900;color:#000;line-height:1;padding:10mm;word-break:break-word;margin-top:10mm;">${kommentar}</div>` : ""}
-    </body></html>
+    </div>
+  `, `
+      .header-top { display: flex; justify-content: space-between; align-items: center; }
+      .company { font-size: 18pt; font-weight: bold; }
+      .doc-info { text-align: right; font-size: 10pt; }
+      .title { font-size: 16pt; font-weight: bold; margin-top: 10px; }
+      hr { margin: 15px 0; }
+      table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+      th { text-align: left; border-bottom: 2px solid black; padding: 6px; }
+      td { border-bottom: 1px solid #ccc; padding: 6px; }
+      .info-box { margin-top: 15px; padding: 10px; border-left: 4px solid black; }
+      button, .admin-actions { display: none !important; }
+      .production-section { margin-top: 40px; font-size: 12pt; }
+      .production-section div { margin-bottom: 18px; }
+      .checkbox { display: inline-block; width: 18px; height: 18px; border: 2px solid black; margin-right: 8px; vertical-align: middle; }
+      .form-row { display: flex; align-items: center; margin-bottom: 18px; }
+      .label { width: 220px; display: inline-block; }
+      .time-box { width: 35px; height: 24px; border: 2px solid black; display: inline-block; margin-right: 4px; }
   `);
-  printWindow.document.close();
-  setTimeout(() => { printWindow.focus(); printWindow.print(); }, 300);
 }
 
 // ============================================================
@@ -720,6 +753,11 @@ function renderUploadModal(auftraege, opts = {}) {
 
   body.innerHTML = `
     ${opts.info ? `<div style="margin-bottom:12px;padding:10px;border-left:4px solid #1e3a8a;background:#e0e7ff;font-size:14px;">${opts.info}</div>` : ""}
+    <div style="margin-bottom:12px;padding:10px;border:2px dashed #1e3a8a;border-radius:10px;background:#fff;text-align:center;">
+      <div style="font-weight:700;color:#1e3a8a;">🖨 Zum Drucken diesen Code scannen</div>
+      <svg id="printBarcode"></svg>
+      <div style="font-size:12px;color:#6b7280;">druckt die ausgewählten Aufträge – jeder Auftrag auf genau einer Seite</div>
+    </div>
     <div style="margin-bottom:12px;font-size:14px;color:#6b7280;">
       ${auftraege.length} Aufträge –
       <span style="color:#15803d;font-weight:700;">${bekannt} bekannt</span>
@@ -763,11 +801,50 @@ function renderUploadModal(auftraege, opts = {}) {
     });
   });
 
+  if (window.JsBarcode) {
+    JsBarcode("#printBarcode", PRINT_COMMAND, { format: "CODE128", width: 2, height: 70, margin: 10, displayValue: false });
+  }
+
   window._uploadAuftraege = auftraege;
   document.getElementById("printSelectedBtn").style.display  = "inline-block";
   document.getElementById("printTabelleBtn").style.display   = "inline-block";
   document.getElementById("uploadModal").style.display       = "flex";
 }
+
+// ============================================================
+//  DRUCK-BARCODE – am Bildschirm abscannen → ausgewählte Aufträge sofort drucken
+//  Nur Großbuchstaben ohne Y/Z → funktioniert unabhängig vom Tastaturlayout des Scanners
+// ============================================================
+const PRINT_COMMAND = "CMDPRINT";
+let scanPuffer = "";
+
+document.addEventListener("keydown", e => {
+  if (e.key !== "Enter") {
+    if (e.key.length === 1) scanPuffer = (scanPuffer + e.key).slice(-40);
+    return;
+  }
+  const istDruckBefehl = scanPuffer.toUpperCase().includes(PRINT_COMMAND);
+  scanPuffer = "";
+  if (!istDruckBefehl) return;
+
+  // läuft in der Capture-Phase → das Suchfeld bekommt dieses Enter gar nicht erst
+  e.preventDefault();
+  e.stopPropagation();
+
+  // mitgetippten Befehl (inkl. evtl. Scanner-Präfix) aus dem Feld entfernen
+  const feld = document.activeElement;
+  if (feld && typeof feld.value === "string") {
+    feld.value = feld.value.replace(new RegExp("\\S*" + PRINT_COMMAND, "i"), "");
+    if (feld.id === "searchInput") runSearch();
+  }
+
+  if (document.getElementById("uploadModal").style.display !== "flex") {
+    showSaveStatus("⚠ Kein Auftrag offen – erst Artikel und Menge scannen.", "#b91c1c");
+    setTimeout(hideSaveStatus, 3000);
+    return;
+  }
+  if (printSelected("auftraege", { auto: true })) closeUploadModal();
+}, true);
 
 function selectAllUpload(checked) {
   document.querySelectorAll(".upload-check").forEach(cb => cb.checked = checked);
@@ -778,18 +855,22 @@ function closeUploadModal() {
   document.getElementById("searchInput").focus(); // bereit für den nächsten Scan
 }
 
-function printSelected(mode) {
+// opts.auto = per Druck-Barcode ausgelöst → ohne Rückfragen
+function printSelected(mode, opts = {}) {
   const checked  = [...document.querySelectorAll(".upload-check:checked")].map(cb => parseInt(cb.dataset.idx));
-  if (checked.length === 0) { alert("Keine Aufträge ausgewählt."); return; }
+  if (checked.length === 0) {
+    if (opts.auto) { showSaveStatus("⚠ Bitte erst eine BOM auswählen.", "#b91c1c"); setTimeout(hideSaveStatus, 3000); }
+    else alert("Keine Aufträge ausgewählt.");
+    return false;
+  }
   const selected = checked.map(i => window._uploadAuftraege[i]);
   if (mode === "tabelle") { printAsTabelle(selected); return; }
 
-  const kommentar = prompt("Kommentar (optional):", "") || "";
+  const kommentar = opts.auto ? "" : (prompt("Kommentar (optional):", "") || "");
 
-  const printWindow = window.open("", "_blank");
   const pages = selected.map(a => {
     const bom = a.bom;
-    if (!bom) return `<div style="page-break-after:always;padding:20px;"><h2>BOM ${a.bomId} – unbekannt</h2><p>Menge: ${a.menge} Stück</p></div>`;
+    if (!bom) return `<div class="druckseite" style="padding:20px;"><h2>BOM ${a.bomId} – unbekannt</h2><p>Menge: ${a.menge} Stück</p></div>`;
 
     let verpackTexte = [];
     (bom.components || []).forEach(c => {
@@ -800,7 +881,7 @@ function printSelected(mode) {
       `<tr><td>${c.artikelnummer}</td><td>${c.beschreibung}</td><td>${Number.isInteger(c.menge) ? c.menge : parseFloat(c.menge).toFixed(2)}</td></tr>`
     ).join("");
 
-    return `<div style="page-break-after:always;font-family:Arial,sans-serif;padding:15px;font-size:10pt;">
+    return `<div class="druckseite" style="padding:15px;font-size:10pt;">
       <div style="display:flex;justify-content:space-between;">
         <div style="font-size:18pt;font-weight:bold;">FORMTEILE FRITSCH GMBH</div>
         <div style="text-align:right;font-size:10pt;">Dokument: PRD-BOM-01<br>Druckdatum: ${new Date().toLocaleString("de-DE")}</div>
@@ -828,14 +909,12 @@ function printSelected(mode) {
         <div style="margin-bottom:16px;">Produziert von: ___________________________</div>
         <div>QS Freigabe: ___________________________</div>
       </div>
+      ${kommentar ? `<div style="text-align:right;font-size:48pt;font-weight:900;color:#000;line-height:1;padding:10mm;word-break:break-word;margin-top:10mm;">${kommentar}</div>` : ""}
     </div>`;
   }).join("");
 
-  printWindow.document.write(`<html><head><title>Produktionsaufträge</title>
-    <style>@page{margin:10mm;} body{margin:0;} td{border-bottom:1px solid #ccc;padding:6px;}</style>
-    </head><body>${pages}${kommentar ? `<div style="text-align:right;font-size:48pt;font-weight:900;color:#000;line-height:1;padding:10mm;word-break:break-word;margin-top:20mm;">${kommentar}</div>` : ""}</body></html>`);
-  printWindow.document.close();
-  setTimeout(() => { printWindow.focus(); printWindow.print(); }, 400);
+  printPages("Produktionsaufträge", pages, "td{border-bottom:1px solid #ccc;padding:6px;}");
+  return true;
 }
 
 function printAsTabelle(selected) {
