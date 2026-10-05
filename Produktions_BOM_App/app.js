@@ -14,27 +14,39 @@ let data          = [];
 let verpackungMap = {};
 let isAdmin       = false;
 let currentlyOpen = null;
+let dataLoaded    = false;
+
+const MAX_RESULTS = 50; // mehr Treffer werden nicht angezeigt → Suche verfeinern
 
 // ============================================================
-//  INIT – immer frisch von GitHub/data.json laden
+//  INIT – sofort letzten Stand aus dem Browser, dann aktuell von Netlify
 // ============================================================
+function applyData(json) {
+  data          = json.boms          || [];
+  verpackungMap = json.verpackung_map || {};
+  dataLoaded    = true;
+  runSearch();
+}
+
 function loadData() {
-  fetch(BOM_BACKEND + "/bom")
-    .then(res => res.json())
+  // 1. Sofort: letzter Stand aus dem Browser-Speicher → Suche geht ohne Wartezeit
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) applyData(JSON.parse(stored));
+  } catch (e) {}
+  runSearch();
+
+  // 2. Aktueller Stand: data.json direkt von Netlify (kein Kaltstart wie beim Render-Backend),
+  //    Render nur noch als Ausweichweg
+  fetch("data.json", { cache: "no-cache" })
+    .then(res => { if (!res.ok) throw new Error(res.status); return res.json(); })
+    .catch(() => fetch(BOM_BACKEND + "/bom").then(res => res.json()))
     .then(json => {
-      data          = json.boms          || [];
-      verpackungMap = json.verpackung_map || {};
-      renderResults(data);
+      applyData(json);
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(json)); } catch (e) {}
     })
     .catch(() => {
-      // Fallback: localStorage
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const parsed  = JSON.parse(stored);
-        data          = parsed.boms          || [];
-        verpackungMap = parsed.verpackung_map || {};
-        renderResults(data);
-      }
+      if (!dataLoaded) showHint("❌ Daten konnten nicht geladen werden. Bitte Seite neu laden.");
     });
 }
 
@@ -97,8 +109,25 @@ function hideSaveStatus() {
 // ============================================================
 //  SUCHE
 // ============================================================
-document.getElementById("searchInput").addEventListener("input", function () {
-  const value = this.value.toLowerCase();
+document.getElementById("searchInput").addEventListener("input", runSearch);
+
+function showHint(text) {
+  document.getElementById("results").innerHTML =
+    `<p style='padding:15px;color:#6b7280;'>${text}</p>`;
+}
+
+function runSearch() {
+  const value = document.getElementById("searchInput").value.trim().toLowerCase();
+
+  if (!dataLoaded) {
+    showHint(value ? "⏳ Daten werden geladen – Treffer erscheinen gleich..." : "⏳ Daten werden geladen...");
+    return;
+  }
+  if (!value) {
+    showHint(`${data.length.toLocaleString("de-DE")} BOMs verfügbar – Suchbegriff eingeben.`);
+    return;
+  }
+
   const filtered = data.filter(bom => {
     const bomMatch =
       String(bom.bom_id       || "").toLowerCase().includes(value) ||
@@ -112,8 +141,13 @@ document.getElementById("searchInput").addEventListener("input", function () {
       );
     return bomMatch || componentMatch;
   });
-  renderResults(filtered);
-});
+
+  renderResults(filtered.slice(0, MAX_RESULTS));
+  if (filtered.length > MAX_RESULTS) {
+    document.getElementById("results").insertAdjacentHTML("beforeend",
+      `<p style='padding:15px;color:#6b7280;'>Die ersten ${MAX_RESULTS} von ${filtered.length.toLocaleString("de-DE")} Treffern – Suche verfeinern, um weitere zu sehen.</p>`);
+  }
+}
 
 // ============================================================
 //  RENDER
@@ -226,7 +260,7 @@ function toggleAdminMode() {
   if (isAdmin) {
     isAdmin = false;
     updateAdminUI();
-    renderResults(data);
+    runSearch();
     return;
   }
 
@@ -234,7 +268,7 @@ function toggleAdminMode() {
   if (pw === ADMIN_PASSWORD) {
     isAdmin = true;
     updateAdminUI();
-    renderResults(data);
+    runSearch();
   } else if (pw !== null) {
     alert("Falsches Passwort.");
   }
@@ -261,7 +295,7 @@ function deleteBOM(bomId) {
   if (!confirm(`BOM ${bomId} wirklich löschen?`)) return;
   data = data.filter(b => b.bom_id !== bomId);
   saveToStorage();
-  renderResults(data);
+  runSearch();
 }
 
 // ============================================================
@@ -385,7 +419,7 @@ function saveEdit() {
 
   saveToStorage();
   closeModal();
-  renderResults(data);
+  runSearch();
 }
 
 // ============================================================
