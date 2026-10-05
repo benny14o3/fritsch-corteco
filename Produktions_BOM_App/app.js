@@ -117,6 +117,8 @@ function showHint(text) {
 }
 
 function runSearch() {
+  if (scanArtikel) return; // wartet auf Mengen-Scan → Anzeige nicht überschreiben
+
   const value = document.getElementById("searchInput").value.trim().toLowerCase();
 
   if (!dataLoaded) {
@@ -147,6 +149,108 @@ function runSearch() {
     document.getElementById("results").insertAdjacentHTML("beforeend",
       `<p style='padding:15px;color:#6b7280;'>Die ersten ${MAX_RESULTS} von ${filtered.length.toLocaleString("de-DE")} Treffern – Suche verfeinern, um weitere zu sehen.</p>`);
   }
+}
+
+// ============================================================
+//  SCANNER – erst BULK-Artikel scannen, dann Menge → Produktionsauftrag
+//  (Scanner tippt wie eine Tastatur und schickt am Ende Enter)
+// ============================================================
+const SEARCH_PLACEHOLDER = "BOM, Beschreibung, Artikel oder Material suchen...";
+let scanArtikel = null; // gescannte Komponente, wartet auf Menge
+
+function findBomsWithComponent(artikelnummer) {
+  return data
+    .map(bom => ({ bom, comp: (bom.components || []).find(c => String(c.artikelnummer) === artikelnummer) }))
+    .filter(t => t.comp);
+}
+
+// Barcode kann Präfix + führende Nullen vor der Artikelnummer haben (z. B. "P0080004449"):
+// erst exakt, dann die längste bekannte Artikelnummer am Ende des Barcodes suchen
+function resolveScannedArtikel(value) {
+  const exakt = findBomsWithComponent(value);
+  if (exakt.length) return { artikelnummer: value, treffer: exakt };
+
+  const ziffern = value.replace(/\D/g, "");
+  for (let i = 0; i <= ziffern.length - 5; i++) {
+    if (ziffern[i] === "0") continue;
+    if (i > 0 && ziffern[i - 1] !== "0") continue; // Artikelnummer folgt immer auf die Füll-Nullen
+    const kandidat = ziffern.slice(i);
+    const treffer  = findBomsWithComponent(kandidat);
+    if (treffer.length) return { artikelnummer: kandidat, treffer };
+  }
+  return null;
+}
+
+document.getElementById("searchInput").addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && scanArtikel) { cancelScan(); return; }
+  if (e.key !== "Enter") return;
+
+  const value = this.value.trim();
+  if (!value) return;
+
+  // Schritt 2: Menge
+  if (scanArtikel) {
+    e.preventDefault();
+    const m     = value.replace(",", ".").match(/\d+(\.\d+)?/);
+    const menge = m ? parseFloat(m[0]) : 0;
+    this.value  = "";
+    if (!menge) { showScanStatus("❌ Keine gültige Menge erkannt – bitte Menge erneut scannen."); return; }
+    createAuftraegeFromScan(scanArtikel, menge);
+    return;
+  }
+
+  // Schritt 1: Artikel – nur wenn die Nummer exakt eine Komponente ist, sonst normale Suche
+  if (!dataLoaded) return;
+  const gefunden = resolveScannedArtikel(value);
+  if (!gefunden) return;
+
+  e.preventDefault();
+  const { artikelnummer, treffer } = gefunden;
+  scanArtikel      = { artikelnummer, beschreibung: treffer[0].comp.beschreibung, treffer };
+  this.value       = "";
+  this.placeholder = "Menge scannen oder eintippen + Enter  (Esc = abbrechen)";
+  showScanStatus("👉 Jetzt Menge scannen.");
+});
+
+function showScanStatus(text) {
+  const s = scanArtikel;
+  renderResults(s.treffer.map(t => t.bom).slice(0, MAX_RESULTS));
+  document.getElementById("results").insertAdjacentHTML("afterbegin", `
+    <div class="info-box" style="margin:15px;border-left:4px solid #1e3a8a;background:#e0e7ff;">
+      <span class="info-title">📦 ARTIKEL GESCANNT: ${s.artikelnummer}</span>
+      <div class="info-text">${s.beschreibung} – enthalten in ${s.treffer.length} BOM${s.treffer.length === 1 ? "" : "s"}</div>
+      <div class="info-text" style="font-weight:700;margin-top:6px;">${text}</div>
+      <button class="comp-add-btn" style="background:#6b7280;margin-top:8px;" onclick="cancelScan()">Abbrechen</button>
+    </div>`);
+}
+
+function cancelScan() {
+  scanArtikel = null;
+  const input = document.getElementById("searchInput");
+  input.value       = "";
+  input.placeholder = SEARCH_PLACEHOLDER;
+  input.focus();
+  runSearch();
+}
+
+function createAuftraegeFromScan(scan, menge) {
+  const auftraege = scan.treffer.map(({ bom, comp }) => {
+    const jeStueck = parseFloat(comp.menge) || 1;
+    return {
+      bomId:   String(bom.bom_id),
+      menge:   Math.floor(menge / jeStueck),
+      bom,
+      hinweis: jeStueck !== 1 ? `${formatNumber(jeStueck)}× ${scan.artikelnummer} je Stück` : ""
+    };
+  });
+
+  cancelScan();
+  renderUploadModal(auftraege, {
+    titel:      "📦 Produktionsauftrag aus Scan",
+    info:       `Gescannt: <strong>${scan.artikelnummer}</strong> ${scan.beschreibung} – <strong>${formatNumber(menge)} Stk.</strong>`
+                + (auftraege.length > 1 ? "<br>Artikel steckt in mehreren BOMs – bitte die richtige auswählen." : ""),
+    vorauswahl: auftraege.length === 1
+  });
 }
 
 // ============================================================
@@ -606,12 +710,16 @@ function getVerpackungForBom(bom) {
   return texte.join(" | ");
 }
 
-function renderUploadModal(auftraege) {
+function renderUploadModal(auftraege, opts = {}) {
   const body    = document.getElementById("uploadModalBody");
   const bekannt = auftraege.filter(a => a.bom).length;
   const unbek   = auftraege.filter(a => !a.bom).length;
+  const vorauswahl = opts.vorauswahl !== false;
+
+  document.getElementById("uploadModalTitle").textContent = opts.titel || "📂 Produktionsaufträge aus Excel";
 
   body.innerHTML = `
+    ${opts.info ? `<div style="margin-bottom:12px;padding:10px;border-left:4px solid #1e3a8a;background:#e0e7ff;font-size:14px;">${opts.info}</div>` : ""}
     <div style="margin-bottom:12px;font-size:14px;color:#6b7280;">
       ${auftraege.length} Aufträge –
       <span style="color:#15803d;font-weight:700;">${bekannt} bekannt</span>
@@ -634,9 +742,10 @@ function renderUploadModal(auftraege) {
           const verpack = getVerpackungForBom(a.bom);
           return `<tr style="${!a.bom ? 'background:#fff7ed;' : ''}">
             <td><input type="checkbox" class="upload-check" data-idx="${i}"
-              ${a.bom ? "checked" : ""} style="width:18px;height:18px;cursor:pointer;"></td>
+              ${a.bom && vorauswahl ? "checked" : ""} style="width:18px;height:18px;cursor:pointer;"></td>
             <td style="font-weight:700;">${a.bomId}</td>
-            <td style="font-size:13px;color:#374151;">${a.bom ? a.bom.beschreibung : "–"}</td>
+            <td style="font-size:13px;color:#374151;">${a.bom ? a.bom.beschreibung : "–"}
+              ${a.hinweis ? `<br><span style="color:#6b7280;font-size:12px;">${a.hinweis}</span>` : ""}</td>
             <td><input type="number" class="comp-input upload-menge" data-idx="${i}"
               value="${a.menge}" min="1" style="width:80px;text-align:center;font-weight:700;"></td>
             <td style="font-size:13px;color:#92400e;">${verpack || '<span style="color:#d1d5db;">–</span>'}</td>
@@ -666,6 +775,7 @@ function selectAllUpload(checked) {
 
 function closeUploadModal() {
   document.getElementById("uploadModal").style.display = "none";
+  document.getElementById("searchInput").focus(); // bereit für den nächsten Scan
 }
 
 function printSelected(mode) {
