@@ -115955,7 +115955,7 @@
       "bom_id": "82019286",
       "beschreibung": "B1BAFUD2FGDRW   33,0X  56,0X 11,8 75ACM",
       "arbeitsanweisung": "BOM to Neutralize+Pack-Machine",
-      "neutralisierung": "",
+      "neutralisierung": "CHO 10885",
       "components": [
         {
           "artikelnummer": "49174291",
@@ -115968,7 +115968,7 @@
           "menge": 1
         }
       ],
-      "bild_url": ""
+      "bild_url": "https://i.ibb.co/8Zg2Hp5/2a0b0d1231fd.png"
     },
     {
       "bom_id": "49287813",
