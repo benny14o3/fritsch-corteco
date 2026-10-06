@@ -41716,8 +41716,8 @@
     {
       "bom_id": "49497707",
       "beschreibung": "BASLRSX7        72,0X  98,0X  8,0   FPM",
-      "arbeitsanweisung": "BOM to Pack-Machine",
-      "neutralisierung": "",
+      "arbeitsanweisung": "BOM to Neutralize+Pack-Machine",
+      "neutralisierung": "BENNY PRÜFEN?",
       "components": [
         {
           "artikelnummer": "49497706",
