@@ -22965,7 +22965,7 @@
     {
       "bom_id": "49361564",
       "beschreibung": "MT_EM     OPEL/RENAU/VAUXH",
-      "arbeitsanweisung": "BOM to Pack",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
       "neutralisierung": "1xGummi 1x Metall",
       "components": [
         {
