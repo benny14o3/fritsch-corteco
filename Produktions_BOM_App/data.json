@@ -113685,10 +113685,22 @@
     },
     {
       "bom_id": "49258890",
-      "beschreibung": "",
+      "beschreibung": "BAUM5SLSFX67   100,0X 140,0X 10,0 595",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
-      "components": []
+      "neutralisierung": "VOLVO  -  17478842",
+      "components": [
+        {
+          "artikelnummer": "49385539",
+          "beschreibung": "BAUM5SLSFX67   100,0X 140,0X 10,0 595",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "19016933",
+          "beschreibung": "FOLD-BOX   CORTECO       142X  142X   18",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49259590",
@@ -116105,6 +116117,7 @@
     "49361878": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49382822": "142*142*18 / keine Bünd. / 50Stk. in 4.28 + Papier",
     "49383025": "92*92*15 / keine Bünd. / 150Stk. in 4.28 + Papier",
+    "49385539": "142*142*18 / keine Bünd. / 50Stk. in 4.28 + Papier",
     "49386242": "BULK NEUTRAL",
     "49388269": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "49388290": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
