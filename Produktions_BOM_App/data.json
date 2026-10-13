@@ -63518,7 +63518,7 @@
     {
       "bom_id": "80004589",
       "beschreibung": "MT_EM     FORD",
-      "arbeitsanweisung": "BOM to Pack",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
       "neutralisierung": "4xMetall\"3xHL8022M05/1xGummi\"FoMoCo\"",
       "components": [
         {
@@ -63532,7 +63532,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "1376868, 1386971, 1417256, 1436993, 6G91 6F012 CA, 6G91 6F012 CC, 6G91 6F012 CD, 6G91 6F012 CE, 6G91 6F012 CF, 6G91 6F012 CG"
+      "bild_url": "https://i.ibb.co/Kxt7fYy4/a3800761867c.png"
     },
     {
       "bom_id": "80004590",
@@ -116176,6 +116176,7 @@
     "80003991": "400er / 17Stk. In C8.46 / 6Stk. C8.46 pro Pal.",
     "80004132": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "80004224": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
+    "80004606": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997230": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997232": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
     "80997234": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
