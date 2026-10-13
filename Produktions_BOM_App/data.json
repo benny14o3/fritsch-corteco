@@ -8123,7 +8123,7 @@
       "bom_id": "21652639",
       "beschreibung": "MT_EM     MERCE",
       "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "Liefert Neutral",
+      "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "80002391",
@@ -8136,7 +8136,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "203 240 05 17, 203 240 06 17, 211 240 04 17, 211 240 16 17, A 203 240 05 17, A 203 240 06 17, A 211 240 04 17, A 211 240 16 17"
+      "bild_url": ""
     },
     {
       "bom_id": "21652640",
@@ -116164,6 +116164,7 @@
     "49498402": "92*92*15 / keine Bünd. / 150Stk. in 4.28 + Papier",
     "49640765": "in 1.0er setzen",
     "80002300": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "80002391": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80002646": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
     "80002888": "1 Stk. pro Tüte",
     "80002898": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
