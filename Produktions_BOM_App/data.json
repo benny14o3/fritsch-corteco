@@ -15274,7 +15274,7 @@
       "bom_id": "49127994",
       "beschreibung": "MT_EM     BMW",
       "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "Liefert Neutral",
+      "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "49127995",
@@ -15287,7 +15287,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "22 11 4 076 172, 22 11 6 785 710, 22 11 6 850 482"
+      "bild_url": ""
     },
     {
       "bom_id": "49127996",
@@ -116053,6 +116053,7 @@
     "49107615": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
     "49107617": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
     "49110137": "72*72*13 / 10er Bünd. / 300Stk. in 4.28 + Papier",
+    "49127995": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49127997": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49128014": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk.",
     "49128182": "400er / 17Stk. In C8.46 / 6Stk. C8.46 pro Pal.",
