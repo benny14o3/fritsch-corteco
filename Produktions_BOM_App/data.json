@@ -22549,8 +22549,8 @@
     {
       "bom_id": "49361427",
       "beschreibung": "MT_EM     RENAU",
-      "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "Liefert Neutral",
+      "arbeitsanweisung": "BOM to Pack",
+      "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "49361426",
@@ -22563,7 +22563,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "82 00 131 305"
+      "bild_url": ""
     },
     {
       "bom_id": "49361429",
@@ -116114,6 +116114,7 @@
     "49267642": "Kartons direkt auf Palette",
     "49278534": "CCB BOX    R3.21         285X  185X  210",
     "49358167": "162er / 100Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
+    "49361426": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49361428": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49361563": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk.",
     "49361588": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk.",
