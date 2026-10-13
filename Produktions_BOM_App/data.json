@@ -12244,7 +12244,7 @@
       "bom_id": "49105307",
       "beschreibung": "BASLRDX7        42,0X  58,0X  8,0 70ACM",
       "arbeitsanweisung": "BOM to Neutralize+Pack-Machine",
-      "neutralisierung": "10232",
+      "neutralisierung": "bereits neutral",
       "components": [
         {
           "artikelnummer": "49105306",
@@ -12257,7 +12257,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "047103085, 959042108"
+      "bild_url": ""
     },
     {
       "bom_id": "49105556",
@@ -116049,6 +116049,7 @@
     "19615702": "167*167*18 / keine Bünd. / 40Stk. in 4.28 +  Papier",
     "37005314": "R3.14         285X  185X  140",
     "49083606": "92*92*15 / keine Bünd. / 150Stk. in 4.28 + Papier",
+    "49105306": "72*72*13 / 10er Bünd. / 300Stk. in 4.28 + Papier",
     "49107615": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
     "49107617": "294er / 28Stk. in C8.46 / 2Stk. C8.46 auf Pal.",
     "49110137": "72*72*13 / 10er Bünd. / 300Stk. in 4.28 + Papier",
