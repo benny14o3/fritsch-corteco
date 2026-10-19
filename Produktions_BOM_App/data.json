@@ -30341,7 +30341,7 @@
       "bom_id": "49389307",
       "beschreibung": "BAOFSLX67       15,0X  25,4X  6,5   NEM",
       "arbeitsanweisung": "BOM to Neutralize+Pack-Machine",
-      "neutralisierung": "",
+      "neutralisierung": "SIND NEUTRAL",
       "components": [
         {
           "artikelnummer": "19016928",
@@ -30354,7 +30354,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "1064929, 1319973, 1555461, 4C1R7288AA, 4C1R7288AB, 957T-7288-AB"
+      "bild_url": ""
     },
     {
       "bom_id": "49389364",
@@ -116162,6 +116162,7 @@
     "49388291": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49388294": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49388296": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49389306": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "49402999": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49403000": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49403001": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
