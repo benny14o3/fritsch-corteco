@@ -116207,6 +116207,25 @@
         }
       ],
       "bild_url": "https://i.ibb.co/gbYfYNFx/ac3f8a349b91.png"
+    },
+    {
+      "bom_id": "49284231",
+      "beschreibung": "MT_GB     MERCEDES BENZ",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1x OE NR",
+      "components": [
+        {
+          "artikelnummer": "49284233",
+          "beschreibung": "MT_GB     MERCEDES BENZ             BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92003741",
+          "beschreibung": "FOLD-BOX   CORTECO       148X  148X  190",
+          "menge": 1
+        }
+      ],
+      "bild_url": "https://i.ibb.co/gbYfYNFx/ac3f8a349b91.png"
     }
   ],
   "verpackung_map": {
@@ -116318,6 +116337,7 @@
     "49280644": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49280851": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "49284228": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49284233": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49284237": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49284240": "CCB BOX    R3.14         285X  185X  140",
     "49284783": "Kartons direkt auf Palette",
