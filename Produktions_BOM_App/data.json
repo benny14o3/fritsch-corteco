@@ -19758,7 +19758,7 @@
       "bom_id": "49238527",
       "beschreibung": "BDAT1RKECONFX2  28,0X  40,0X  8,0   ACM",
       "arbeitsanweisung": "BOM to Neutralize+Pack-Machine",
-      "neutralisierung": "",
+      "neutralisierung": "321 199972 R",
       "components": [
         {
           "artikelnummer": "49495683",
@@ -19770,7 +19770,8 @@
           "beschreibung": "FOLD-BOX   CORTECO        54X   54X   12",
           "menge": 1
         }
-      ]
+      ],
+      "bild_url": "https://i.ibb.co/p6qG7G16/c49e166d0aa7.png"
     },
     {
       "bom_id": "49341564",
@@ -116192,6 +116193,7 @@
     "49482300": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "49483069": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49484333": "122*122*18 / keine Bünd. / 80Stk. in 4.28",
+    "49495683": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "49495961": "54*54*12 / 10er Bünd. / 480Stk. in 4.28 + Papier",
     "49497706": "107*107*15 / keine Bünd. / 100Stk in 4.28 +Papier",
     "49497933": "72*72*13 / 10er Bünd. / 300Stk. in 4.28 + Papier",
