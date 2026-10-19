@@ -114346,10 +114346,22 @@
     },
     {
       "bom_id": "49266496",
-      "beschreibung": "",
-      "arbeitsanweisung": "BOM to Pack",
-      "neutralisierung": "",
-      "components": []
+      "beschreibung": "MT_GB     OPEL",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "GM + Aufkleber",
+      "components": [
+        {
+          "artikelnummer": "49266497",
+          "beschreibung": "MT_GB     OPEL                      BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "80997243",
+          "beschreibung": "CCB BOX    CORTECO C3    275X  240X  180",
+          "menge": 1
+        }
+      ],
+      "bild_url": "https://i.ibb.co/Jw8HMzbJ/0f1c2db62a5b.png"
     },
     {
       "bom_id": "49266498",
@@ -116143,6 +116155,7 @@
     "49264990": "187*187*20/ keine Bünd. / 20Stk. in 4.28",
     "49265678": "165*165*35 /keine Bünd. / 20Stk. in 4.28 + Papier",
     "49266489": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49266497": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk.",
     "49267616": "Kartons direkt auf Palette",
     "49267618": "Kartons direkt auf Palette",
     "49267620": "Kartons direkt auf Palette",
