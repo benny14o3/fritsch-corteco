@@ -114513,10 +114513,22 @@
     },
     {
       "bom_id": "49266893",
-      "beschreibung": "",
+      "beschreibung": "MT_TSM    BMW",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
-      "components": []
+      "neutralisierung": "( 1x OE-Nr. + 2x FA-Logo )",
+      "components": [
+        {
+          "artikelnummer": "49266894",
+          "beschreibung": "MT_TSM    BMW                       BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "80997237",
+          "beschreibung": "CCB BOX    CORTECO       148X  148X  120",
+          "menge": 1
+        }
+      ],
+      "bild_url": "https://i.ibb.co/5JgFxbw/7d6fb9c6a7b8.png"
     },
     {
       "bom_id": "49266895",
@@ -116276,6 +116288,7 @@
     "49266489": "135er / 132Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49266495": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49266497": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk.",
+    "49266894": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49266896": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49267260": "245er / 24Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "49267616": "Kartons direkt auf Palette",
