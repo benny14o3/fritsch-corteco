@@ -23173,7 +23173,7 @@
     {
       "bom_id": "49361589",
       "beschreibung": "MT_EM     FORD",
-      "arbeitsanweisung": "BOM to Pack",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
       "neutralisierung": "1 x OE-LOGO \"FOMOCO\"\t\tVERSTECKT",
       "components": [
         {
