@@ -115004,10 +115004,22 @@
     },
     {
       "bom_id": "49280830",
-      "beschreibung": "",
+      "beschreibung": "MT_EH     VAG",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
-      "components": []
+      "neutralisierung": "1 x OE-Logo",
+      "components": [
+        {
+          "artikelnummer": "49280851",
+          "beschreibung": "MT_EH     VAG                       BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92003371",
+          "beschreibung": "CCB BOX    CORTECO       384X   90X   70",
+          "menge": 1
+        }
+      ],
+      "bild_url": "https://i.ibb.co/vx6K3yjy/e9250596b757.png"
     },
     {
       "bom_id": "49280852",
@@ -116182,6 +116194,7 @@
     "49267642": "Kartons direkt auf Palette",
     "49278534": "CCB BOX    R3.21         285X  185X  210",
     "49280644": "100er / 140Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49280851": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "49284783": "Kartons direkt auf Palette",
     "49358167": "162er / 100Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "49361426": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
