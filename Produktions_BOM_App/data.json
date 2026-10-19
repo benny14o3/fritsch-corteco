@@ -62811,7 +62811,7 @@
     {
       "bom_id": "80004485",
       "beschreibung": "MT_EM     PSA",
-      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
       "components": [
         {
@@ -62825,7 +62825,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "1807 GP"
+      "bild_url": ""
     },
     {
       "bom_id": "80004486",
@@ -116214,6 +116214,7 @@
     "80003991": "400er / 17Stk. In C8.46 / 6Stk. C8.46 pro Pal.",
     "80004132": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
     "80004224": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
+    "80004506": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80004606": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997230": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "80997232": "60er / 72 Stk. in 4.28 / 24 Stk. 4.28 pro Pal.",
