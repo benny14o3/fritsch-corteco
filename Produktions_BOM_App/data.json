@@ -113464,10 +113464,22 @@
     },
     {
       "bom_id": "49239118",
-      "beschreibung": "",
+      "beschreibung": "MT_RAD    MT_HVAC VAG",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
-      "components": []
+      "neutralisierung": "1 x OE-Logo mit OE-NR. + OE-Nr. mit QR-Code",
+      "components": [
+        {
+          "artikelnummer": "49239120",
+          "beschreibung": "MT_RAD    MT_HVAC VAG               BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "80997241",
+          "beschreibung": "CCB BOX    CORTECO       270X  200X  120",
+          "menge": 1
+        }
+      ],
+      "bild_url": "https://i.ibb.co/jknjxjpt/d0a89f1bc1c2.png"
     },
     {
       "bom_id": "49240225",
@@ -116160,6 +116172,7 @@
     "49238926": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49238927": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49238928": "148er/60 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
+    "49239120": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49240258": "215 X 90 X 70 / 60Stk. in C6.46 / 8 Stk. C6.46 pro Palette",
     "49240265": "270er / 25Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49240437": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
