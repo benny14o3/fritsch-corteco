@@ -7,6 +7,9 @@ const STORAGE_KEY    = "bom_data_v1";
 const BOM_BACKEND          = "https://bom-backend-d246.onrender.com";
 const IMGBB_API_KEY = "da6c7a9c07d883da2b5b858cab66cd10";
 
+// Druckersymbol als Grafik statt Emoji 🖨 – das Emoji fehlt auf manchen Geräten (z. B. Windows)
+const ICON_DRUCKER = '<svg class="icon-drucker" viewBox="0 0 24 24" width="1.1em" height="1.1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;margin-right:4px;"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><rect x="6" y="14" width="12" height="7"/></svg>';
+
 // ============================================================
 //  STATE
 // ============================================================
@@ -309,7 +312,7 @@ function renderResults(boms) {
           <div class="bom-id">BOM: ${bom.bom_id}</div>
           <div class="bom-desc">${bom.beschreibung}</div>
         </div>
-        <button class="header-action-btn" onclick="printSingleBOM('${bom.bom_id}')">🖨 Drucken</button>
+        <button class="header-action-btn" onclick="printSingleBOM('${bom.bom_id}')">${ICON_DRUCKER}Drucken</button>
       </div>
 
       ${adminButtons}
@@ -771,7 +774,7 @@ function renderUploadModal(auftraege, opts = {}) {
     <label class="modal-label" for="uploadKommentar">Kommentar (optional – wird groß auf jeden Auftrag gedruckt)</label>
     <input id="uploadKommentar" class="modal-input" placeholder="z. B. EILIG" autocomplete="off" style="margin-bottom:12px;">
     <div style="margin-bottom:12px;padding:10px;border:2px dashed #1e3a8a;border-radius:10px;background:#fff;text-align:center;">
-      <div style="font-weight:700;color:#1e3a8a;">🖨 Zum Drucken diesen Code scannen</div>
+      <div style="font-weight:700;color:#1e3a8a;">${ICON_DRUCKER}Zum Drucken diesen Code scannen</div>
       <svg id="printBarcode"></svg>
       <div style="font-size:12px;color:#6b7280;">druckt die ausgewählten Aufträge – jeder Auftrag auf genau einer Seite</div>
     </div>

@@ -129,6 +129,17 @@ button:hover {
   background: rgba(255,255,255,0.28);
 }
 
+/* Drucken-Knopf auf der weißen BOM-Karte (der Kopfzeilen-Stil wäre dort weiß auf weiß) */
+.card .header-action-btn {
+  background: #1e3a8a;
+  border-color: #1e3a8a;
+  color: white;
+}
+
+.card .header-action-btn:hover {
+  background: #162e6b;
+}
+
 .add-bom-btn {
   background: #15803d;
   border-color: #15803d;
