@@ -25974,7 +25974,7 @@
       "bom_id": "49371318",
       "beschreibung": "P&S_A  V4 21456 40,0 32,0 150,0 FKM  STA",
       "arbeitsanweisung": "BOM to Neutralize",
-      "neutralisierung": "",
+      "neutralisierung": "OE Nr. + V4-Nr.",
       "components": [
         {
           "artikelnummer": "49386391",
@@ -25982,7 +25982,7 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "51981820104"
+      "bild_url": ""
     },
     {
       "bom_id": "49371536",
