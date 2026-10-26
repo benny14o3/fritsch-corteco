@@ -1013,6 +1013,30 @@ function removeImage() {
   renderImagePreview("");
 }
 
+// Lädt ein Bild zu ImgBB hoch und gibt die URL zurück (wirft bei Fehler)
+async function uploadToImgbb(file) {
+  const base64 = await new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result.split(",")[1]);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+
+  const formData = new FormData();
+  formData.append("image", base64);
+  formData.append("key", IMGBB_API_KEY);
+
+  let json;
+  try {
+    const res = await fetch("https://api.imgbb.com/1/upload", { method: "POST", body: formData });
+    json = await res.json();
+  } catch (e) {
+    throw new Error("Netzwerkfehler");
+  }
+  if (!json.success) throw new Error(json.error?.message || "unbekannt");
+  return json.data.url;
+}
+
 async function handleImageUpload(event) {
   const file = event.target.files[0];
   if (!file) return;
@@ -1022,29 +1046,11 @@ async function handleImageUpload(event) {
   previewEl.innerHTML = '<span style="color:#6b7280;font-size:13px;">⏳ Wird hochgeladen...</span>';
 
   try {
-    const base64 = await new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result.split(",")[1]);
-      reader.onerror = reject;
-      reader.readAsDataURL(file);
-    });
-
-    const formData = new FormData();
-    formData.append("image", base64);
-    formData.append("key", IMGBB_API_KEY);
-
-    const res  = await fetch("https://api.imgbb.com/1/upload", { method: "POST", body: formData });
-    const json = await res.json();
-
-    if (json.success) {
-      const url = json.data.url;
-      document.getElementById("modal-image-url").value = url;
-      renderImagePreview(url);
-    } else {
-      previewEl.innerHTML = '<span style="color:#b91c1c;">Fehler: ' + (json.error?.message || "unbekannt") + '</span>';
-    }
+    const url = await uploadToImgbb(file);
+    document.getElementById("modal-image-url").value = url;
+    renderImagePreview(url);
   } catch (e) {
-    previewEl.innerHTML = '<span style="color:#b91c1c;">Netzwerkfehler</span>';
+    previewEl.innerHTML = '<span style="color:#b91c1c;">Fehler: ' + e.message + '</span>';
   }
 }
 
@@ -1057,7 +1063,9 @@ const IMPORT_SPALTEN = {
   neutralisierung: "neutralisierung", oenummern: "oe_nummern",
   artikelnummer: "artikelnummer", artikelbeschreibung: "artikel_beschreibung", menge: "menge"
 };
-let importBoms = [];
+let importBoms    = [];
+let importErgebnis = null; // letztes Ergebnis von parseBomExcel – für Neuaufbau nach Bildauswahl
+let importBilder   = {};   // BOM-ID → Bilddatei (Dateiname ohne Endung = BOM-ID)
 
 function esc(text) {
   return String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -1081,7 +1089,7 @@ function handleBomImport(event) {
 
   const reader = new FileReader();
   reader.onload = e => loadXlsx(() => {
-    try { renderImportModal(parseBomExcel(e.target.result)); }
+    try { importBilder = {}; renderImportModal(parseBomExcel(e.target.result)); }
     catch (err) { alert("Fehler beim Lesen der Datei: " + err.message); }
   });
   reader.readAsArrayBuffer(file);
@@ -1150,8 +1158,23 @@ function parseBomExcel(arrayBuffer) {
   return { boms, fehler, hinweise };
 }
 
-function renderImportModal({ boms, fehler, hinweise }) {
+function handleImportBilder(event) {
+  const ids = new Set((importErgebnis?.boms || []).map(b => b.bom_id));
+  const ohneBom = [];
+  [...event.target.files].forEach(f => {
+    const id = f.name.replace(/\.[^.]+$/, "").trim();
+    if (ids.has(id)) importBilder[id] = f; else ohneBom.push(f.name);
+  });
+  event.target.value = "";
+  renderImportModal(importErgebnis);
+  if (ohneBom.length) alert("Keine passende BOM in der Excel-Datei für:\n" + ohneBom.join("\n"));
+}
+
+function renderImportModal(ergebnis) {
+  importErgebnis = ergebnis;
+  const { boms, fehler, hinweise } = ergebnis;
   importBoms = fehler.length ? [] : boms;
+  const anzahlBilder = boms.filter(b => importBilder[b.bom_id]).length;
   const neu   = boms.filter(b => !data.some(d => String(d.bom_id) === b.bom_id)).length;
   const ueber = boms.length - neu;
 
@@ -1165,9 +1188,15 @@ function renderImportModal({ boms, fehler, hinweise }) {
       <strong>❌ Bitte in der Excel-Datei korrigieren und erneut hochladen:</strong><br>${fehler.map(esc).join("<br>")}</div>` : ""}
     ${hinweise.length ? `<div style="margin-bottom:12px;padding:10px;border-left:4px solid #ea580c;background:#fff7ed;font-size:14px;">
       <strong>Hinweis:</strong><br>${hinweise.map(esc).join("<br>")}</div>` : ""}
+    <div style="margin-bottom:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+      <label for="importBilder" class="comp-add-btn" style="cursor:pointer;">📷 Bilder hinzufügen</label>
+      <input type="file" id="importBilder" accept="image/*" multiple style="display:none;" onchange="handleImportBilder(event)">
+      <span style="font-size:13px;color:#6b7280;">optional, mehrere auf einmal – Dateiname = BOM-ID, z. B. 49284241.jpg
+        ${anzahlBilder ? ` · <strong style="color:#15803d;">${anzahlBilder} zugeordnet</strong>` : ""}</span>
+    </div>
     <div style="overflow-x:auto;">
     <table class="component-editor-table" style="width:100%;">
-      <thead><tr><th>BOM</th><th>Beschreibung</th><th>Komponenten</th><th>Neutralisierung</th><th>Status</th></tr></thead>
+      <thead><tr><th>BOM</th><th>Beschreibung</th><th>Komponenten</th><th>Neutralisierung</th><th>Bild</th><th>Status</th></tr></thead>
       <tbody>${boms.map(b => {
         const vorhanden = data.some(d => String(d.bom_id) === b.bom_id);
         return `<tr>
@@ -1178,6 +1207,9 @@ function renderImportModal({ boms, fehler, hinweise }) {
           <td style="font-size:13px;">${b.neutralisierung
             ? `<span style="color:#b91c1c;font-weight:700;">⚠ ${esc(b.neutralisierung)}</span>`
             : '<span style="color:#6b7280;">Nein</span>'}</td>
+          <td style="font-size:13px;">${importBilder[b.bom_id]
+            ? '<span style="color:#15803d;font-weight:700;">✓ neu</span>'
+            : (data.find(d => String(d.bom_id) === b.bom_id)?.bild_url ? '<span style="color:#6b7280;">bisheriges</span>' : '<span style="color:#d1d5db;">–</span>')}</td>
           <td style="font-weight:700;">${vorhanden
             ? '<span style="color:#c2410c;">überschreibt</span>'
             : '<span style="color:#15803d;">neu</span>'}</td>
@@ -1194,12 +1226,28 @@ function renderImportModal({ boms, fehler, hinweise }) {
 
 function closeImportModal() {
   document.getElementById("importModal").style.display = "none";
-  importBoms = [];
+  importBoms = []; importErgebnis = null; importBilder = {};
 }
 
-function saveBomImport() {
+async function saveBomImport() {
   if (!importBoms.length) return;
   const ids = importBoms.map(b => b.bom_id);
+  const btn = document.getElementById("importSaveBtn");
+
+  // Erst alle Bilder hochladen – schlägt eines fehl, wird nichts gespeichert
+  const bildUrls = {};
+  const mitBild  = importBoms.filter(b => importBilder[b.bom_id]);
+  btn.disabled = true;
+  for (let i = 0; i < mitBild.length; i++) {
+    btn.textContent = `⏳ Bild ${i + 1} von ${mitBild.length} wird hochgeladen...`;
+    try {
+      bildUrls[mitBild[i].bom_id] = await uploadToImgbb(importBilder[mitBild[i].bom_id]);
+    } catch (e) {
+      alert(`Bild für BOM ${mitBild[i].bom_id} konnte nicht hochgeladen werden (${e.message}). Es wurde nichts gespeichert – bitte erneut versuchen.`);
+      renderImportModal(importErgebnis);
+      return;
+    }
+  }
 
   importBoms.forEach(neu => {
     const idx = data.findIndex(b => String(b.bom_id) === neu.bom_id);
@@ -1214,7 +1262,8 @@ function saveBomImport() {
     };
     const oe = neu.oe_nummern || alt.oe_nummern;
     if (oe)           bom.oe_nummern = oe;
-    if (alt.bild_url) bom.bild_url   = alt.bild_url;
+    const bild = bildUrls[neu.bom_id] || alt.bild_url;
+    if (bild)         bom.bild_url   = bild;
     if (idx >= 0) data[idx] = bom; else data.push(bom);
   });
 
