@@ -388,10 +388,14 @@ function updateAdminUI() {
     btn.textContent   = "🔓 Admin aktiv – Beenden";
     btn.style.background = "#b91c1c";
     document.getElementById("addBomBtn").style.display = "inline-block";
+    document.getElementById("importBomBtn").style.display = "inline-flex";
+    document.getElementById("vorlageLink").style.display  = "inline-flex";
   } else {
     btn.textContent   = "🔐 Admin";
     btn.style.background = "";
     document.getElementById("addBomBtn").style.display = "none";
+    document.getElementById("importBomBtn").style.display = "none";
+    document.getElementById("vorlageLink").style.display  = "none";
   }
 }
 
@@ -1042,4 +1046,181 @@ async function handleImageUpload(event) {
   } catch (e) {
     previewEl.innerHTML = '<span style="color:#b91c1c;">Netzwerkfehler</span>';
   }
+}
+
+// ============================================================
+//  BOM-IMPORT AUS EXCEL (Vorlage: BOM-Vorlage.xlsx) – nur im Admin-Modus
+//  Eine Zeile pro Komponente; Zeilen ohne BOM-ID gehören zur BOM darüber
+// ============================================================
+const IMPORT_SPALTEN = {
+  bomid: "bom_id", bombeschreibung: "beschreibung", arbeitsanweisung: "arbeitsanweisung",
+  neutralisierung: "neutralisierung", oenummern: "oe_nummern",
+  artikelnummer: "artikelnummer", artikelbeschreibung: "artikel_beschreibung", menge: "menge"
+};
+let importBoms = [];
+
+function esc(text) {
+  return String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function loadXlsx(callback) {
+  if (typeof XLSX !== "undefined") return callback();
+  const script = document.createElement("script");
+  script.src = "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js";
+  script.onload  = callback;
+  script.onerror = () => alert("Excel-Bibliothek konnte nicht geladen werden.");
+  document.head.appendChild(script);
+}
+
+function handleBomImport(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  event.target.value = "";
+  if (!isAdmin)    { alert("Import ist nur im Admin-Modus möglich."); return; }
+  if (!dataLoaded) { alert("Daten werden noch geladen – bitte kurz warten."); return; }
+
+  const reader = new FileReader();
+  reader.onload = e => loadXlsx(() => {
+    try { renderImportModal(parseBomExcel(e.target.result)); }
+    catch (err) { alert("Fehler beim Lesen der Datei: " + err.message); }
+  });
+  reader.readAsArrayBuffer(file);
+}
+
+function parseBomExcel(arrayBuffer) {
+  const wb     = XLSX.read(arrayBuffer, { type: "array" });
+  const blatt  = wb.SheetNames.find(n => n.trim().toLowerCase() === "boms") || wb.SheetNames[0];
+  const zeilen = XLSX.utils.sheet_to_json(wb.Sheets[blatt], { header: 1, raw: true, defval: "" });
+
+  // Kopfzeile suchen und Spalten über die Überschrift zuordnen (Reihenfolge egal)
+  let kopfIdx = -1, spalte = {};
+  for (let i = 0; i < Math.min(10, zeilen.length) && kopfIdx < 0; i++) {
+    const map = {};
+    zeilen[i].forEach((titel, j) => {
+      const key = IMPORT_SPALTEN[String(titel).toLowerCase().replace(/[^a-zäöüß]/g, "")];
+      if (key && !(key in map)) map[key] = j;
+    });
+    if ("bom_id" in map && "artikelnummer" in map && "menge" in map) { kopfIdx = i; spalte = map; }
+  }
+  if (kopfIdx < 0) throw new Error("Spalten „BOM-ID“, „Artikelnummer“ und „Menge“ nicht gefunden – bitte die BOM-Vorlage verwenden.");
+
+  const bekannteArtikel = {};
+  data.forEach(b => (b.components || []).forEach(c => {
+    if (c.beschreibung) bekannteArtikel[String(c.artikelnummer)] = c.beschreibung;
+  }));
+
+  const boms = [], fehler = [], hinweise = [], nachId = {};
+  let aktuell = null;
+
+  for (let i = kopfIdx + 1; i < zeilen.length; i++) {
+    const z = zeilen[i], zeileNr = i + 1;
+    const wert = key => key in spalte ? String(z[spalte[key]] ?? "").trim() : "";
+    const bomId   = wert("bom_id").replace(/\.0+$/, "");
+    const artikel = wert("artikelnummer").replace(/\.0+$/, "");
+    if (!z.some(v => String(v).trim() !== "")) continue; // Leerzeile
+
+    if (bomId) {
+      if (!nachId[bomId]) {
+        nachId[bomId] = { bom_id: bomId, beschreibung: "", arbeitsanweisung: "", neutralisierung: "", oe_nummern: "", components: [] };
+        boms.push(nachId[bomId]);
+      }
+      aktuell = nachId[bomId];
+      ["beschreibung", "arbeitsanweisung", "neutralisierung", "oe_nummern"].forEach(k => {
+        if (!aktuell[k] && wert(k)) aktuell[k] = wert(k);
+      });
+    }
+    if (!aktuell) { fehler.push(`Zeile ${zeileNr}: keine BOM-ID – die erste Zeile einer BOM braucht eine BOM-ID.`); continue; }
+    if (!artikel) { if (!bomId) fehler.push(`Zeile ${zeileNr}: Artikelnummer fehlt.`); continue; }
+
+    const menge = parseFloat(wert("menge").replace(",", "."));
+    if (!(menge > 0)) { fehler.push(`Zeile ${zeileNr}: Menge fehlt oder ist ungültig (BOM ${aktuell.bom_id}, Artikel ${artikel}).`); continue; }
+
+    const beschreibung = wert("artikel_beschreibung") || bekannteArtikel[artikel] || "";
+    if (!beschreibung) hinweise.push(`Artikel ${artikel} (BOM ${aktuell.bom_id}) ist unbekannt und hat keine Beschreibung.`);
+    aktuell.components.push({ artikelnummer: artikel, beschreibung, menge });
+  }
+
+  boms.forEach(b => {
+    const vorhanden = data.some(d => String(d.bom_id) === b.bom_id);
+    if (!b.components.length) fehler.push(`BOM ${b.bom_id}: keine Komponenten.`);
+    if (!b.beschreibung && !vorhanden) fehler.push(`BOM ${b.bom_id}: BOM-Beschreibung fehlt.`);
+  });
+  if (!boms.length && !fehler.length) fehler.push("Keine BOMs in der Datei gefunden.");
+
+  return { boms, fehler, hinweise };
+}
+
+function renderImportModal({ boms, fehler, hinweise }) {
+  importBoms = fehler.length ? [] : boms;
+  const neu   = boms.filter(b => !data.some(d => String(d.bom_id) === b.bom_id)).length;
+  const ueber = boms.length - neu;
+
+  document.getElementById("importModalBody").innerHTML = `
+    <div style="margin-bottom:12px;font-size:14px;">
+      <strong>${boms.length} BOM${boms.length === 1 ? "" : "s"}</strong> in der Datei –
+      <span style="color:#15803d;font-weight:700;">${neu} neu</span>${ueber ? `,
+      <span style="color:#c2410c;font-weight:700;">${ueber} überschreibt bestehende</span>` : ""}
+    </div>
+    ${fehler.length ? `<div style="margin-bottom:12px;padding:10px;border-left:4px solid #b91c1c;background:#fee2e2;font-size:14px;">
+      <strong>❌ Bitte in der Excel-Datei korrigieren und erneut hochladen:</strong><br>${fehler.map(esc).join("<br>")}</div>` : ""}
+    ${hinweise.length ? `<div style="margin-bottom:12px;padding:10px;border-left:4px solid #ea580c;background:#fff7ed;font-size:14px;">
+      <strong>Hinweis:</strong><br>${hinweise.map(esc).join("<br>")}</div>` : ""}
+    <div style="overflow-x:auto;">
+    <table class="component-editor-table" style="width:100%;">
+      <thead><tr><th>BOM</th><th>Beschreibung</th><th>Komponenten</th><th>Neutralisierung</th><th>Status</th></tr></thead>
+      <tbody>${boms.map(b => {
+        const vorhanden = data.some(d => String(d.bom_id) === b.bom_id);
+        return `<tr>
+          <td style="font-weight:700;">${esc(b.bom_id)}</td>
+          <td style="font-size:13px;">${esc(b.beschreibung || (vorhanden ? "(bisherige)" : "–"))}</td>
+          <td style="font-size:12px;color:#374151;">${b.components.map(c =>
+            `${formatNumber(c.menge)}× ${esc(c.artikelnummer)} ${esc(c.beschreibung)}`).join("<br>")}</td>
+          <td style="font-size:13px;">${b.neutralisierung
+            ? `<span style="color:#b91c1c;font-weight:700;">⚠ ${esc(b.neutralisierung)}</span>`
+            : '<span style="color:#6b7280;">Nein</span>'}</td>
+          <td style="font-weight:700;">${vorhanden
+            ? '<span style="color:#c2410c;">überschreibt</span>'
+            : '<span style="color:#15803d;">neu</span>'}</td>
+        </tr>`;
+      }).join("")}</tbody>
+    </table></div>`;
+
+  const btn = document.getElementById("importSaveBtn");
+  btn.disabled      = !importBoms.length;
+  btn.style.opacity = importBoms.length ? "1" : "0.4";
+  btn.textContent   = importBoms.length ? `💾 ${importBoms.length} BOM${importBoms.length === 1 ? "" : "s"} speichern` : "💾 Speichern";
+  document.getElementById("importModal").style.display = "flex";
+}
+
+function closeImportModal() {
+  document.getElementById("importModal").style.display = "none";
+  importBoms = [];
+}
+
+function saveBomImport() {
+  if (!importBoms.length) return;
+  const ids = importBoms.map(b => b.bom_id);
+
+  importBoms.forEach(neu => {
+    const idx = data.findIndex(b => String(b.bom_id) === neu.bom_id);
+    const alt = idx >= 0 ? data[idx] : {};
+    // Leere Felder behalten beim Überschreiben den bisherigen Wert, das Bild bleibt erhalten
+    const bom = {
+      bom_id:           neu.bom_id,
+      beschreibung:     neu.beschreibung     || alt.beschreibung     || "",
+      arbeitsanweisung: neu.arbeitsanweisung || alt.arbeitsanweisung || "",
+      neutralisierung:  neu.neutralisierung  || alt.neutralisierung  || "",
+      components:       neu.components
+    };
+    const oe = neu.oe_nummern || alt.oe_nummern;
+    if (oe)           bom.oe_nummern = oe;
+    if (alt.bild_url) bom.bild_url   = alt.bild_url;
+    if (idx >= 0) data[idx] = bom; else data.push(bom);
+  });
+
+  saveToStorage();
+  closeImportModal();
+  const suche = document.getElementById("searchInput");
+  suche.value = ids.length === 1 ? ids[0] : "";
+  runSearch();
 }

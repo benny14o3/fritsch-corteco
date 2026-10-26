@@ -16,6 +16,15 @@
           onclick="openNewBOMModal()" style="display:none;">
           ➕ Neue BOM
         </button>
+        <label for="bomImportUpload" id="importBomBtn" class="header-action-btn add-bom-btn"
+          style="cursor:pointer;display:none;align-items:center;">
+          BOMs importieren
+        </label>
+        <input type="file" id="bomImportUpload" accept=".xlsx,.xls" style="display:none;" onchange="handleBomImport(event)">
+        <a id="vorlageLink" href="BOM-Vorlage.xlsx" download class="header-action-btn"
+          style="display:none;align-items:center;text-decoration:none;">
+          Vorlage
+        </a>
         <label for="excelUpload" class="header-action-btn upload-btn" style="cursor:pointer;display:inline-flex;align-items:center;">
           📂 Upload
         </label>
@@ -107,6 +116,21 @@
         <button class="modal-save-btn"   onclick="saveEdit()">💾 Speichern</button>
       </div>
 
+    </div>
+  </div>
+
+  <!-- ===================== BOM-IMPORT MODAL ===================== -->
+  <div id="importModal" class="modal-overlay" style="display:none;">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>BOMs aus Excel importieren</h2>
+        <button class="modal-close-btn" onclick="closeImportModal()">✕</button>
+      </div>
+      <div class="modal-body" id="importModalBody"></div>
+      <div class="modal-footer">
+        <button class="modal-cancel-btn" onclick="closeImportModal()">Abbrechen</button>
+        <button class="modal-save-btn" id="importSaveBtn" onclick="saveBomImport()">💾 Speichern</button>
+      </div>
     </div>
   </div>
 
