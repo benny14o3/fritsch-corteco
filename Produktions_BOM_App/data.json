@@ -116226,6 +116226,346 @@
         }
       ],
       "bild_url": "https://i.ibb.co/gbYfYNFx/ac3f8a349b91.png"
+    },
+    {
+      "bom_id": "49284241",
+      "beschreibung": "MT_GB     MERCEDES BENZ",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284242",
+          "beschreibung": "MT_GB     MERCEDES BENZ             BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002180",
+          "beschreibung": "CCB BOX    R3.14         285X  185X  140",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "A 967 241 14 13",
+      "bild_url": "https://i.ibb.co/Y4hWZqNQ/4af92d3840f2.jpg"
+    },
+    {
+      "bom_id": "49284245",
+      "beschreibung": "MT_GB     MERCEDES BENZ",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284246",
+          "beschreibung": "MT_GB     MERCEDES BENZ             BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002180",
+          "beschreibung": "CCB BOX    R3.14         285X  185X  140",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "A 967 241 22 13",
+      "bild_url": "https://i.ibb.co/rfGmNphf/a58ed2b76128.jpg"
+    },
+    {
+      "bom_id": "49284250",
+      "beschreibung": "MT_GB     MERCEDES BENZ",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284251",
+          "beschreibung": "MT_GB     MERCEDES BENZ             BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002180",
+          "beschreibung": "CCB BOX    R3.14         285X  185X  140",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "A 967 241 23 13",
+      "bild_url": "https://i.ibb.co/sdWSx0Qw/5c2a4b527340.jpg"
+    },
+    {
+      "bom_id": "49284320",
+      "beschreibung": "MT_EM     DAF",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Logo DAF + OE-Nr. + 1 x QR-Code Aufkleber mit OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284331",
+          "beschreibung": "MT_EM     DAF                       BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002181",
+          "beschreibung": "CCB BOX    R3.21         285X  185X  210",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "2395984",
+      "bild_url": "https://i.ibb.co/whtBRkLK/e40e84ffea86.jpg"
+    },
+    {
+      "bom_id": "49284338",
+      "beschreibung": "MT_EM     VOLVO",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Nr. + 1 x QR-Code Aufkleber mit OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284339",
+          "beschreibung": "MT_EM     VOLVO                     BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "80997243",
+          "beschreibung": "CCB BOX    CORTECO C3    275X  240X  180",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "21416525",
+      "bild_url": "https://i.ibb.co/SXfhMqsy/e00808dcb677.jpg"
+    },
+    {
+      "bom_id": "49284340",
+      "beschreibung": "MT_EM     VOLVO",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Nr. + 1 x QR-Code Aufkleber mit OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284391",
+          "beschreibung": "MT_EM     VOLVO                     BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "80997243",
+          "beschreibung": "CCB BOX    CORTECO C3    275X  240X  180",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "21416526",
+      "bild_url": "https://i.ibb.co/5gGshgw2/91315b44b3e7.jpg"
+    },
+    {
+      "bom_id": "49284394",
+      "beschreibung": "MT_EM     VOLVO",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Nr. + 1 x QR-Code Aufkleber mit OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284395",
+          "beschreibung": "MT_EM     VOLVO                     BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "80997243",
+          "beschreibung": "CCB BOX    CORTECO C3    275X  240X  180",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "23695892",
+      "bild_url": "https://i.ibb.co/1fFW3f4T/0313278c1762.jpg"
+    },
+    {
+      "bom_id": "49284396",
+      "beschreibung": "MT_EM     VOLVO",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Nr. + 1 x QR-Code Aufkleber mit OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284397",
+          "beschreibung": "MT_EM     VOLVO                     BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "80997243",
+          "beschreibung": "CCB BOX    CORTECO C3    275X  240X  180",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "23761553",
+      "bild_url": "https://i.ibb.co/KxfkZRPj/5c3a71863a16.jpg"
+    },
+    {
+      "bom_id": "49284465",
+      "beschreibung": "MT_GB     SCANIA",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Logo SCANIA + 1 x OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284466",
+          "beschreibung": "MT_GB     SCANIA                    BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "80997243",
+          "beschreibung": "CCB BOX    CORTECO C3    275X  240X  180",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "1 921 972",
+      "bild_url": "https://i.ibb.co/1fk7DT5Q/7e0f111a0f63.jpg"
+    },
+    {
+      "bom_id": "49284471",
+      "beschreibung": "MT_EM     SCANIA",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Logo SCANIA + 1 x OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284472",
+          "beschreibung": "MT_EM     SCANIA                    BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002181",
+          "beschreibung": "CCB BOX    R3.21         285X  185X  210",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "2 592 761",
+      "bild_url": "https://i.ibb.co/GfCDjSzG/3db6ab41ddca.jpg"
+    },
+    {
+      "bom_id": "49284473",
+      "beschreibung": "MT_EM     SCANIA",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Logo SCANIA + 1 x OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284474",
+          "beschreibung": "MT_EM     SCANIA                    BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002181",
+          "beschreibung": "CCB BOX    R3.21         285X  185X  210",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "2 592 762",
+      "bild_url": "https://i.ibb.co/n8fnFzmM/a630c4e6b1fa.jpg"
+    },
+    {
+      "bom_id": "49284478",
+      "beschreibung": "MT_EM     SCANIA",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Logo SCANIA + 1 x OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284479",
+          "beschreibung": "MT_EM     SCANIA                    BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002180",
+          "beschreibung": "CCB BOX    R3.14         285X  185X  140",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "2 611 113",
+      "bild_url": "https://i.ibb.co/1Gw61bKf/e5400073bcb5.jpg"
+    },
+    {
+      "bom_id": "49284481",
+      "beschreibung": "MT_EM     SCANIA",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Logo SCANIA + 1 x OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284482",
+          "beschreibung": "MT_EM     SCANIA                    BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002180",
+          "beschreibung": "CCB BOX    R3.14         285X  185X  140",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "2 611 114",
+      "bild_url": "https://i.ibb.co/M57ngwBq/f5caa068847f.jpg"
+    },
+    {
+      "bom_id": "49284315",
+      "beschreibung": "MT_EM     DAF",
+      "arbeitsanweisung": "BOM to Pack",
+      "neutralisierung": "",
+      "components": [
+        {
+          "artikelnummer": "49284316",
+          "beschreibung": "MT_EM     DAF                       BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92007660",
+          "beschreibung": "FOLD-BOX   CORTECO       135X  187X  172",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "1707526",
+      "bild_url": "https://i.ibb.co/0pbxR87K/29b26def7497.jpg"
+    },
+    {
+      "bom_id": "49284317",
+      "beschreibung": "MT_EM     DAF",
+      "arbeitsanweisung": "BOM to Pack",
+      "neutralisierung": "",
+      "components": [
+        {
+          "artikelnummer": "49284318",
+          "beschreibung": "MT_EM     DAF                       BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92007660",
+          "beschreibung": "FOLD-BOX   CORTECO       135X  187X  172",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "1708356",
+      "bild_url": "https://i.ibb.co/LDvh5nr9/ba0c05f684e1.jpg"
+    },
+    {
+      "bom_id": "49284333",
+      "beschreibung": "MT_EM     DAF",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "2 x OE-Logo DAF + OE-Nr. + 1 x QR-Code Aufkleber mit OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284334",
+          "beschreibung": "MT_EM     DAF                       BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002180",
+          "beschreibung": "CCB BOX    R3.14         285X  185X  140",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "2395981",
+      "bild_url": "https://i.ibb.co/RGMM3sqD/2fb41a16b8b9.jpg"
+    },
+    {
+      "bom_id": "49284336",
+      "beschreibung": "MT_EM     DAF",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "2 x OE-Logo DAF + OE-Nr. + 1 x QR-Code Aufkleber mit OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284337",
+          "beschreibung": "MT_EM     DAF                       BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002180",
+          "beschreibung": "CCB BOX    R3.14         285X  185X  140",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "2395982",
+      "bild_url": "https://i.ibb.co/r2vvzmtH/1dcb9403e4e8.jpg"
     }
   ],
   "verpackung_map": {
