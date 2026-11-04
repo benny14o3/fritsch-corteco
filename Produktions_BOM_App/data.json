@@ -114866,10 +114866,22 @@
     },
     {
       "bom_id": "49278530",
-      "beschreibung": "",
+      "beschreibung": "D01-210-  0,75-   /121SEUV 10,0 OEE S P",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
-      "components": []
+      "components": [
+        {
+          "artikelnummer": "49260566",
+          "beschreibung": "D01-210-  0,75-   /121SEUV 10,0 OEE S",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002180",
+          "beschreibung": "R3.14 285X 185X 140 / 16 Stk. in C8.46 / 4 Stk. C8.46 pro Pal.",
+          "menge": 1
+        }
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49278531",
@@ -116653,6 +116665,7 @@
     "49260563": "CCB BOX    R3.14         285X  185X  140",
     "49260564": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49260565": "CCB BOX    R3.14         285X  185X  140",
+    "49260566": "R3.14 285X 185X 140 / 16 Stk. in C8.46 / 4 Stk. C8.46 pro Pal.",
     "49260567": "CCB BOX    R3.21         285X  185X  210",
     "49260600": "122*122*18 / keine Bünd. / 80Stk. in 4.28",
     "49260811": "R3.21         285X  185X  210",
@@ -116760,7 +116773,7 @@
     "80997243": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk. + SCHRENZPAPIER",
     "80997321": "220er / 70Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "82329819": "142*142*18 / keine Bünd. / 50Stk. in 4.28 + Papier",
-    "92002180": "R3.14 285X 185X 140 / 16 Stk. in C8.46 / 4 Stk. C8.46 pro Pal. / mit Schrenzpapier füllen",
+    "92002180": "R3.14 285X 185X 140 / 16 Stk. in C8.46 / 4 Stk. C8.46 pro Pal.",
     "92002181": "R3.21 285X 185X 210 / 16 Stk. in C8.46 / 4 Stk. C8.46 pro Pal. / mit Schrenzpapier füllen",
     "92002541": "R3.21 + KE15-200210",
     "92003210": "215 X 90 X 70 / 60Stk. in C6.46 / 8 Stk. C6.46 pro Palette",
