@@ -599,7 +599,9 @@ function printPages(title, pagesHtml, extraCss = "") {
   doc.write(`<html><head><title>${title}</title><style>
       @page { size: A4 portrait; margin: 10mm; }
       html, body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
-      .druckseite { width: 190mm; box-sizing: border-box; }
+      /* Breite an den druckbaren Bereich anpassen: Safari hat größere Ränder, bei fester
+         Breite wurde rechts (z.B. die Menge) abgeschnitten */
+      .druckseite { width: 100%; max-width: 190mm; box-sizing: border-box; }
       .seitenrahmen { overflow: hidden; break-after: page; page-break-after: always; }
       .seitenrahmen:last-child { break-after: auto; page-break-after: auto; }
       /* Einpasshöhe bewusst kleiner als A4 minus 10mm-Ränder: Safari nimmt eigene, größere Ränder
@@ -652,16 +654,18 @@ const AUFTRAG_CSS = `
   .box { border-left: 5px solid #000; padding: 3mm 4mm; background: #f3f4f6; }
   .box.breit { grid-column: 1 / -1; }
   .box.neutral { border-left-color: #b91c1c; background: #fee2e2; margin-top: 4mm; }
-  .box.oe { margin-top: 4mm; }
   .box-titel { font-size: 11pt; font-weight: bold; letter-spacing: 0.5px; margin-bottom: 1.5mm; }
   .box-text { font-size: 15pt; line-height: 1.35; }
   .neutral .box-text { font-weight: bold; }
   .bild { margin-top: 4mm; text-align: center; }
   .bild img { max-width: 100%; max-height: 75mm; }
-  table { width: 100%; border-collapse: collapse; margin-top: 5mm; font-size: 14pt; }
+  .tabellen-titel { font-size: 11pt; font-weight: bold; letter-spacing: 0.5px; margin-top: 5mm; }
+  table { width: 100%; border-collapse: collapse; margin-top: 1.5mm; font-size: 14pt; table-layout: fixed; }
   th { text-align: left; border-bottom: 2px solid #000; padding: 2mm; }
   td { border-bottom: 1px solid #999; padding: 2mm; }
-  td.menge, th.menge { text-align: right; width: 25mm; }
+  td.menge, th.menge { width: 22mm; font-weight: bold; }
+  td.artikel, th.artikel { width: 32mm; }
+  td { overflow-wrap: anywhere; }
   .fertigung { margin-top: 6mm; font-size: 13pt; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm 6mm; }
   .fertigung > div { display: flex; align-items: center; gap: 2mm; }
   .fertigung .zwei { grid-column: span 1; }
@@ -698,12 +702,12 @@ function auftragsSeite(bom, menge, kommentar = "") {
     ${anweisungen.length ? `<div class="boxen">${anweisungen.map(x =>
       `<div class="box${breit}"><div class="box-titel">${x.titel}</div><div class="box-text">${x.text}</div></div>`).join("")}</div>` : ""}
     ${bom.neutralisierung ? `<div class="box neutral"><div class="box-titel">NEUTRALISIERUNG ERFORDERLICH</div><div class="box-text">${bom.neutralisierung}</div></div>` : ""}
-    ${bom.oe_nummern ? `<div class="box oe"><div class="box-titel">OE-NUMMERN</div><div class="box-text">${bom.oe_nummern}</div></div>` : ""}
     ${bom.bild_url ? `<div class="bild"><img src="${bom.bild_url}"></div>` : ""}
+    <div class="tabellen-titel">STÜCKLISTE</div>
     <table>
-      <thead><tr><th>Artikel</th><th>Beschreibung</th><th class="menge">Menge</th></tr></thead>
+      <thead><tr><th class="menge">Menge</th><th class="artikel">Artikel</th><th>Beschreibung</th></tr></thead>
       <tbody>${(bom.components || []).map(c =>
-        `<tr><td>${c.artikelnummer}</td><td>${c.beschreibung}</td><td class="menge">${formatNumber(c.menge)}</td></tr>`).join("")}</tbody>
+        `<tr><td class="menge">${formatNumber(c.menge)}</td><td class="artikel">${c.artikelnummer}</td><td>${c.beschreibung}</td></tr>`).join("")}</tbody>
     </table>
     <div class="fertigung">
       <div><span class="kaestchen"></span>Neutralisiert</div>
