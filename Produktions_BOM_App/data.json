@@ -23478,7 +23478,8 @@
           "menge": 1
         }
       ],
-      "oe_nummern": "22 11 6 868 395"
+      "oe_nummern": "22 11 6 868 395",
+      "bild_url": "https://i.ibb.co/0yB2t0Xj/9881f6916fb2.jpg"
     },
     {
       "bom_id": "49361877",
@@ -39729,8 +39730,7 @@
           "beschreibung": "VSB2    8,0-    12,00/10,20X13,70   FKM",
           "menge": 100
         }
-      ],
-      "bild_url": ""
+      ]
     },
     {
       "bom_id": "49472845",
@@ -50574,22 +50574,23 @@
     },
     {
       "bom_id": "80001152",
-      "beschreibung": "MT_AS     MERCE",
+      "beschreibung": "STS_AIR   MERCE",
       "arbeitsanweisung": "BOM to Pack",
       "neutralisierung": "",
       "components": [
         {
           "artikelnummer": "80003280",
-          "beschreibung": "MT_AS     MERCE                     BULK",
+          "beschreibung": "STS_AIR   MERCE                     BULK",
           "menge": 1
         },
         {
-          "artikelnummer": "80997241",
-          "beschreibung": "CCB BOX    CORTECO       270X  200X  120",
+          "artikelnummer": "92009100",
+          "beschreibung": "FOLD-BOX   CORTECO       380X  160X  194",
           "menge": 1
         }
       ],
-      "oe_nummern": "639 328 01 01, A 639 328 01 01"
+      "oe_nummern": "639 328 01 01, A 639 328 01 01",
+      "bild_url": "https://i.ibb.co/ynvMt5SP/13c54313cd8f.jpg"
     },
     {
       "bom_id": "80001155",
@@ -102106,8 +102107,7 @@
           "beschreibung": "BDSLSFRDX6      60,4X  80,0X 10,2   ACM",
           "menge": 1
         }
-      ],
-      "bild_url": ""
+      ]
     },
     {
       "bom_id": "82034872",
@@ -115063,10 +115063,23 @@
     },
     {
       "bom_id": "49280645",
-      "beschreibung": "",
+      "beschreibung": "MT_GB     MERCEDES BENZ",
       "arbeitsanweisung": "BOM to Neutralize+Pack",
-      "neutralisierung": "",
-      "components": []
+      "neutralisierung": "1 x OE-Logo, 1 x OE-NR.",
+      "components": [
+        {
+          "artikelnummer": "49280646",
+          "beschreibung": "MT_GB     MERCEDES BENZ             BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92003741",
+          "beschreibung": "FOLD-BOX   CORTECO       148X  148X  190",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "A2052404200",
+      "bild_url": "https://i.ibb.co/vrSYxkd/6fadf7c4250c.jpg"
     },
     {
       "bom_id": "49280647",
@@ -116573,6 +116586,146 @@
       ],
       "oe_nummern": "2395982",
       "bild_url": "https://i.ibb.co/JjTVvBxq/49284336.jpg"
+    },
+    {
+      "bom_id": "49284392",
+      "beschreibung": "MT_EM     VOLVO",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284393",
+          "beschreibung": "MT_EM     VOLVO                     BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92007660",
+          "beschreibung": "FOLD-BOX   CORTECO       135X  187X  172",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "21992070",
+      "bild_url": "https://i.ibb.co/b5mVX2J9/19b59e9d39df.jpg"
+    },
+    {
+      "bom_id": "49284467",
+      "beschreibung": "MT_GB     SCANIA",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Logo SCANIA + 1 x OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284468",
+          "beschreibung": "MT_GB     SCANIA                    BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "80997243",
+          "beschreibung": "CCB BOX    CORTECO C3    275X  240X  180",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "1 906 590",
+      "bild_url": "https://i.ibb.co/fGSZH3w9/c0a1f54d5a39.jpg"
+    },
+    {
+      "bom_id": "49284475",
+      "beschreibung": "MT_EM     SCANIA",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Logo SCANIA + 1 x OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284477",
+          "beschreibung": "MT_EM     SCANIA                    BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002180",
+          "beschreibung": "CCB BOX    R3.14         285X  185X  140",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "2 611 102",
+      "bild_url": "https://i.ibb.co/n8836sLt/103f0d15c969.jpg"
+    },
+    {
+      "bom_id": "49284483",
+      "beschreibung": "MT_GB     SCANIA",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Logo SCANIA + 1 x OE-Nr.",
+      "components": [
+        {
+          "artikelnummer": "49284484",
+          "beschreibung": "MT_GB     SCANIA                    BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "80997243",
+          "beschreibung": "CCB BOX    CORTECO C3    275X  240X  180",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "2 080 263",
+      "bild_url": "https://i.ibb.co/F4PpvL3H/0fa8976bf5e7.jpg"
+    },
+    {
+      "bom_id": "49288515",
+      "beschreibung": "MT_EM     IVECO",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Logo \"IVECO\" + 1 x OE-Nr \"504115826\" + 1 x Nr.\"904080343\" Gummiteil / 1 x Nr \"3420350\" Metallteil",
+      "components": [
+        {
+          "artikelnummer": "49288516",
+          "beschreibung": "MT_EM     IVECO                     BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002180",
+          "beschreibung": "CCB BOX    R3.14         285X  185X  140",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "504115826",
+      "bild_url": "https://i.ibb.co/0ptJ2vg3/9cb46581544a.jpg"
+    },
+    {
+      "bom_id": "49288517",
+      "beschreibung": "MT_EM     IVECO",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Nr. \"504115825\" Gummiteil",
+      "components": [
+        {
+          "artikelnummer": "49288518",
+          "beschreibung": "MT_EM     IVECO                     BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92007660",
+          "beschreibung": "FOLD-BOX   CORTECO       135X  187X  172",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "504115825",
+      "bild_url": "https://i.ibb.co/nq4rTJFw/7ca08b2fcea1.jpg"
+    },
+    {
+      "bom_id": "49288519",
+      "beschreibung": "MT_EM     IVECO",
+      "arbeitsanweisung": "BOM to Neutralize+Pack",
+      "neutralisierung": "1 x OE-Logo \"IVECO\" + 1 x OE-Nr \"41272823\" Gummiteil + 1 x Nr. \"3423630\" Metallteil",
+      "components": [
+        {
+          "artikelnummer": "49288520",
+          "beschreibung": "MT_EM     IVECO                     BULK",
+          "menge": 1
+        },
+        {
+          "artikelnummer": "92002180",
+          "beschreibung": "CCB BOX    R3.14         285X  185X  140",
+          "menge": 1
+        }
+      ],
+      "oe_nummern": "41272823",
+      "bild_url": "https://i.ibb.co/kVTVGhJW/cb1af6dfd5f7.jpg"
     }
   ],
   "verpackung_map": {
@@ -116777,12 +116930,12 @@
     "92002541": "R3.21 + KE15-200210",
     "92003210": "215 X 90 X 70 / 60Stk. in C6.46 / 8 Stk. C6.46 pro Palette",
     "92003371": "384x90x70 / 30Stk in C6.46 / 8 Stk. C6.46 pro Pal.",
+    "92003741": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "92003780": "SLEEVE 457X  352X  278 /",
     "92007660": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "92008800": "in 1.0er setzen",
     "92008801": "in 1.0er setzen",
     "92009100": "Kartons direkt auf Palette",
-    "92009101": "Kartons direkt auf Palette",
-    "92003741": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal."
+    "92009101": "Kartons direkt auf Palette"
   }
 }
