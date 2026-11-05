@@ -636,57 +636,98 @@ function printPages(title, pagesHtml, extraCss = "") {
   });
 }
 
+// Ein Produktionsauftrag = eine A4-Seite. Gemeinsam für den Drucken-Knopf auf der
+// BOM-Karte und für das Auftragsfenster (Scan / Excel-Upload).
+const AUFTRAG_CSS = `
+  .druckseite { padding: 4mm 2mm; font-size: 12pt; color: #000; }
+  .kopf { display: flex; justify-content: space-between; align-items: flex-start; }
+  .firma { font-size: 20pt; font-weight: bold; }
+  .dokinfo { text-align: right; font-size: 10pt; line-height: 1.4; }
+  .titel { font-size: 22pt; font-weight: bold; margin-top: 4mm; }
+  .eckdaten { display: grid; grid-template-columns: auto 1fr; gap: 1mm 5mm; margin-top: 3mm; font-size: 17pt; align-items: baseline; }
+  .eckdaten .wert { font-weight: bold; }
+  .eckdaten .beschr { font-size: 15pt; font-weight: normal; }
+  hr { border: 0; border-top: 2px solid #000; margin: 4mm 0; }
+  .boxen { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .box { border-left: 5px solid #000; padding: 3mm 4mm; background: #f3f4f6; }
+  .box.breit { grid-column: 1 / -1; }
+  .box.neutral { border-left-color: #b91c1c; background: #fee2e2; margin-top: 4mm; }
+  .box.oe { margin-top: 4mm; }
+  .box-titel { font-size: 11pt; font-weight: bold; letter-spacing: 0.5px; margin-bottom: 1.5mm; }
+  .box-text { font-size: 15pt; line-height: 1.35; }
+  .neutral .box-text { font-weight: bold; }
+  .bild { margin-top: 4mm; text-align: center; }
+  .bild img { max-width: 100%; max-height: 75mm; }
+  table { width: 100%; border-collapse: collapse; margin-top: 5mm; font-size: 14pt; }
+  th { text-align: left; border-bottom: 2px solid #000; padding: 2mm; }
+  td { border-bottom: 1px solid #999; padding: 2mm; }
+  td.menge, th.menge { text-align: right; width: 25mm; }
+  .fertigung { margin-top: 6mm; font-size: 13pt; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm 6mm; }
+  .fertigung > div { display: flex; align-items: center; gap: 2mm; }
+  .fertigung .zwei { grid-column: span 1; }
+  .fertigung .linie { flex: 1; border-bottom: 1.5px solid #000; height: 7mm; }
+  .kaestchen { display: inline-block; width: 6mm; height: 6mm; border: 2px solid #000; }
+  .zeitfeld { display: inline-block; width: 10mm; height: 8mm; border: 2px solid #000; }
+  .kommentar { text-align: right; font-size: 48pt; font-weight: 900; line-height: 1; padding: 6mm 0; word-break: break-word; margin-top: 6mm; }
+`;
+
+function auftragsSeite(bom, menge, kommentar = "") {
+  const verpackung = [];
+  (bom.components || []).forEach(c => {
+    const t = verpackungMap[c.artikelnummer];
+    if (t && !verpackung.includes(t)) verpackung.push(t);
+  });
+  // Arbeits- und Verpackungsanweisung nebeneinander; gibt es nur eine, nimmt sie die ganze Breite
+  const anweisungen = [
+    bom.arbeitsanweisung ? { titel: "ARBEITSANWEISUNG",     text: bom.arbeitsanweisung } : null,
+    verpackung.length    ? { titel: "VERPACKUNGSANWEISUNG", text: verpackung.join("<br>") } : null
+  ].filter(Boolean);
+  const breit = anweisungen.length === 1 ? " breit" : "";
+
+  return `<div class="druckseite">
+    <div class="kopf">
+      <div class="firma">FORMTEILE FRITSCH GMBH</div>
+      <div class="dokinfo">Dokument: PRD-BOM-01<br>Version: 1.0<br>Druckdatum: ${new Date().toLocaleString("de-DE")}</div>
+    </div>
+    <div class="titel">Produktionsauftrag</div>
+    <div class="eckdaten">
+      <span>BOM:</span><span class="wert">${bom.bom_id} <span class="beschr">${bom.beschreibung || ""}</span></span>
+      <span>Produktionsmenge:</span><span class="wert">${menge} Stück</span>
+    </div>
+    <hr>
+    ${anweisungen.length ? `<div class="boxen">${anweisungen.map(x =>
+      `<div class="box${breit}"><div class="box-titel">${x.titel}</div><div class="box-text">${x.text}</div></div>`).join("")}</div>` : ""}
+    ${bom.neutralisierung ? `<div class="box neutral"><div class="box-titel">NEUTRALISIERUNG ERFORDERLICH</div><div class="box-text">${bom.neutralisierung}</div></div>` : ""}
+    ${bom.oe_nummern ? `<div class="box oe"><div class="box-titel">OE-NUMMERN</div><div class="box-text">${bom.oe_nummern}</div></div>` : ""}
+    ${bom.bild_url ? `<div class="bild"><img src="${bom.bild_url}"></div>` : ""}
+    <table>
+      <thead><tr><th>Artikel</th><th>Beschreibung</th><th class="menge">Menge</th></tr></thead>
+      <tbody>${(bom.components || []).map(c =>
+        `<tr><td>${c.artikelnummer}</td><td>${c.beschreibung}</td><td class="menge">${formatNumber(c.menge)}</td></tr>`).join("")}</tbody>
+    </table>
+    <div class="fertigung">
+      <div><span class="kaestchen"></span>Neutralisiert</div>
+      <div>Start <span class="zeitfeld"></span>:<span class="zeitfeld"></span></div>
+      <div>Ende <span class="zeitfeld"></span>:<span class="zeitfeld"></span></div>
+      <div style="grid-column: span 2;">Produziert von:<span class="linie"></span></div>
+      <div>QS:<span class="linie"></span></div>
+    </div>
+    ${kommentar ? `<div class="kommentar">${kommentar}</div>` : ""}
+  </div>`;
+}
+
 function printSingleBOM(bomId) {
+  const bom = data.find(b => String(b.bom_id) === String(bomId));
+  if (!bom) return;
+
   let quantity = prompt("Wie viele Stück sollen produziert werden?", "1");
   if (!quantity) return;
   quantity = parseInt(quantity);
   if (isNaN(quantity) || quantity <= 0) { alert("Bitte eine gültige Anzahl eingeben."); return; }
 
-  const kommentar = prompt("Kommentar (optional):", "") || "";
+  const kommentar = (prompt("Kommentar (optional):", "") || "").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
-  const targetCard = document.querySelector(`.card[data-bom-id="${bomId}"]`);
-  if (!targetCard) return;
-
-  const details = targetCard.querySelector(".details");
-  if (details) details.style.display = "block";
-
-  printPages(`BOM ${bomId}`, `
-    <div class="druckseite" style="padding:15px;font-size:10pt;">
-      <div class="header-top">
-        <div class="company">FORMTEILE FRITSCH GMBH</div>
-        <div class="doc-info">Dokument: PRD-BOM-01<br>Version: 1.0<br>Druckdatum: ${new Date().toLocaleString("de-DE")}</div>
-      </div>
-      <div class="title">Produktionsauftrag</div>
-      <div><strong>BOM:</strong> ${bomId}<br><strong>Produktionsmenge:</strong> ${quantity} Stück</div>
-      <hr>
-      ${targetCard.innerHTML}
-      <div class="production-section">
-        <div><span class="checkbox"></span>Neutralisiert</div>
-        <div class="form-row"><span class="label">Start (hh:mm)</span><span class="time-box"></span><span class="time-box"></span></div>
-        <div class="form-row"><span class="label">Ende (hh:mm)</span><span class="time-box"></span><span class="time-box"></span></div>
-        <div class="form-row"><span class="label">Produziert von: ___________________________</span></div>
-        <div class="form-row"><span class="label">QS Freigabe: ___________________________</span></div>
-      </div>
-      ${kommentar ? `<div style="text-align:right;font-size:48pt;font-weight:900;color:#000;line-height:1;padding:10mm;word-break:break-word;margin-top:10mm;">${kommentar}</div>` : ""}
-    </div>
-  `, `
-      .header-top { display: flex; justify-content: space-between; align-items: center; }
-      .company { font-size: 18pt; font-weight: bold; }
-      .doc-info { text-align: right; font-size: 10pt; }
-      .title { font-size: 16pt; font-weight: bold; margin-top: 10px; }
-      hr { margin: 15px 0; }
-      table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-      th { text-align: left; border-bottom: 2px solid black; padding: 6px; }
-      td { border-bottom: 1px solid #ccc; padding: 6px; }
-      .info-box { margin-top: 15px; padding: 10px; border-left: 4px solid black; }
-      button, .admin-actions { display: none !important; }
-      .production-section { margin-top: 40px; font-size: 12pt; }
-      .production-section div { margin-bottom: 18px; }
-      .checkbox { display: inline-block; width: 18px; height: 18px; border: 2px solid black; margin-right: 8px; vertical-align: middle; }
-      .form-row { display: flex; align-items: center; margin-bottom: 18px; }
-      .label { width: 220px; display: inline-block; }
-      .time-box { width: 35px; height: 24px; border: 2px solid black; display: inline-block; margin-right: 4px; }
-  `);
+  printPages(`BOM ${bomId}`, auftragsSeite(bom, quantity, kommentar), AUFTRAG_CSS);
 }
 
 // ============================================================
@@ -900,52 +941,12 @@ function printSelected(mode, opts = {}) {
     ? kommentarFeld.value.trim().replace(/</g, "&lt;").replace(/>/g, "&gt;")
     : "";
 
-  const pages = selected.map(a => {
-    const bom = a.bom;
-    if (!bom) return `<div class="druckseite" style="padding:20px;"><h2>BOM ${a.bomId} – unbekannt</h2><p>Menge: ${a.menge} Stück</p></div>`;
+  const pages = selected.map(a => a.bom
+    ? auftragsSeite(a.bom, a.menge, kommentar)
+    : `<div class="druckseite"><div class="titel">BOM ${a.bomId} – unbekannt</div><p>Menge: ${a.menge} Stück</p></div>`
+  ).join("");
 
-    let verpackTexte = [];
-    (bom.components || []).forEach(c => {
-      const t = verpackungMap[c.artikelnummer];
-      if (t && !verpackTexte.includes(t)) verpackTexte.push(t);
-    });
-    const compRows = (bom.components || []).map(c =>
-      `<tr><td>${c.artikelnummer}</td><td>${c.beschreibung}</td><td>${Number.isInteger(c.menge) ? c.menge : parseFloat(c.menge).toFixed(2)}</td></tr>`
-    ).join("");
-
-    return `<div class="druckseite" style="padding:15px;font-size:10pt;">
-      <div style="display:flex;justify-content:space-between;">
-        <div style="font-size:18pt;font-weight:bold;">FORMTEILE FRITSCH GMBH</div>
-        <div style="text-align:right;font-size:10pt;">Dokument: PRD-BOM-01<br>Druckdatum: ${new Date().toLocaleString("de-DE")}</div>
-      </div>
-      <div style="font-size:16pt;font-weight:bold;margin-top:8px;">Produktionsauftrag</div>
-      <div><strong>BOM:</strong> ${bom.bom_id} | <strong>${bom.beschreibung}</strong><br>
-      <strong>Produktionsmenge:</strong> ${a.menge} Stück</div>
-      <hr style="margin:12px 0;">
-      ${bom.arbeitsanweisung ? `<div style="margin:10px 0;padding:10px;border-left:4px solid #0284c7;background:#e0f2fe;"><strong>🔧 ARBEITSANWEISUNG</strong><br>${bom.arbeitsanweisung}</div>` : ""}
-      ${verpackTexte.length > 0 ? `<div style="margin:10px 0;padding:10px;border-left:4px solid #ea580c;background:#fff7ed;"><strong>📦 VERPACKUNGSANWEISUNG</strong><br>${verpackTexte.join("<br>")}</div>` : ""}
-      ${bom.neutralisierung ? `<div style="margin:10px 0;padding:10px;border-left:4px solid #b91c1c;background:#fee2e2;"><strong>⚠ NEUTRALISIERUNG ERFORDERLICH</strong><br>${bom.neutralisierung}</div>` : ""}
-      ${bom.bild_url ? `<div style="margin:10px 0;"><img src="${bom.bild_url}" style="max-width:100%;max-height:250px;border-radius:6px;"></div>` : ""}
-      <table style="width:100%;border-collapse:collapse;margin-top:12px;">
-        <thead><tr>
-          <th style="text-align:left;border-bottom:2px solid black;padding:6px;">Artikel</th>
-          <th style="text-align:left;border-bottom:2px solid black;padding:6px;">Beschreibung</th>
-          <th style="text-align:left;border-bottom:2px solid black;padding:6px;">Menge</th>
-        </tr></thead>
-        <tbody>${compRows}</tbody>
-      </table>
-      <div style="margin-top:30px;">
-        <div style="margin-bottom:16px;"><span style="display:inline-block;width:18px;height:18px;border:2px solid black;margin-right:8px;vertical-align:middle;"></span>Neutralisiert</div>
-        <div style="margin-bottom:16px;">Start (hh:mm) <span style="display:inline-block;width:35px;height:24px;border:2px solid black;margin-right:4px;"></span><span style="display:inline-block;width:35px;height:24px;border:2px solid black;"></span></div>
-        <div style="margin-bottom:16px;">Ende (hh:mm) <span style="display:inline-block;width:35px;height:24px;border:2px solid black;margin-right:4px;"></span><span style="display:inline-block;width:35px;height:24px;border:2px solid black;"></span></div>
-        <div style="margin-bottom:16px;">Produziert von: ___________________________</div>
-        <div>QS Freigabe: ___________________________</div>
-      </div>
-      ${kommentar ? `<div style="text-align:right;font-size:48pt;font-weight:900;color:#000;line-height:1;padding:10mm;word-break:break-word;margin-top:10mm;">${kommentar}</div>` : ""}
-    </div>`;
-  }).join("");
-
-  printPages("Produktionsaufträge", pages, "td{border-bottom:1px solid #ccc;padding:6px;}");
+  printPages("Produktionsaufträge", pages, AUFTRAG_CSS);
   return true;
 }
 
