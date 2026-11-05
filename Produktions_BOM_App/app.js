@@ -441,6 +441,7 @@ function openEditModal(bomId) {
     }
   }
   document.getElementById("modal-verpackung").value = verpackText;
+  document.getElementById("modal-verpackung").dataset.original = verpackText;
   document.getElementById("modal-verpackung").dataset.bomId = bomId;
 
   document.getElementById("editModal").style.display = "flex";
@@ -507,20 +508,24 @@ function saveEdit() {
     }
   });
 
-  // Verpackungs-Map aktualisieren: alte Einträge der Komponenten entfernen,
-  // neue setzen (auf alle Artikel-Nummern dieser BOM)
-  const oldBom = data.find(b => b.bom_id === origBomId);
-  if (oldBom && Array.isArray(oldBom.components)) {
-    oldBom.components.forEach(c => { delete verpackungMap[c.artikelnummer]; });
+  // Verpackungsanweisung hängt am Verpackungsartikel (Karton) und gilt damit für ALLE BOMs
+  // mit diesem Karton. Nur ändern, wenn der Text wirklich geändert wurde, und nur beim
+  // Verpackungsartikel – nie beim BULK-Artikel, nie Einträge löschen.
+  const verpackOriginal = document.getElementById("modal-verpackung").dataset.original || "";
+  if (verpack && verpack !== verpackOriginal) {
+    let ziele = components.filter(c => verpackungMap[c.artikelnummer]);
+    if (!ziele.length) ziele = components.filter(c => /BOX|KARTON|TÜTE|BEUTEL|\bBAG\b|\bR3\.|\bC3\b/i.test(c.beschreibung));
+    if (!ziele.length) {
+      alert("Die Verpackungsanweisung konnte keinem Verpackungsartikel (Karton) zugeordnet werden und wurde nicht gespeichert.");
+    }
+    ziele.forEach(c => { verpackungMap[c.artikelnummer] = verpack; });
   }
-  components.forEach(c => {
-    if (verpack) verpackungMap[c.artikelnummer] = verpack;
-  });
 
-  // BOM im Array aktualisieren / neu anlegen
+  // BOM im Array aktualisieren / neu anlegen – übrige Felder (z.B. OE-Nummern) bleiben erhalten
+  const oldBom      = data.find(b => b.bom_id === origBomId);
   const existingIdx = data.findIndex(b => b.bom_id === origBomId);
   const bildUrl     = document.getElementById("modal-image-url").value || "";
-  const updatedBom  = { bom_id: bomId, beschreibung, arbeitsanweisung: arbeits, neutralisierung: neutral, components, bild_url: bildUrl };
+  const updatedBom  = { ...(oldBom || {}), bom_id: bomId, beschreibung, arbeitsanweisung: arbeits, neutralisierung: neutral, components, bild_url: bildUrl };
 
   if (existingIdx >= 0) {
     data[existingIdx] = updatedBom;
@@ -543,6 +548,7 @@ function openNewBOMModal() {
   document.getElementById("modal-arbeitsanweisung").value = "";
   document.getElementById("modal-neutralisierung").value  = "";
   document.getElementById("modal-verpackung").value       = "";
+  document.getElementById("modal-verpackung").dataset.original = "";
   document.getElementById("modal-verpackung").dataset.bomId = "";
   document.getElementById("modal-image-url").value = "";
   renderImagePreview("");

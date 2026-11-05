@@ -2299,7 +2299,8 @@
           "menge": 1
         }
       ],
-      "bild_url": ""
+      "bild_url": "",
+      "oe_nummern": "2222422000, 2222423500, 9091302079, 9091302081, 9091302087, 9091302090, 9091302103"
     },
     {
       "bom_id": "19036005",
@@ -114877,7 +114878,7 @@
         },
         {
           "artikelnummer": "92002180",
-          "beschreibung": "R3.14 285X 185X 140 / 16 Stk. in C8.46 / 4 Stk. C8.46 pro Pal.",
+          "beschreibung": "CCB BOX    R3.14         285X  185X  140",
           "menge": 1
         }
       ],
@@ -116586,11 +116587,10 @@
     "19016935": "206*206*36 / keine Bünd. / 12Stk. in 4.28 + Papier",
     "19017977": "50*50*18 / 10er Bünd. / 400Stk. in 4.28",
     "19018092": "165*165*35 /keine Bünd. / 20Stk. in 4.28 + Papier",
-    "19018204": "60*60*40 / keine Bünd. / 144Stk. in 4.28",
+    "19018204": "100 Stk. pro Tüte",
     "19019186": "1 Stk. pro Tüte",
     "19019929": "187*187*20/ keine Bünd. / 20Stk. in 4.28",
     "19019930": "206*206*22 / keine Bünd. / 20Stk. in 4.28",
-    "19025635": "60*60*40 / keine Bünd. / 144Stk. in 4.28",
     "19025735": "100 Stk. pro Beutel",
     "19025872": "60*60*40 / keine Bünd. / 144Stk. in 4.28",
     "19025917": "92*92*15 / keine Bünd. / 150Stk. in 4.28 + Papier",
@@ -116665,7 +116665,6 @@
     "49260563": "CCB BOX    R3.14         285X  185X  140",
     "49260564": "135X  187X  172/32 Stk. in C8.46 / 4Stk. C8.46 pro Pal.",
     "49260565": "CCB BOX    R3.14         285X  185X  140",
-    "49260566": "R3.14 285X 185X 140 / 16 Stk. in C8.46 / 4 Stk. C8.46 pro Pal.",
     "49260567": "CCB BOX    R3.21         285X  185X  210",
     "49260600": "122*122*18 / keine Bünd. / 80Stk. in 4.28",
     "49260811": "R3.21         285X  185X  210",
@@ -116773,7 +116772,7 @@
     "80997243": "C3 - 60 Stk pro Pal. / 5 Lagen à 12 Stk. + SCHRENZPAPIER",
     "80997321": "220er / 70Stk. in C8.46 / 2Stk. C8.46 pro Pal.",
     "82329819": "142*142*18 / keine Bünd. / 50Stk. in 4.28 + Papier",
-    "92002180": "R3.14 285X 185X 140 / 16 Stk. in C8.46 / 4 Stk. C8.46 pro Pal.",
+    "92002180": "R3.14 285X 185X 140 / 16 Stk. in C8.46 / 4 Stk. C8.46 pro Pal. / mit Schrenzpapier füllen",
     "92002181": "R3.21 285X 185X 210 / 16 Stk. in C8.46 / 4 Stk. C8.46 pro Pal. / mit Schrenzpapier füllen",
     "92002541": "R3.21 + KE15-200210",
     "92003210": "215 X 90 X 70 / 60Stk. in C6.46 / 8 Stk. C6.46 pro Palette",
@@ -116783,6 +116782,7 @@
     "92008800": "in 1.0er setzen",
     "92008801": "in 1.0er setzen",
     "92009100": "Kartons direkt auf Palette",
-    "92009101": "Kartons direkt auf Palette"
+    "92009101": "Kartons direkt auf Palette",
+    "92003741": "190er / 40Stk. in C8.46 / 4Stk. C8.46 pro Pal."
   }
 }
