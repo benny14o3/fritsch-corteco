@@ -821,13 +821,20 @@ function renderUploadModal(auftraege, opts = {}) {
   const bekannt = auftraege.filter(a => a.bom).length;
   const unbek   = auftraege.filter(a => !a.bom).length;
   const vorauswahl = opts.vorauswahl !== false;
+  auftraege.forEach(a => { if (a.ausgewaehlt === undefined) a.ausgewaehlt = !!a.bom && vorauswahl; });
 
   document.getElementById("uploadModalTitle").textContent = opts.titel || "📂 Produktionsaufträge aus Excel";
 
   body.innerHTML = `
     ${opts.info ? `<div style="margin-bottom:12px;padding:10px;border-left:4px solid #1e3a8a;background:#e0e7ff;font-size:14px;">${opts.info}</div>` : ""}
-    <label class="modal-label" for="uploadKommentar">Kommentar (optional – wird groß auf jeden Auftrag gedruckt)</label>
-    <input id="uploadKommentar" class="modal-input" placeholder="z. B. EILIG" autocomplete="off" style="margin-bottom:12px;">
+    <div style="margin-bottom:12px;font-size:14px;color:#374151;">
+      Kommentar je Auftrag in der Tabelle eintragen – er wird groß auf den Auftrag gedruckt.
+      Mit <strong>✂ Teilen</strong> wird ein Auftrag auf mehrere Paletten/Aufträge aufgeteilt.
+    </div>
+    <div style="margin-bottom:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <input id="uploadKommentar" class="modal-input" placeholder="Kommentar für alle, z. B. Montag" autocomplete="off" style="flex:1;min-width:180px;margin:0;">
+      <button class="comp-add-btn" onclick="kommentarFuerAlle()">für alle übernehmen</button>
+    </div>
     <div style="margin-bottom:12px;padding:10px;border:2px dashed #1e3a8a;border-radius:10px;background:#fff;text-align:center;">
       <div style="font-weight:700;color:#1e3a8a;">${ICON_DRUCKER}Zum Drucken diesen Code scannen</div>
       <svg id="printBarcode"></svg>
@@ -848,6 +855,8 @@ function renderUploadModal(auftraege, opts = {}) {
         <th style="width:32px;"></th>
         <th>BOM</th><th>Beschreibung</th>
         <th style="width:90px;">Menge</th>
+        <th style="min-width:170px;">Kommentar</th>
+        <th style="width:70px;"></th>
         <th>Verpackungsanweisung</th><th>Neutralisierung</th><th>Status</th>
       </tr></thead>
       <tbody>
@@ -855,12 +864,15 @@ function renderUploadModal(auftraege, opts = {}) {
           const verpack = getVerpackungForBom(a.bom);
           return `<tr style="${!a.bom ? 'background:#fff7ed;' : ''}">
             <td><input type="checkbox" class="upload-check" data-idx="${i}"
-              ${a.bom && vorauswahl ? "checked" : ""} style="width:18px;height:18px;cursor:pointer;"></td>
+              ${a.ausgewaehlt ? "checked" : ""} style="width:18px;height:18px;cursor:pointer;"></td>
             <td style="font-weight:700;">${a.bomId}</td>
             <td style="font-size:13px;color:#374151;">${a.bom ? a.bom.beschreibung : "–"}
               ${a.hinweis ? `<br><span style="color:#6b7280;font-size:12px;">${a.hinweis}</span>` : ""}</td>
             <td><input type="number" class="comp-input upload-menge" data-idx="${i}"
               value="${a.menge}" min="1" style="width:80px;text-align:center;font-weight:700;"></td>
+            <td><input class="comp-input upload-kommentar" data-idx="${i}" value="${escAttr(a.kommentar || "")}"
+              placeholder="${a.teil ? `Pal. ${a.teil}` : "Kommentar"}" autocomplete="off" style="width:100%;min-width:160px;"></td>
+            <td>${a.bom ? `<button class="comp-add-btn" style="padding:4px 8px;white-space:nowrap;" onclick="auftragTeilen(${i})" title="Auf mehrere Paletten/Aufträge aufteilen">✂ Teilen</button>` : ""}</td>
             <td style="font-size:13px;color:#92400e;">${verpack || '<span style="color:#d1d5db;">–</span>'}</td>
             <td style="font-size:13px;">${!a.bom ? '<span style="color:#d1d5db;">–</span>'
               : a.bom.neutralisierung
@@ -879,12 +891,23 @@ function renderUploadModal(auftraege, opts = {}) {
       auftraege[parseInt(e.target.dataset.idx)].menge = parseFloat(e.target.value) || 0;
     });
   });
+  body.querySelectorAll(".upload-kommentar").forEach(input => {
+    input.addEventListener("input", e => {
+      auftraege[parseInt(e.target.dataset.idx)].kommentar = e.target.value;
+    });
+  });
+  body.querySelectorAll(".upload-check").forEach(cb => {
+    cb.addEventListener("change", e => {
+      auftraege[parseInt(e.target.dataset.idx)].ausgewaehlt = e.target.checked;
+    });
+  });
 
   if (window.JsBarcode) {
     JsBarcode("#printBarcode", PRINT_COMMAND, { format: "CODE128", width: 2, height: 70, margin: 10, displayValue: false });
   }
 
   window._uploadAuftraege = auftraege;
+  window._uploadOpts      = opts;
   document.getElementById("printSelectedBtn").style.display  = "inline-block";
   document.getElementById("printTabelleBtn").style.display   = "inline-block";
   document.getElementById("uploadModal").style.display       = "flex";
@@ -927,7 +950,40 @@ document.addEventListener("keydown", e => {
 }, true);
 
 function selectAllUpload(checked) {
-  document.querySelectorAll(".upload-check").forEach(cb => cb.checked = checked);
+  document.querySelectorAll(".upload-check").forEach(cb => {
+    cb.checked = checked;
+    window._uploadAuftraege[parseInt(cb.dataset.idx)].ausgewaehlt = checked;
+  });
+}
+
+function escAttr(t) {
+  return String(t).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+}
+
+function kommentarFuerAlle() {
+  const text = document.getElementById("uploadKommentar").value.trim();
+  document.querySelectorAll(".upload-kommentar").forEach(input => {
+    input.value = text;
+    window._uploadAuftraege[parseInt(input.dataset.idx)].kommentar = text;
+  });
+}
+
+// Einen Auftrag auf mehrere Paletten/Aufträge aufteilen, z.B. 330 Stk. auf 3 → 3 × 110.
+// Geht es nicht glatt auf, bekommen die ersten Aufträge je 1 Stk. mehr.
+function auftragTeilen(idx) {
+  const liste = window._uploadAuftraege;
+  const a     = liste[idx];
+  const n     = parseInt(prompt(`BOM ${a.bomId} – ${a.menge} Stk.\nAuf wie viele Paletten/Aufträge aufteilen?`, "2"), 10);
+  if (!(n > 1)) return;
+  if (n > a.menge) { alert(`${a.menge} Stk. lassen sich nicht auf ${n} Aufträge aufteilen.`); return; }
+  const basis = Math.floor(a.menge / n), rest = a.menge % n;
+  const teile = Array.from({ length: n }, (_, k) => ({
+    ...a, menge: basis + (k < rest ? 1 : 0), teil: `${k + 1}/${n}`, ausgewaehlt: true
+  }));
+  liste.splice(idx, 1, ...teile);
+  const kommentarAlle = document.getElementById("uploadKommentar").value;
+  renderUploadModal(liste, window._uploadOpts || {});
+  document.getElementById("uploadKommentar").value = kommentarAlle;
 }
 
 function closeUploadModal() {
@@ -946,13 +1002,10 @@ function printSelected(mode, opts = {}) {
   const selected = checked.map(i => window._uploadAuftraege[i]);
   if (mode === "tabelle") { printAsTabelle(selected); return; }
 
-  const kommentarFeld = document.getElementById("uploadKommentar");
-  const kommentar = kommentarFeld
-    ? kommentarFeld.value.trim().replace(/</g, "&lt;").replace(/>/g, "&gt;")
-    : "";
+  const kommentarVon = a => String(a.kommentar || "").trim().replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
   const pages = selected.map(a => a.bom
-    ? auftragsSeite(a.bom, a.menge, kommentar)
+    ? auftragsSeite(a.bom, a.menge, kommentarVon(a))
     : `<div class="druckseite"><div class="titel">BOM ${a.bomId} – unbekannt</div><p>Menge: ${a.menge} Stück</p></div>`
   ).join("");
 
@@ -968,6 +1021,7 @@ function printAsTabelle(selected) {
       <td style="font-weight:700;">${a.bomId}</td>
       <td>${a.bom ? a.bom.beschreibung : '<span style="color:#b91c1c;">⚠ Unbekannt</span>'}</td>
       <td style="text-align:center;font-weight:700;">${a.menge}</td>
+      <td>${String(a.kommentar || "").replace(/</g, "&lt;") || "–"}</td>
       <td>${a.bom && a.bom.arbeitsanweisung ? a.bom.arbeitsanweisung : "–"}</td>
       <td>${verpack || "–"}</td>
       <td>${a.bom && a.bom.neutralisierung ? "⚠ " + a.bom.neutralisierung : "–"}</td>
@@ -989,7 +1043,7 @@ function printAsTabelle(selected) {
     </div>
     <table>
       <thead><tr>
-        <th>BOM</th><th>Beschreibung</th><th>Menge</th>
+        <th>BOM</th><th>Beschreibung</th><th>Menge</th><th>Kommentar</th>
         <th>Arbeitsanweisung</th><th>Verpackung</th><th>Neutralisierung</th>
       </tr></thead>
       <tbody>${rows}</tbody>
