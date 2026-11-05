@@ -110176,14 +110176,15 @@
       "bom_id": "82132394",
       "beschreibung": "BY              24,0X  39,0X 16,5 80HNBR",
       "arbeitsanweisung": "BOM to Neutralize",
-      "neutralisierung": "ZF  -   07891033110 neutralize on the white part",
+      "neutralisierung": "ZF  -   07891033110 (neutralize on the white part)",
       "components": [
         {
           "artikelnummer": "49122130",
           "beschreibung": "BF               24,0X 39,0X 16,5   HNBR",
           "menge": 1
         }
-      ]
+      ],
+      "oe_nummern": "7891033110"
     },
     {
       "bom_id": "82133403",
