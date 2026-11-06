@@ -19597,7 +19597,7 @@
       "bom_id": "49238481",
       "beschreibung": "BAAT2SLRKFX367  50,0X  80,0X  8,0   ACM",
       "arbeitsanweisung": "BOM to Neutralize+Pack-Machine",
-      "neutralisierung": "",
+      "neutralisierung": "ZF + NR",
       "components": [
         {
           "artikelnummer": "49006419",
@@ -19609,7 +19609,8 @@
           "beschreibung": "FOLD-BOX   CORTECO        92X   92X   15",
           "menge": 1
         }
-      ]
+      ],
+      "bild_url": ""
     },
     {
       "bom_id": "49238482",
